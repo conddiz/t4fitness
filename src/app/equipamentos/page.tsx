@@ -1,6 +1,8 @@
 'use client';
 
 import { useState } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 
 export default function Equipamentos() {
   const [filter, setFilter] = useState('all');
@@ -33,7 +35,7 @@ export default function Equipamentos() {
           <a href="#contato" className="text-sm font-semibold text-ink no-underline transition-colors hover:text-orange-500">Contato</a>
         </nav>
         <a className="btn btn-small btn-orange hidden md:inline-flex" href="#contato">
-          Solicitar Orçamento <span>↗</span>
+          Solicitar Orçamento <FontAwesomeIcon icon={faArrowRight} className="text-[14px] -rotate-45" />
         </a>
       </header>
 
@@ -54,7 +56,7 @@ export default function Equipamentos() {
               performance garantida.
             </p>
             <a className="btn btn-orange" href="#equipamentos">
-              Ver catálogo <span>↘</span>
+              Ver catálogo <FontAwesomeIcon icon={faArrowRight} className="text-[14px] -rotate-45" />
             </a>
           </div>
         </section>
@@ -101,7 +103,7 @@ export default function Equipamentos() {
                 <div className="p-6">
                   <h3 className="mb-4 text-lg font-bold uppercase text-ink">{equip.name}</h3>
                   <a href="#contato" className="btn btn-orange btn-small">
-                    Solicitar <span>→</span>
+                    Solicitar <FontAwesomeIcon icon={faArrowRight} className="text-[14px]" />
                   </a>
                 </div>
               </article>

@@ -15,12 +15,15 @@
     "pages:deploy": "next build && wrangler pages deploy"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^7.3.0",
+    "@fortawesome/free-solid-svg-icons": "^7.3.0",
+    "@fortawesome/react-fontawesome": "^3.4.0",
+    "@tailwindcss/postcss": "4.2.4",
+    "lucide-react": "0.469.0",
     "next": "16.2.4",
     "react": "19.2.5",
     "react-dom": "19.2.5",
-    "lucide-react": "0.469.0",
-    "tailwindcss": "4.2.4",
-    "@tailwindcss/postcss": "4.2.4"
+    "tailwindcss": "4.2.4"
   },
   "devDependencies": {
     "@biomejs/biome": "2.4.14",

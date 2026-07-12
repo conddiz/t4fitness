@@ -1,6 +1,8 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowRight, faArrowUp } from '@fortawesome/free-solid-svg-icons';
 
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -113,10 +115,10 @@ export default function Home() {
             </p>
             <div className="flex flex-col md:flex-row items-start md:items-center gap-[30px]">
               <a href="#unidades" className="btn btn-orange">
-                Encontre sua unidade <span>↘</span>
+                Encontre sua unidade <FontAwesomeIcon icon={faArrowRight} className="text-[14px] -rotate-45" />
               </a>
               <a href="#experiencia" className="text-link">
-                Conheça a T4 <span>→</span>
+                Conheça a T4 <FontAwesomeIcon icon={faArrowRight} className="text-[16px] ml-1" />
               </a>
             </div>
           </div>
@@ -171,8 +173,8 @@ export default function Home() {
               <p className="text-[16px] leading-[1.75] text-ink mb-6 max-w-[360px]">
                 Na T4, você encontra mais do que equipamentos. Encontra espaço para ganhar força, se divertir, dançar, lutar e cuidar de você.
               </p>
-              <a href="#modalidades" className="text-link dark">
-                Veja as modalidades <span>→</span>
+              <a href="#modalidades" className="text-link dark flex items-center gap-1">
+                Veja as modalidades <FontAwesomeIcon icon={faArrowRight} className="text-[16px]" />
               </a>
             </div>
           </div>
@@ -260,8 +262,8 @@ export default function Home() {
                     {unit.address}<br />
                     {unit.neighborhood} · Fortaleza, CE
                   </p>
-                  <a href="#contato" className="mt-auto text-white text-2xs font-black uppercase tracking-[.09em] no-underline group-hover:text-[#111]">
-                    Quero treinar aqui <span className="text-[17px] text-orange-500 ml-[5px] group-hover:text-[#111]">↗</span>
+                  <a href="#contato" className="mt-auto text-white text-2xs font-black uppercase tracking-[.09em] no-underline group-hover:text-[#111] flex items-center gap-1">
+                    Quero treinar aqui <FontAwesomeIcon icon={faArrowRight} className="text-[12px] text-orange-500 group-hover:text-[#111] -rotate-45" />
                   </a>
                 </article>
               ))}
@@ -326,7 +328,7 @@ export default function Home() {
                 A T4 aceita os principais benefícios corporativos para tornar o seu treino ainda mais acessível.
               </p>
               <a href="#unidades" className="btn btn-white">
-                Escolha sua unidade <span>↘</span>
+                Escolha sua unidade <FontAwesomeIcon icon={faArrowRight} className="text-[14px] -rotate-45" />
               </a>
             </div>
             <div className="flex flex-col gap-[18px]">
@@ -378,7 +380,7 @@ export default function Home() {
                 </select>
               </label>
               <button type="submit" className="btn btn-orange mt-4">
-                Quero entrar no VIP <span>↗</span>
+                Quero entrar no VIP <FontAwesomeIcon icon={faArrowRight} className="text-[14px] -rotate-45" />
               </button>
               <small className="text-2xs leading-[1.5] text-[#777]">
                 Ao enviar, você será direcionado ao Instagram da T4 para continuar o atendimento.
@@ -394,16 +396,16 @@ export default function Home() {
           <p className="font-display text-[29px] leading-[.9] uppercase m-0 text-[#d8d8d8]">
             Mais energia para a sua evolução.
           </p>
-          <a href="https://www.instagram.com/t4fitness_/" target="_blank" rel="noreferrer" className="text-orange-500 text-2xs no-underline uppercase tracking-[.09em] font-black md:justify-self-end hover:text-orange-400 transition-colors">
-            Instagram @t4fitness_ ↗
+          <a href="https://www.instagram.com/t4fitness_/" target="_blank" rel="noreferrer" className="text-orange-500 text-2xs no-underline uppercase tracking-[.09em] font-black md:justify-self-end hover:text-orange-400 transition-colors flex items-center gap-1">
+            Instagram @t4fitness_ <FontAwesomeIcon icon={faArrowRight} className="text-[12px] -rotate-45" />
           </a>
         </div>
         <div className="px-6 border-t border-[#2c2c2e] pt-[18px] flex flex-col md:flex-row md:justify-between md:items-center gap-[14px] md:gap-0" style={{ maxWidth: 'min(1160px, calc(100% - 48px))', margin: '0 auto' }}>
           <span className="text-2xs text-[#858589] uppercase tracking-[.06em]">
             © 2026 T4 Fitness. Todos os direitos reservados.
           </span>
-          <a href="#inicio" className="text-white text-2xs no-underline uppercase tracking-[.06em] font-semibold hover:text-orange-500 transition-colors">
-            Voltar ao topo ↑
+          <a href="#inicio" className="text-white text-2xs no-underline uppercase tracking-[.06em] font-semibold hover:text-orange-500 transition-colors flex items-center gap-1">
+            Voltar ao topo <FontAwesomeIcon icon={faArrowUp} className="text-[12px]" />
           </a>
         </div>
       </footer>
