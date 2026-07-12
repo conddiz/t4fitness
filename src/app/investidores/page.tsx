@@ -78,7 +78,7 @@ export default function Investidores() {
 
         <nav className="hidden md:flex items-center gap-[26px] ml-auto" aria-label="Navegação">
           {investorNavLinks.map((link) => (
-            <a key={link.href} href={link.href} className="text-white no-underline font-semibold text-[14px] hover:text-orange-500 transition-colors">
+            <a key={link.href} href={link.href} className="text-white no-underline font-semibold text-[16px] hover:text-orange-500 transition-colors">
               {link.label}
             </a>
           ))}
@@ -89,7 +89,8 @@ export default function Investidores() {
         </a>
 
         <button
-          className="md:hidden grid place-content-center gap-1.5 ml-auto w-[37px] h-[37px] border border-[#4a4a4a] bg-transparent"
+          type="button"
+          className="md:hidden grid place-content-center gap-1.5 ml-auto w-[37px] h-[37px] border border-[#4a4a4a] bg-transparent cursor-pointer"
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label="Abrir menu"
           aria-expanded={menuOpen}
@@ -99,9 +100,9 @@ export default function Investidores() {
         </button>
 
         {menuOpen && (
-          <nav className="absolute top-[71px] left-0 w-full bg-ink px-[19px] pt-[22px] pb-[25px] flex flex-col gap-[19px] md:hidden" aria-label="Navegação móvel">
+          <nav className="absolute top-[71px] left-0 z-50 w-full bg-ink px-[19px] pt-[22px] pb-[25px] flex flex-col gap-[19px] md:hidden" aria-label="Navegação móvel">
             {investorNavLinks.map((link) => (
-              <a key={link.href} href={link.href} onClick={() => setMenuOpen(false)} className="text-white no-underline font-semibold">
+              <a key={link.href} href={link.href} onClick={() => setMenuOpen(false)} className="text-white no-underline font-semibold text-[16px]">
                 {link.label}
               </a>
             ))}
