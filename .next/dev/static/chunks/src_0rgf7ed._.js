@@ -195,10 +195,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$ne
 function Hero() {
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$2$2e$4_react$2d$dom$40$19$2e$2$2e$5_react$40$19$2e$2$2e$5_$5f$react$40$19$2e$2$2e$5$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
         id: "inicio",
-        className: "relative min-h-screen pt-[120px] pb-[80px] bg-black text-white overflow-hidden flex flex-col",
-        style: {
-            height: "min(780px, calc(100vh - 34px))"
-        },
+        className: "hero-section relative min-h-screen pt-30 pb-17.5 bg-black text-white overflow-hidden flex flex-col",
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$2$2e$4_react$2d$dom$40$19$2e$2$2e$5_react$40$19$2e$2$2e$5_$5f$react$40$19$2e$2$2e$5$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                 className: "absolute inset-0 z-0",
@@ -206,123 +203,88 @@ function Hero() {
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$2$2e$4_react$2d$dom$40$19$2e$2$2e$5_react$40$19$2e$2$2e$5_$5f$react$40$19$2e$2$2e$5$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
                         src: "/unidade-exterior.jpeg",
                         alt: "Fachada de uma unidade T4 Fitness",
-                        className: "w-full h-full object-cover",
-                        style: {
-                            objectPosition: "center 56%",
-                            filter: "saturate(0.9) contrast(1.05)"
-                        }
+                        className: "hero-image w-full h-full object-cover"
                     }, void 0, false, {
                         fileName: "[project]/src/components/Hero.tsx",
-                        lineNumber: 9,
+                        lineNumber: 8,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$2$2e$4_react$2d$dom$40$19$2e$2$2e$5_react$40$19$2e$2$2e$5_$5f$react$40$19$2e$2$2e$5$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        className: "absolute inset-0",
-                        style: {
-                            background: "linear-gradient(90deg, #090909 3%, rgba(9,9,9,.88) 28%, rgba(9,9,9,.25) 65%, rgba(9,9,9,.3))"
-                        }
+                        className: "hero-gradient absolute inset-0"
                     }, void 0, false, {
                         fileName: "[project]/src/components/Hero.tsx",
-                        lineNumber: 18,
+                        lineNumber: 13,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$2$2e$4_react$2d$dom$40$19$2e$2$2e$5_react$40$19$2e$2$2e$5_$5f$react$40$19$2e$2$2e$5$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        className: "absolute inset-0 z-10 opacity-17",
-                        style: {
-                            backgroundImage: "linear-gradient(rgba(255,255,255,.22) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.22) 1px, transparent 1px)",
-                            backgroundSize: "72px 72px",
-                            maskImage: "linear-gradient(90deg, #000, transparent 69%)"
-                        }
+                        className: "hero-grid absolute inset-0 z-10"
                     }, void 0, false, {
                         fileName: "[project]/src/components/Hero.tsx",
-                        lineNumber: 25,
+                        lineNumber: 14,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/components/Hero.tsx",
-                lineNumber: 8,
+                lineNumber: 7,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$2$2e$4_react$2d$dom$40$19$2e$2$2e$5_react$40$19$2e$2$2e$5_$5f$react$40$19$2e$2$2e$5$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                 className: "relative z-20 flex-1 flex flex-col justify-center wrap",
                 children: [
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$2$2e$4_react$2d$dom$40$19$2e$2$2e$5_react$40$19$2e$2$2e$5_$5f$react$40$19$2e$2$2e$5$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        className: "mb-[18px] flex items-center gap-[9px]",
+                        className: "mb-4.5 flex items-center gap-2.5",
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$2$2e$4_react$2d$dom$40$19$2e$2$2e$5_react$40$19$2e$2$2e$5_$5f$react$40$19$2e$2$2e$5$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                style: {
-                                    width: "30px",
-                                    height: "2px",
-                                    background: "#ff6a00"
-                                }
+                                className: "w-7.5 h-0.5 bg-orange-500"
                             }, void 0, false, {
                                 fileName: "[project]/src/components/Hero.tsx",
-                                lineNumber: 38,
+                                lineNumber: 19,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$2$2e$4_react$2d$dom$40$19$2e$2$2e$5_react$40$19$2e$2$2e$5_$5f$react$40$19$2e$2$2e$5$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                style: {
-                                    fontSize: "11px",
-                                    fontWeight: 800,
-                                    letterSpacing: "0.14em",
-                                    textTransform: "uppercase",
-                                    color: "#fff",
-                                    margin: 0
-                                },
+                                className: "text-3xs font-bold uppercase tracking-widest text-white",
                                 children: "T4 FITNESS · FORTALEZA"
                             }, void 0, false, {
                                 fileName: "[project]/src/components/Hero.tsx",
-                                lineNumber: 39,
+                                lineNumber: 20,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/components/Hero.tsx",
-                        lineNumber: 37,
+                        lineNumber: 18,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$2$2e$4_react$2d$dom$40$19$2e$2$2e$5_react$40$19$2e$2$2e$5_$5f$react$40$19$2e$2$2e$5$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
-                        style: {
-                            color: "white",
-                            marginBottom: "25px"
-                        },
+                        className: "mb-6 text-white",
                         children: [
                             "Mais energia para",
                             " ",
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$2$2e$4_react$2d$dom$40$19$2e$2$2e$5_react$40$19$2e$2$2e$5_$5f$react$40$19$2e$2$2e$5$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("em", {
-                                style: {
-                                    fontStyle: "normal",
-                                    color: "#ff6a00"
-                                },
+                                className: "not-italic text-orange-500",
                                 children: "a sua evolução."
                             }, void 0, false, {
                                 fileName: "[project]/src/components/Hero.tsx",
-                                lineNumber: 55,
+                                lineNumber: 27,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/components/Hero.tsx",
-                        lineNumber: 53,
+                        lineNumber: 25,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$2$2e$4_react$2d$dom$40$19$2e$2$2e$5_react$40$19$2e$2$2e$5_$5f$react$40$19$2e$2$2e$5$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                        style: {
-                            width: "min(440px, 100%)",
-                            fontSize: "15px",
-                            lineHeight: 1.65,
-                            color: "#ececec",
-                            marginBottom: "25px"
-                        },
+                        className: "mb-6 max-w-110 text-base leading-relaxed text-gray-300",
                         children: "Treine onde o seu ritmo acontece. Estrutura completa, modalidades para todos os estilos e uma comunidade que puxa você pra cima."
                     }, void 0, false, {
                         fileName: "[project]/src/components/Hero.tsx",
-                        lineNumber: 60,
+                        lineNumber: 30,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$2$2e$4_react$2d$dom$40$19$2e$2$2e$5_react$40$19$2e$2$2e$5_$5f$react$40$19$2e$2$2e$5$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        className: "flex flex-col md:flex-row gap-[30px] items-start md:items-center",
+                        className: "flex flex-col md:flex-row gap-7.5 items-start md:items-center",
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$2$2e$4_react$2d$dom$40$19$2e$2$2e$5_react$40$19$2e$2$2e$5_$5f$react$40$19$2e$2$2e$5$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                                 onClick: ()=>{
@@ -337,104 +299,128 @@ function Hero() {
                                         children: "↘"
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/Hero.tsx",
-                                        lineNumber: 82,
+                                        lineNumber: 44,
                                         columnNumber: 34
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/components/Hero.tsx",
-                                lineNumber: 74,
+                                lineNumber: 36,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$2$2e$4_react$2d$dom$40$19$2e$2$2e$5_react$40$19$2e$2$2e$5_$5f$react$40$19$2e$2$2e$5$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
                                 href: "#experiencia",
-                                className: "text-link",
+                                className: "text-2xs font-bold uppercase tracking-widest text-white hover:text-orange-500",
                                 children: [
                                     "Conheça a T4 ",
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$2$2e$4_react$2d$dom$40$19$2e$2$2e$5_react$40$19$2e$2$2e$5_$5f$react$40$19$2e$2$2e$5$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                        className: "text-orange-500",
                                         children: "→"
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/Hero.tsx",
-                                        lineNumber: 88,
+                                        lineNumber: 50,
                                         columnNumber: 26
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/components/Hero.tsx",
-                                lineNumber: 84,
+                                lineNumber: 46,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/components/Hero.tsx",
-                        lineNumber: 73,
+                        lineNumber: 35,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/components/Hero.tsx",
-                lineNumber: 36,
+                lineNumber: 17,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$2$2e$4_react$2d$dom$40$19$2e$2$2e$5_react$40$19$2e$2$2e$5_$5f$react$40$19$2e$2$2e$5$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "absolute bottom-[70px] right-6 z-20 hidden md:flex gap-[30px]",
-                style: {
-                    maxWidth: "calc(100vw - 48px)"
-                },
+                className: "hero-stats absolute bottom-17.5 right-6 z-20 hidden md:flex gap-7.5",
                 children: [
-                    {
-                        strong: "7",
-                        span: "unidades"
-                    },
-                    {
-                        strong: "+",
-                        span: "energia todo dia"
-                    },
-                    {
-                        strong: "VIP",
-                        span: "ofertas exclusivas"
-                    }
-                ].map((stat, i)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$2$2e$4_react$2d$dom$40$19$2e$2$2e$5_react$40$19$2e$2$2e$5_$5f$react$40$19$2e$2$2e$5$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        style: {
-                            borderLeft: "1px solid #ff6a00",
-                            paddingLeft: "13px",
-                            display: "flex",
-                            flexDirection: "column"
-                        },
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$2$2e$4_react$2d$dom$40$19$2e$2$2e$5_react$40$19$2e$2$2e$5_$5f$react$40$19$2e$2$2e$5$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        className: "border-l border-orange-500 pl-3.25 flex flex-col",
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$2$2e$4_react$2d$dom$40$19$2e$2$2e$5_react$40$19$2e$2$2e$5_$5f$react$40$19$2e$2$2e$5$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("strong", {
-                                style: {
-                                    fontFamily: "Barlow Condensed",
-                                    fontSize: "32px"
-                                },
-                                children: stat.strong
+                                className: "font-display text-8 leading-none",
+                                children: "7"
                             }, void 0, false, {
                                 fileName: "[project]/src/components/Hero.tsx",
-                                lineNumber: 111,
-                                columnNumber: 13
+                                lineNumber: 57,
+                                columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$2$2e$4_react$2d$dom$40$19$2e$2$2e$5_react$40$19$2e$2$2e$5_$5f$react$40$19$2e$2$2e$5$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                style: {
-                                    fontSize: "9px",
-                                    textTransform: "uppercase",
-                                    letterSpacing: "0.08em",
-                                    marginTop: "7px"
-                                },
-                                children: stat.span
+                                className: "text-3xs font-bold uppercase tracking-widest mt-1.75",
+                                children: "unidades"
                             }, void 0, false, {
                                 fileName: "[project]/src/components/Hero.tsx",
-                                lineNumber: 114,
-                                columnNumber: 13
+                                lineNumber: 58,
+                                columnNumber: 11
                             }, this)
                         ]
-                    }, i, true, {
+                    }, void 0, true, {
                         fileName: "[project]/src/components/Hero.tsx",
-                        lineNumber: 102,
-                        columnNumber: 11
-                    }, this))
-            }, void 0, false, {
+                        lineNumber: 56,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$2$2e$4_react$2d$dom$40$19$2e$2$2e$5_react$40$19$2e$2$2e$5_$5f$react$40$19$2e$2$2e$5$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        className: "border-l border-orange-500 pl-3.25 flex flex-col",
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$2$2e$4_react$2d$dom$40$19$2e$2$2e$5_react$40$19$2e$2$2e$5_$5f$react$40$19$2e$2$2e$5$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("strong", {
+                                className: "font-display text-8 leading-none",
+                                children: "+"
+                            }, void 0, false, {
+                                fileName: "[project]/src/components/Hero.tsx",
+                                lineNumber: 63,
+                                columnNumber: 11
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$2$2e$4_react$2d$dom$40$19$2e$2$2e$5_react$40$19$2e$2$2e$5_$5f$react$40$19$2e$2$2e$5$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                className: "text-3xs font-bold uppercase tracking-widest mt-1.75",
+                                children: "energia todo dia"
+                            }, void 0, false, {
+                                fileName: "[project]/src/components/Hero.tsx",
+                                lineNumber: 64,
+                                columnNumber: 11
+                            }, this)
+                        ]
+                    }, void 0, true, {
+                        fileName: "[project]/src/components/Hero.tsx",
+                        lineNumber: 62,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$2$2e$4_react$2d$dom$40$19$2e$2$2e$5_react$40$19$2e$2$2e$5_$5f$react$40$19$2e$2$2e$5$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        className: "border-l border-orange-500 pl-3.25 flex flex-col",
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$2$2e$4_react$2d$dom$40$19$2e$2$2e$5_react$40$19$2e$2$2e$5_$5f$react$40$19$2e$2$2e$5$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("strong", {
+                                className: "font-display text-8 leading-none",
+                                children: "VIP"
+                            }, void 0, false, {
+                                fileName: "[project]/src/components/Hero.tsx",
+                                lineNumber: 69,
+                                columnNumber: 11
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$2$2e$4_react$2d$dom$40$19$2e$2$2e$5_react$40$19$2e$2$2e$5_$5f$react$40$19$2e$2$2e$5$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                className: "text-3xs font-bold uppercase tracking-widest mt-1.75",
+                                children: "ofertas exclusivas"
+                            }, void 0, false, {
+                                fileName: "[project]/src/components/Hero.tsx",
+                                lineNumber: 70,
+                                columnNumber: 11
+                            }, this)
+                        ]
+                    }, void 0, true, {
+                        fileName: "[project]/src/components/Hero.tsx",
+                        lineNumber: 68,
+                        columnNumber: 9
+                    }, this)
+                ]
+            }, void 0, true, {
                 fileName: "[project]/src/components/Hero.tsx",
-                lineNumber: 93,
+                lineNumber: 55,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$2$2e$4_react$2d$dom$40$19$2e$2$2e$5_react$40$19$2e$2$2e$5_$5f$react$40$19$2e$2$2e$5$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -443,39 +429,20 @@ function Hero() {
                         behavior: "smooth"
                     });
                 },
-                className: "absolute bottom-5 left-6 z-20",
-                style: {
-                    fontSize: "9px",
-                    letterSpacing: "0.13em",
-                    textTransform: "uppercase",
-                    color: "#fff",
-                    textDecoration: "none",
-                    display: "flex",
-                    alignItems: "center",
-                    gap: "10px",
-                    background: "none",
-                    border: "none",
-                    cursor: "pointer"
-                },
+                className: "absolute bottom-5 left-6 z-20 text-3xs uppercase tracking-wider text-white flex items-center gap-2.5 hover:text-orange-500 bg-transparent border-0 cursor-pointer",
                 children: [
                     "Role para descobrir",
-                    " ",
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$2$2e$4_react$2d$dom$40$19$2e$2$2e$5_react$40$19$2e$2$2e$5_$5f$react$40$19$2e$2$2e$5$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("i", {
-                        style: {
-                            height: "1px",
-                            width: "40px",
-                            background: "#ff6a00",
-                            display: "inline-block"
-                        }
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$2$2e$4_react$2d$dom$40$19$2e$2$2e$5_react$40$19$2e$2$2e$5_$5f$react$40$19$2e$2$2e$5$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                        className: "w-10 h-0.5 bg-orange-500 inline-block"
                     }, void 0, false, {
                         fileName: "[project]/src/components/Hero.tsx",
-                        lineNumber: 150,
+                        lineNumber: 85,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/components/Hero.tsx",
-                lineNumber: 128,
+                lineNumber: 76,
                 columnNumber: 7
             }, this)
         ]
