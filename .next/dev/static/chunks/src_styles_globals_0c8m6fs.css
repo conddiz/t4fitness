@@ -362,6 +362,7 @@ h1 em, h2 em {
 .section-heading h2, .intro h2, .partners h2, .vip h2 {
   letter-spacing: -.045em;
   font-size: clamp(54px, 6.2vw, 87px);
+  line-height: 1.2;
 }
 
 .section-heading > p {
@@ -697,7 +698,7 @@ h1 em, h2 em {
   max-width: 375px;
   margin: 28px 0;
   font-size: 15px;
-  line-height: 1.65;
+  line-height: 1.9;
 }
 
 .section-kicker.light, .partners .section-kicker.light {
