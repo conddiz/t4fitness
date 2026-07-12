@@ -300,18 +300,20 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="py-[80px] md:py-[120px] px-6" style={{ maxWidth: 'min(1160px, calc(100% - 48px))', margin: '0 auto' }}>
-          <div className="grid grid-cols-1 md:grid-cols-[2fr_1fr] gap-[15px] h-[400px] md:h-[560px]">
-            <div className="relative overflow-hidden rounded-lg">
-              <img src="/cardio-02.jpeg" alt="Esteiras e equipamentos da T4 Fitness" className="w-full h-full object-cover" />
-              <span className="absolute bottom-[25px] left-[25px] font-display font-black text-[clamp(28px,4vw,42px)] leading-[.82] text-white">
-                ENERGIA EM CADA<br />
-                DETALHE
-              </span>
-            </div>
-            <div className="grid grid-cols-1 grid-rows-2 gap-[15px]">
-              <img src="/reception.jpeg" alt="Recepção de uma unidade T4 Fitness" className="w-full h-full object-cover rounded-lg" />
-              <img src="/locker-room.jpeg" alt="Vestiário moderno da T4 Fitness" className="w-full h-full object-cover rounded-lg" />
+        <section className="py-[80px] md:py-[120px] px-6">
+          <div style={{ maxWidth: 'min(1160px, calc(100% - 48px))', margin: '0 auto' }}>
+            <div className="grid grid-cols-1 md:grid-cols-[2fr_1fr] gap-[15px]">
+              <div className="relative overflow-hidden rounded-lg h-[300px] md:h-[560px]">
+                <img src="/cardio-02.jpeg" alt="Esteiras e equipamentos da T4 Fitness" className="w-full h-full object-cover" />
+                <span className="absolute bottom-[25px] left-[25px] font-display font-black text-[clamp(28px,4vw,42px)] leading-[.82] text-white">
+                  ENERGIA EM CADA<br />
+                  DETALHE
+                </span>
+              </div>
+              <div className="grid grid-cols-1 grid-rows-2 gap-[15px]">
+                <img src="/reception.jpeg" alt="Recepção de uma unidade T4 Fitness" className="w-full h-[270px] md:h-[272px] object-cover rounded-lg" />
+                <img src="/locker-room.jpeg" alt="Vestiário moderno da T4 Fitness" className="w-full h-[270px] md:h-[272px] object-cover rounded-lg" />
+              </div>
             </div>
           </div>
         </section>
