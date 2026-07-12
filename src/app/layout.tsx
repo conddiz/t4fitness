@@ -35,7 +35,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
         <meta name="theme-color" content="#ff6a00" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </head>
-      <body className="bg-white text-ink antialiased">{children}</body>
+      <body className="bg-white text-orange-950 antialiased">{children}</body>
     </html>
   );
 }

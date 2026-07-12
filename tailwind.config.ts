@@ -20,6 +20,18 @@ const config: Config = {
         sans: ['"DM Sans"', "Arial", "sans-serif"],
         display: ['"Barlow Condensed"', "Impact", "sans-serif"],
       },
+      textColor: {
+        ink: "#0b0b0c",
+        muted: "#6e6e72",
+      },
+      backgroundColor: {
+        ink: "#0b0b0c",
+        cream: "#f3f0ea",
+      },
+      borderColor: {
+        ink: "#0b0b0c",
+        muted: "#6e6e72",
+      },
     },
   },
   plugins: [],
