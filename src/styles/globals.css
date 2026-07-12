@@ -838,6 +838,232 @@
     font-weight: 800;
   }
 
+  .footer-social {
+    display: flex;
+    gap: 16px;
+    justify-self: end;
+  }
+
+  .footer-social a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    color: var(--orange);
+    text-decoration: none;
+    transition: 0.25s;
+    font-weight: normal;
+    text-transform: none;
+    font-size: inherit;
+    letter-spacing: normal;
+  }
+
+  .footer-social a:hover {
+    color: var(--orange2);
+    transform: translateY(-2px);
+  }
+
+  .footer-social svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  /* Equipamentos page */
+  .hero-equip {
+    height: min(600px, calc(100vh - 34px));
+    min-height: 500px;
+    position: relative;
+    background: linear-gradient(135deg, var(--orange) 0%, var(--orange2) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    overflow: hidden;
+  }
+
+  .hero-visual-equip {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
+  }
+
+  .hero-overlay-equip {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(255, 106, 0, 0.8) 0%, rgba(255, 138, 0, 0.8) 100%);
+  }
+
+  .hero-equip .hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding-top: 100px;
+  }
+
+  .hero-equip h1 {
+    color: white;
+    font-size: clamp(48px, 6vw, 80px);
+  }
+
+  .hero-equip .hero-copy {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 18px;
+    max-width: 600px;
+    margin: 30px auto;
+  }
+
+  .equip-section {
+    padding: 120px 0;
+  }
+
+  .equip-filters {
+    display: flex;
+    gap: 15px;
+    margin: 60px 0 40px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .filter-btn {
+    padding: 12px 24px;
+    border: 2px solid var(--line);
+    background: transparent;
+    color: var(--ink);
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: 0.25s;
+    border-radius: 0;
+  }
+
+  .filter-btn:hover {
+    border-color: var(--orange);
+    color: var(--orange);
+  }
+
+  .filter-btn.active {
+    background: var(--orange);
+    color: white;
+    border-color: var(--orange);
+  }
+
+  .equip-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 60px;
+  }
+
+  .equip-card {
+    background: white;
+    border: 1px solid var(--line);
+    overflow: hidden;
+    transition: 0.3s;
+  }
+
+  .equip-card:hover {
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    transform: translateY(-5px);
+  }
+
+  .equip-card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    display: block;
+  }
+
+  .equip-card h3 {
+    padding: 20px;
+    font-size: 18px;
+    font-weight: 700;
+    margin: 0;
+    line-height: 1.3;
+    color: var(--ink);
+  }
+
+  .equip-card .btn {
+    width: 100%;
+    margin: 0;
+    padding: 12px;
+    font-size: 12px;
+    border-radius: 0;
+  }
+
+  .equip-cta {
+    padding: 100px 0;
+    background: var(--cream);
+    border-radius: 8px;
+  }
+
+  .equip-cta h2 {
+    font-size: clamp(40px, 5vw, 64px);
+    margin-top: 20px;
+  }
+
+  .equip-cta p {
+    font-size: 16px;
+    line-height: 1.7;
+    max-width: 500px;
+    margin: 20px 0 40px;
+    color: var(--muted);
+  }
+
+  .contact-methods {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 40px;
+  }
+
+  .contact-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 24px;
+    background: var(--orange);
+    color: white;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 14px;
+    transition: 0.25s;
+    width: fit-content;
+  }
+
+  .contact-btn:hover {
+    background: var(--orange2);
+    transform: translateX(5px);
+  }
+
+  .vip-groups {
+    margin-top: 40px;
+    padding-top: 40px;
+    border-top: 2px solid var(--line);
+  }
+
+  .vip-title {
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+    color: var(--ink);
+  }
+
+  .vip-link {
+    display: block;
+    color: var(--orange);
+    text-decoration: none;
+    font-weight: 600;
+    margin: 8px 0;
+    transition: 0.2s;
+  }
+
+  .vip-link:hover {
+    color: var(--orange2);
+  }
+
   .footer-bottom {
     margin-top: 50px;
     padding-top: 18px;
