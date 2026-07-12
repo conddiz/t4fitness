@@ -2,7 +2,18 @@
 
 import { useEffect, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowRight, faArrowUp, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
+import {
+  faArrowRight,
+  faArrowUp,
+  faMagnifyingGlass,
+  faDumbbell,
+  faPersonRunning,
+  faHandFist,
+  faMusic,
+  faUserNinja,
+  faGuitar,
+  faHandBackFist,
+} from '@fortawesome/free-solid-svg-icons';
 import { faInstagram, faFacebook, faWhatsapp } from '@fortawesome/free-brands-svg-icons';
 
 const units = [
@@ -16,13 +27,13 @@ const units = [
 ];
 
 const modalities = [
-  { id: 1, name: 'Musculação', number: '01' },
-  { id: 2, name: 'Funcional', number: '02' },
-  { id: 3, name: 'Muay Thai', number: '03' },
-  { id: 4, name: 'FitDance', number: '04' },
-  { id: 5, name: 'Jiu-Jítsu', number: '05' },
-  { id: 6, name: 'Forró', number: '06' },
-  { id: 7, name: 'Karatê', number: '07' },
+  { id: 1, name: 'Musculação', number: '01', icon: faDumbbell },
+  { id: 2, name: 'Funcional', number: '02', icon: faPersonRunning },
+  { id: 3, name: 'Muay Thai', number: '03', icon: faHandFist },
+  { id: 4, name: 'FitDance', number: '04', icon: faMusic },
+  { id: 5, name: 'Jiu-Jítsu', number: '05', icon: faUserNinja },
+  { id: 6, name: 'Forró', number: '06', icon: faGuitar },
+  { id: 7, name: 'Karatê', number: '07', icon: faHandBackFist },
 ];
 
 const navLinks = [
@@ -292,16 +303,29 @@ export default function Home() {
             </p>
           </div>
 
-          <ul className="mt-[65px] border-t border-line list-none m-0 p-0">
+          <ul className="mt-[65px] grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 border-t border-l border-line list-none m-0 p-0">
             {modalities.map((mod) => (
               <li
                 key={mod.id}
-                className="border-b border-line py-4 font-display text-[clamp(34px,4vw,58px)] font-bold uppercase leading-none flex items-center justify-between transition-all duration-200 hover:text-orange-500 hover:pl-3"
+                className="group border-r border-b border-line p-6 md:p-7 min-h-[160px] flex flex-col gap-5 transition-colors duration-250 hover:bg-orange-500"
               >
-                {mod.name}
-                <span className="font-sans text-[12px] text-orange-500 pr-3">{mod.number}</span>
+                <div className="flex items-start justify-between">
+                  <FontAwesomeIcon icon={mod.icon} className="text-[28px] text-orange-500 group-hover:text-[#111] transition-colors" />
+                  <span className="font-sans text-[12px] font-bold text-orange-500 group-hover:text-[#111] transition-colors">{mod.number}</span>
+                </div>
+                <span className="mt-auto font-display font-bold uppercase leading-none text-[26px] md:text-[30px] group-hover:text-[#111] transition-colors">
+                  {mod.name}
+                </span>
               </li>
             ))}
+            <li className="border-r border-b border-line p-6 md:p-7 min-h-[160px] flex flex-col gap-5 bg-[#0d0d0e] text-white">
+              <span className="font-display font-bold uppercase leading-none text-[26px] md:text-[30px]">
+                Vem pra <em className="not-italic text-orange-500">T4.</em>
+              </span>
+              <a href="#contato" className="mt-auto text-2xs font-extrabold uppercase tracking-[.09em] text-white no-underline inline-flex items-center gap-[5px] hover:text-orange-500 transition-colors">
+                Matricule-se <FontAwesomeIcon icon={faArrowRight} className="text-[13px] text-orange-500 -rotate-45" />
+              </a>
+            </li>
           </ul>
         </section>
 
