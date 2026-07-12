@@ -158,13 +158,22 @@ export default function Home() {
         </section>
 
         <section className="bg-orange-500 overflow-hidden whitespace-nowrap" aria-label="Destaques">
-          <div className="h-[50px] md:h-[65px] flex items-center gap-[30px] pr-[30px] w-max animate-marquee motion-reduce:animate-none font-display font-extrabold text-[21px] md:text-[27px]">
-            <span>SEU CORPO · SEU RITMO · SUA T4</span>
-            <b className="text-[22px]" aria-hidden="true">✦</b>
-            <span aria-hidden="true">SEU CORPO · SEU RITMO · SUA T4</span>
-            <b className="text-[22px]" aria-hidden="true">✦</b>
-            <span aria-hidden="true">SEU CORPO · SEU RITMO · SUA T4</span>
-            <b className="text-[22px]" aria-hidden="true">✦</b>
+          <div className="h-[50px] md:h-[65px] flex items-center gap-[30px] pr-[30px] w-max animate-marquee motion-reduce:animate-none font-display font-extrabold uppercase text-[21px] md:text-[27px]">
+            {[0, 1, 2].map((copy) => (
+              <div key={copy} className="flex items-center gap-[30px]" aria-hidden={copy > 0 ? 'true' : undefined}>
+                <span>SEU CORPO · SEU RITMO · SUA T4</span>
+                <b className="text-[22px]" aria-hidden="true">✦</b>
+                {modalities.map((mod) => (
+                  <span key={mod.id} className="flex items-center gap-[30px]">
+                    <span className="flex items-center gap-3">
+                      <img src={mod.img} alt="" aria-hidden="true" className="h-6 md:h-7 w-auto brightness-0" />
+                      {mod.name}
+                    </span>
+                    <b className="text-[22px]" aria-hidden="true">✦</b>
+                  </span>
+                ))}
+              </div>
+            ))}
           </div>
         </section>
 

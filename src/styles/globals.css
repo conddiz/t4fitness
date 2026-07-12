@@ -22,7 +22,7 @@
 
   --shadow-form: 0 18px 50px rgba(0, 0, 0, 0.06);
 
-  --animate-marquee: marquee 22s linear infinite;
+  --animate-marquee: marquee 55s linear infinite;
 
   @keyframes marquee {
     to {
