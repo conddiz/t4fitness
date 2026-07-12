@@ -47,8 +47,15 @@ const CATEGORY_LABELS: Record<string, string> = Object.fromEntries(
   CATEGORIES.map((c) => [c.key, c.label])
 );
 
+const investorNavLinks = [
+  { href: '/', label: 'Voltar ao site' },
+  { href: '#catalogo', label: 'Catálogo' },
+  { href: '#contato', label: 'Contato' },
+];
+
 export default function Investidores() {
   const [filter, setFilter] = useState('all');
+  const [menuOpen, setMenuOpen] = useState(false);
 
   const filtered =
     filter === 'all' ? EQUIPAMENTOS : EQUIPAMENTOS.filter((e) => e.category === filter);
@@ -58,26 +65,48 @@ export default function Investidores() {
 
   return (
     <>
-      <div className="h-[34px] bg-orange-500 text-orange-950 flex items-center justify-center gap-2.5 text-2xs uppercase font-extrabold tracking-[.13em]">
+      <div className="h-[34px] bg-orange-500 text-orange-950 flex items-center justify-center gap-2.5 text-[10px] md:text-2xs uppercase font-extrabold tracking-[.13em]">
         <span>Equipamentos profissionais</span>
         <span className="w-1 h-1 rounded-full bg-orange-950"></span>
         <span>Para academias e investidores</span>
       </div>
 
-      <header className="edge-pad h-[84px] bg-black flex items-center gap-6 absolute z-10 w-full top-[34px] border-b border-white/[.13]">
+      <header className={`edge-pad h-[72px] md:h-[84px] flex items-center gap-6 md:gap-[42px] absolute z-10 w-full top-[34px] border-b border-white/[.13] ${menuOpen ? 'bg-ink' : 'bg-black'}`}>
         <a className="shrink-0" href="/" aria-label="T4 Fitness - início">
-          <img src="/logo-horizontal.jpeg" alt="T4 Fitness" className="w-[122px] block" />
+          <img src="/logo-horizontal.jpeg" alt="T4 Fitness" className="w-[135px] md:w-[160px] block" />
         </a>
 
         <nav className="hidden md:flex items-center gap-[26px] ml-auto" aria-label="Navegação">
-          <a href="/" className="text-white no-underline font-semibold text-[13px] hover:text-orange-500 transition-colors">Voltar ao site</a>
-          <a href="#catalogo" className="text-white no-underline font-semibold text-[13px] hover:text-orange-500 transition-colors">Catálogo</a>
-          <a href="#contato" className="text-white no-underline font-semibold text-[13px] hover:text-orange-500 transition-colors">Contato</a>
+          {investorNavLinks.map((link) => (
+            <a key={link.href} href={link.href} className="text-white no-underline font-semibold text-[14px] hover:text-orange-500 transition-colors">
+              {link.label}
+            </a>
+          ))}
         </nav>
 
         <a href="#contato" className="btn btn-small btn-orange hidden md:inline-flex">
           Solicitar orçamento <FontAwesomeIcon icon={faArrowRight} className="text-[14px] -rotate-45" />
         </a>
+
+        <button
+          className="md:hidden grid place-content-center gap-1.5 ml-auto w-[37px] h-[37px] border border-[#4a4a4a] bg-transparent"
+          onClick={() => setMenuOpen(!menuOpen)}
+          aria-label="Abrir menu"
+          aria-expanded={menuOpen}
+        >
+          <span className="w-[17px] h-px bg-white block"></span>
+          <span className="w-[17px] h-px bg-white block"></span>
+        </button>
+
+        {menuOpen && (
+          <nav className="absolute top-[71px] left-0 w-full bg-ink px-[19px] pt-[22px] pb-[25px] flex flex-col gap-[19px] md:hidden" aria-label="Navegação móvel">
+            {investorNavLinks.map((link) => (
+              <a key={link.href} href={link.href} onClick={() => setMenuOpen(false)} className="text-white no-underline font-semibold">
+                {link.label}
+              </a>
+            ))}
+          </nav>
+        )}
       </header>
 
       <main>
@@ -94,7 +123,7 @@ export default function Investidores() {
               Equipamentos de<br />
               <em>alta performance.</em>
             </h1>
-            <p className="w-[min(480px,100%)] text-[15px] leading-[1.65] text-[#ececec] my-[25px]">
+            <p className="w-[min(480px,100%)] text-[16px] leading-[1.65] text-[#ececec] my-[25px]">
               A T4 também vende equipamentos profissionais para academias, condomínios e estúdios.
               Máquinas seminovas revisadas, com qualidade e procedência garantidas.
             </p>
@@ -113,7 +142,7 @@ export default function Investidores() {
                 <em>academia.</em>
               </h2>
             </div>
-            <p className="text-[14px] text-muted max-w-[290px] leading-[1.6] mb-[9px]">
+            <p className="text-[15px] text-muted max-w-[290px] leading-[1.6] mb-[9px]">
               {EQUIPAMENTOS.length} máquinas de musculação disponíveis. Valores sob consulta.
             </p>
           </div>
@@ -124,7 +153,7 @@ export default function Investidores() {
                 key={cat.key}
                 type="button"
                 onClick={() => setFilter(cat.key)}
-                className={`px-5 py-3 border-2 text-[12px] font-bold uppercase tracking-[.06em] cursor-pointer transition-all duration-250 ${
+                className={`px-5 py-3 border-2 text-[13px] font-bold uppercase tracking-[.06em] cursor-pointer transition-all duration-250 ${
                   filter === cat.key
                     ? 'bg-orange-500 text-white border-orange-500'
                     : 'bg-transparent text-ink border-line hover:border-orange-500 hover:text-orange-500'
@@ -171,7 +200,7 @@ export default function Investidores() {
             <h2 className="text-white">
               Solicite um <em>orçamento.</em>
             </h2>
-            <p className="max-w-[440px] text-[15px] leading-[1.65] text-[#c4c4c4] mt-6 mb-12">
+            <p className="max-w-[440px] text-[16px] leading-[1.65] text-[#c4c4c4] mt-6 mb-12">
               Fale direto com nossa equipe pelo WhatsApp ou telefone. Enviamos fotos, medidas e condições de cada equipamento.
             </p>
 
@@ -194,10 +223,10 @@ export default function Investidores() {
               <div>
                 <h3 className="text-[20px] text-white mb-6">Contato direto</h3>
                 <div className="flex flex-col gap-3">
-                  <a href="tel:+5585987453332" className="text-orange-400 hover:text-orange-300 text-[14px] font-semibold no-underline inline-flex items-center gap-2 transition-colors">
+                  <a href="tel:+5585987453332" className="text-orange-400 hover:text-orange-300 text-[15px] font-semibold no-underline inline-flex items-center gap-2 transition-colors">
                     <FontAwesomeIcon icon={faPhone} className="text-[14px]" /> (85) 98745-3332
                   </a>
-                  <a href="https://api.whatsapp.com/message/7DVJU2H7CTALF1" target="_blank" rel="noreferrer" className="text-orange-400 hover:text-orange-300 text-[14px] font-semibold no-underline inline-flex items-center gap-2 transition-colors">
+                  <a href="https://api.whatsapp.com/message/7DVJU2H7CTALF1" target="_blank" rel="noreferrer" className="text-orange-400 hover:text-orange-300 text-[15px] font-semibold no-underline inline-flex items-center gap-2 transition-colors">
                     <FontAwesomeIcon icon={faWhatsapp} className="text-[16px]" /> Chat no WhatsApp
                   </a>
                 </div>
@@ -206,10 +235,10 @@ export default function Investidores() {
               <div>
                 <h3 className="text-[20px] text-white mb-6">Grupos VIP</h3>
                 <div className="flex flex-col gap-3">
-                  <a href="https://chat.whatsapp.com/JQaxKZssrRm3oUhNLvBogj" target="_blank" rel="noreferrer" className="text-orange-400 hover:text-orange-300 text-[14px] font-semibold no-underline transition-colors">
+                  <a href="https://chat.whatsapp.com/JQaxKZssrRm3oUhNLvBogj" target="_blank" rel="noreferrer" className="text-orange-400 hover:text-orange-300 text-[15px] font-semibold no-underline transition-colors">
                     VIP Antônio Bezerra
                   </a>
-                  <a href="https://chat.whatsapp.com/J1kUHS184lcCOCH33YoHdA" target="_blank" rel="noreferrer" className="text-orange-400 hover:text-orange-300 text-[14px] font-semibold no-underline transition-colors">
+                  <a href="https://chat.whatsapp.com/J1kUHS184lcCOCH33YoHdA" target="_blank" rel="noreferrer" className="text-orange-400 hover:text-orange-300 text-[15px] font-semibold no-underline transition-colors">
                     VIP Bela Vista
                   </a>
                 </div>
@@ -221,7 +250,7 @@ export default function Investidores() {
 
       <footer className="bg-black text-white pt-[55px] pb-5">
         <div className="wrap grid grid-cols-1 md:grid-cols-3 items-center gap-[23px] md:gap-5">
-          <img src="/logo-horizontal.jpeg" alt="T4 Fitness" className="w-[150px]" />
+          <img src="/logo-horizontal.jpeg" alt="T4 Fitness" className="w-[190px]" />
           <p className="font-display text-[29px] leading-[.9] uppercase m-0 text-[#d8d8d8]">
             Mais energia para a sua evolução.
           </p>

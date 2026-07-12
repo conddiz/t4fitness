@@ -12,8 +12,7 @@
     "lint:fix": "biome check --write src",
     "typecheck": "tsc --noEmit",
     "pages:dev": "next build && wrangler pages dev out",
-    "pages:deploy": "next build && wrangler pages deploy out",
-    "deploy": "pnpm pages:deploy"
+    "pages:deploy": "next build && wrangler pages deploy out"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^7.3.0",

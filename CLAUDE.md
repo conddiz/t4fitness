@@ -2,108 +2,84 @@
 
 ## Sobre o Projeto
 
-Site institucional para rede de 7 academias T4 Fitness em Fortaleza. Stack: HTML/CSS/JS puro, hospedado no Cloudflare Pages, domínio gerenciado pela conta Conddiz.
+Site institucional para rede de 7 academias T4 Fitness em Fortaleza, com página de venda
+de equipamentos para investidores. Stack: Next.js 16 (App Router, static export) + React 19 +
+TypeScript + Tailwind CSS 4, hospedado no Cloudflare Pages, domínio gerenciado pela conta Conddiz.
 
 ## Stack & Deployment
 
-- **Tipo**: Static site (HTML/CSS/JS)
-- **Hospedagem**: Cloudflare Pages (conddiz account)
+- **Framework**: Next.js 16 com `output: "export"` (site 100% estático em `out/`)
+- **UI**: React 19 + Tailwind CSS 4 (config CSS-first via `@theme` em `src/styles/globals.css` —
+  NÃO existe `tailwind.config.ts`; Tailwind v4 não lê config JS)
+- **Ícones**: Font Awesome (`@fortawesome/react-fontawesome`) — nunca usar setas unicode
+- **Fontes**: DM Sans + Barlow Condensed via `next/font/google` (self-hosted no build)
+- **Hospedagem**: Cloudflare Pages (conta conddiz), projeto `t4fitness`
 - **Domínio**: t4fitness.com.br (zona Conddiz)
-- **CI/CD**: GitHub Actions (via Wrangler)
-- **Credenciais**: Sincronizadas de C:\Projects\.global-vault via `Sync-DeployEnv.ps1`
+- **CI/CD**: GitHub Actions (`.github/workflows/deploy.yml`): pnpm install → build → `wrangler pages deploy out`
+- **Credenciais**: sincronizadas de `C:\Projects\.global-vault` via `Sync-DeployEnv.ps1`
+- **Node**: >= 22 · **pnpm**: >= 10
 
 ## Estrutura
 
 ```
-assets/              # Imagens (logo, fotos unidades, equipamentos)
-docs/img/            # Imagens adicionais do cliente
-index.html           # Página principal (única)
-styles.css           # Estilos (minificado inline)
-script.js            # Interatividade (busca, menu, form)
+src/app/layout.tsx            # Root layout: fonts, metadata/OG, FontAwesome config
+src/app/page.tsx              # Homepage (hero, unidades, modalidades, convênios, VIP)
+src/app/investidores/page.tsx # Catálogo de 26 equipamentos à venda (B2B)
+src/app/icon.svg              # Favicon
+src/styles/globals.css        # @theme (tokens da marca) + @layer base/components
+public/                       # Imagens (logo, fotos, equipamentos/equipamento-NN.jpeg)
+docs/img/equipamentos/        # Fotos originais do cliente (arquivo-fonte)
+wrangler.toml                 # Pages config (pages_build_output_dir = "out")
 ```
 
-## Fluxo de Trabalho
+## Comandos
 
-1. **Editar localmente**: Modifique HTML/CSS/JS diretamente
-2. **Testar**: Abra `index.html` no navegador ou use `npm run dev`
-3. **Commit**: `git add . && git commit -m "..."`
-4. **Push**: `git push origin main`
-5. **Deploy**: Cloudflare Pages faz deploy automaticamente
+```bash
+pnpm dev            # dev server (turbopack)
+pnpm build          # build estático → out/
+pnpm typecheck      # tsc --noEmit
+pnpm lint           # biome check src
+pnpm pages:deploy   # build + wrangler pages deploy out   (use pnpm run, não `pnpm deploy`)
+```
 
 ## Deploy Manual
 
-Se GitHub Actions não estiver configurado:
-
-```bash
+```powershell
 cd C:\Projects\.global-vault
-.\Sync-DeployEnv.ps1 -Project C:\Projects\t4fitness -Profiles conddiz/cloudflare
+.\Sync-DeployEnv.ps1 -Project C:\Projects\t4fitness -Profiles conddiz/cloudflare,conddiz/github
 cd C:\Projects\t4fitness
-npm install
-wrangler pages deploy .
+# wrangler lê CLOUDFLARE_API_TOKEN / CLOUDFLARE_ACCOUNT_ID — mapear a partir do .env.deploy
+pnpm install
+pnpm pages:deploy
 ```
 
-## Configuração Cloudflare
+## Design — regras
 
-- **Account**: conddiz
-- **Zone**: t4fitness.com.br
-- **Branch**: main
-- **Build Command**: (nenhum - site estático)
-- **Output Directory**: .
+- **Tokens da marca** em `@theme` (globals.css): `orange-500 #ff6a00`, `orange-400 #ff8a00`,
+  `ink #0b0b0c`, `muted #6e6e72`, `cream #f3f0ea`, `line #d9d5cd`, `text-2xs 12px`, `text-3xs 11px`
+- **Somente classes Tailwind** no JSX — zero `style={{}}`. Gradientes multi-stop complexos vivem
+  em `@layer components` (`.hero-fade`, `.grid-overlay`, `.wrap`, `.edge-pad`, `.btn*`, `.text-link*`)
+- Referência visual original: `git show e448d10:index.html` / `git show e448d10:styles.css`
 
-## Customizações Comuns
+## Contatos & Links (fonte da verdade)
 
-### Mudar cores
-Edite `:root { }` em `styles.css`:
-- `--orange`: cor primária (atualmente #ff6a00)
-- `--cream`: fundo claro (atualmente #f3f0ea)
-
-### Atualizar textos
-- Hero: h1, p no `.hero-content`
-- Unidades: `.unit-card` (HTML hardcoded)
-- Modal: `.modality-list button`
-
-### Adicionar imagens
-1. Coloque em `assets/`
-2. Atualize `src` no HTML
-3. Nomeie descritivamente (ex: `galeria-01.jpeg`)
-
-### Instagram & Redes
-- Link Instagram: `.footer-grid a` e form submit
-- Atualizar URL: `https://www.instagram.com/t4fitness_/`
+- WhatsApp: (85) 98745-3332 → `tel:+5585987453332` / `wa.me/5585987453332`
+- Chat WhatsApp: https://api.whatsapp.com/message/7DVJU2H7CTALF1
+- VIP Antônio Bezerra: https://chat.whatsapp.com/JQaxKZssrRm3oUhNLvBogj
+- VIP Bela Vista: https://chat.whatsapp.com/J1kUHS184lcCOCH33YoHdA
+- Instagram: https://www.instagram.com/t4fitness_/
+- Facebook: https://www.facebook.com/arenafits/
 
 ## Performance Checklist
 
-- [ ] Imagens otimizadas (<300KB cada)
-- [ ] CSS inline (< 50KB)
-- [ ] JS vanilla, sem deps pesadas
-- [ ] Mobile-first responsive
-- [ ] Lighthouse 90+ (target)
-
-## Segurança
-
-- Sem banco de dados (formulário redireciona para Instagram)
-- HTTPS garantido por Cloudflare
-- Headers de segurança configurados na zona CF
-- Nenhum dado sensível no repo (credenciais em .env.deploy)
+- [x] Imagens otimizadas (<300KB cada)
+- [x] Fontes self-hosted (next/font)
+- [x] Favicon + OpenGraph pt_BR
+- [ ] Lighthouse 90+ (validar em produção)
 
 ## Troubleshooting
 
-**Domínio não resolve**
-- Verifique DNS em Cloudflare (zona conddiz)
-- Propagação pode levar até 48h
-
-**Deploy falha**
-- Verifique logs em Cloudflare Pages dashboard
-- Confirme `.env.deploy` sincronizado corretamente
-
-**Estilos não carregam**
-- Limpe cache do navegador (Ctrl+Shift+Del)
-- Verifique console para erros 404
-
-## Próximos Passos
-
-- [ ] Criar repositório em conddiz/t4fitness no GitHub
-- [ ] Conectar ao Cloudflare Pages via GitHub
-- [ ] Configurar GitHub Actions para auto-deploy
-- [ ] Testes em produção após propagação DNS
-- [ ] Analytics (considerar Privacy-friendly: Plausible ou Simple Analytics)
+**Classe Tailwind não gera CSS** — verifique se o token existe no `@theme` do globals.css
+(v4 ignora tailwind.config.ts). **Deploy falha** — confirme `wrangler.toml` com
+`pages_build_output_dir = "out"` e variáveis `CLOUDFLARE_*` no ambiente.
+**`.next/`/`out/` no git** — são ignorados; nunca commitar build.

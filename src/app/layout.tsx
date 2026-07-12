@@ -1,7 +1,11 @@
 import type { Metadata, Viewport } from "next";
 import { Barlow_Condensed, DM_Sans } from "next/font/google";
 import { ReactNode } from "react";
+import { config } from "@fortawesome/fontawesome-svg-core";
+import "@fortawesome/fontawesome-svg-core/styles.css";
 import "@/styles/globals.css";
+
+config.autoAddCss = false;
 
 const dmSans = DM_Sans({
   subsets: ["latin"],
@@ -30,6 +34,7 @@ export const metadata: Metadata = {
     siteName: "T4 Fitness",
     locale: "pt_BR",
     type: "website",
+    images: [{ url: "/unidade-exterior.jpeg", width: 1200, height: 630, alt: "Fachada de uma unidade T4 Fitness" }],
   },
   twitter: {
     card: "summary",
