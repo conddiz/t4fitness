@@ -7,6 +7,26 @@ export default function Home() {
   const [unitSearch, setUnitSearch] = useState('');
   const [unitCount, setUnitCount] = useState(7);
 
+  const units = [
+    { id: 1, name: 'Guadalajara', address: 'Rua Araré, 641', neighborhood: 'Guadalajara', search: '01 guadalajara rua arare' },
+    { id: 2, name: 'Potira', address: 'Rua Padre Alfredo Nesi, 1322', neighborhood: 'Potira', search: '02 potira rua padre alfredo nesi' },
+    { id: 3, name: 'Arianópolis', address: 'Rua Danilo Correia, 777', neighborhood: 'Arianópolis', search: '03 arianopolis rua danilo correia' },
+    { id: 4, name: 'Parque Albano', address: 'Rua Gonçalves Dias, 1988', neighborhood: 'Parque Albano', search: '04 parque albano rua goncalves dias' },
+    { id: 5, name: 'Granja Lisboa', address: 'Rua Xavier da Silveira, 3949', neighborhood: 'Granja Lisboa', search: '05 granja lisboa rua xavier da silveira' },
+    { id: 6, name: 'Bela Vista', address: 'Rua Espiriro Santo, 614', neighborhood: 'Bela Vista', search: '06 bela vista rua espiriro santo espirito' },
+    { id: 7, name: 'Antônio Bezerra', address: 'Rua Martins Neto, 810', neighborhood: 'Antônio Bezerra', search: '07 antonio bezerra rua martins neto' },
+  ];
+
+  const modalities = [
+    { id: 1, name: 'Musculação', number: '01' },
+    { id: 2, name: 'Funcional', number: '02' },
+    { id: 3, name: 'Muay Thai', number: '03' },
+    { id: 4, name: 'FitDance', number: '04' },
+    { id: 5, name: 'Jiu-Jítsu', number: '05' },
+    { id: 6, name: 'Forró', number: '06' },
+    { id: 7, name: 'Karatê', number: '07' },
+  ];
+
   useEffect(() => {
     const normalize = (value: string) =>
       value
@@ -30,416 +50,384 @@ export default function Home() {
 
   return (
     <>
-      <div className="flex items-center justify-center gap-3 bg-black px-6 py-4 text-sm text-cream">
+      {/* Topbar */}
+      <div className="h-[34px] bg-orange-500 text-[#16110c] flex items-center justify-center gap-2.5 text-2xs uppercase font-black tracking-[.13em]">
         <span>7 unidades em Fortaleza</span>
-        <span className="h-1 w-1 rounded-full bg-orange-500"></span>
+        <span className="w-1 h-1 rounded-full bg-[#16110c]"></span>
         <span>Wellhub e TotalPass aceitos</span>
       </div>
 
-      <header className="sticky top-0 z-50 flex items-center justify-between gap-6 bg-white px-6 py-5" id="header">
-        <a className="flex-shrink-0" href="#inicio" aria-label="T4 Fitness - início">
-          <img src="/logo-horizontal.jpeg" alt="T4 Fitness" className="h-8 w-auto" />
-        </a>
-        <nav className="hidden items-center gap-8 md:flex" aria-label="Navegação principal">
-          <a href="#unidades" onClick={() => setMenuOpen(false)} className="text-sm font-semibold text-ink no-underline transition-colors hover:text-orange-500">
+      {/* Header */}
+      <header className={`h-[84px] bg-black flex items-center gap-[42px] absolute z-10 w-full top-[34px] border-b border-white/[.13] transition-all ${menuOpen ? 'bg-[#0b0b0c]' : ''}`} id="header">
+        <div className="px-6 md:px-0" style={{ paddingLeft: 'max(24px, calc((100vw - 1160px)/2))', paddingRight: 'max(24px, calc((100vw - 1160px)/2))' }}>
+          <a className="flex-shrink-0" href="#inicio" aria-label="T4 Fitness - início">
+            <img src="/logo-horizontal.jpeg" alt="T4 Fitness" className="w-[122px] block" />
+          </a>
+        </div>
+
+        <nav className={`hidden md:flex items-center gap-[26px] ml-auto ${menuOpen ? 'md:hidden' : ''}`} aria-label="Navegação principal">
+          <a href="#unidades" onClick={() => setMenuOpen(false)} className="text-white text-xs no-underline font-semibold text-[13px] hover:text-orange-500 transition-colors">
             Unidades
           </a>
-          <a href="#experiencia" onClick={() => setMenuOpen(false)} className="text-sm font-semibold text-ink no-underline transition-colors hover:text-orange-500">
+          <a href="#experiencia" onClick={() => setMenuOpen(false)} className="text-white text-xs no-underline font-semibold text-[13px] hover:text-orange-500 transition-colors">
             A experiência
           </a>
-          <a href="#modalidades" onClick={() => setMenuOpen(false)} className="text-sm font-semibold text-ink no-underline transition-colors hover:text-orange-500">
+          <a href="#modalidades" onClick={() => setMenuOpen(false)} className="text-white text-xs no-underline font-semibold text-[13px] hover:text-orange-500 transition-colors">
             Modalidades
           </a>
-          <a href="#convenios" onClick={() => setMenuOpen(false)} className="text-sm font-semibold text-ink no-underline transition-colors hover:text-orange-500">
+          <a href="#convenios" onClick={() => setMenuOpen(false)} className="text-white text-xs no-underline font-semibold text-[13px] hover:text-orange-500 transition-colors">
             Convênios
           </a>
-          <a href="/equipamentos" onClick={() => setMenuOpen(false)} className="text-sm font-semibold text-ink no-underline transition-colors hover:text-orange-500">
+          <a href="/equipamentos" onClick={() => setMenuOpen(false)} className="text-white text-xs no-underline font-semibold text-[13px] hover:text-orange-500 transition-colors">
             Equipamentos
           </a>
         </nav>
-        <a className="btn btn-small btn-orange hidden md:inline-flex" href="#unidades">
-          Matricule-se <span>↗</span>
-        </a>
-        <button
-          className="md:hidden flex flex-col gap-1.5"
-          aria-label="Abrir menu"
-          aria-expanded={menuOpen}
-          onClick={() => setMenuOpen(!menuOpen)}
-        >
-          <span className="block h-0.5 w-6 bg-ink transition-all"></span>
-          <span className="block h-0.5 w-6 bg-ink transition-all"></span>
+
+        <button className="md:hidden flex flex-col gap-1.5 ml-auto mr-6" onClick={() => setMenuOpen(!menuOpen)} aria-label="Abrir menu" aria-expanded={menuOpen}>
+          <span className="w-[17px] h-0.5 bg-white block"></span>
+          <span className="w-[17px] h-0.5 bg-white block"></span>
         </button>
+
+        {menuOpen && (
+          <nav className="absolute top-[71px] left-0 w-full bg-[#0b0b0c] p-[22px_19px_25px] flex flex-col gap-[19px] md:hidden">
+            <a href="#unidades" onClick={() => setMenuOpen(false)} className="text-white no-underline font-semibold">Unidades</a>
+            <a href="#experiencia" onClick={() => setMenuOpen(false)} className="text-white no-underline font-semibold">A experiência</a>
+            <a href="#modalidades" onClick={() => setMenuOpen(false)} className="text-white no-underline font-semibold">Modalidades</a>
+            <a href="#convenios" onClick={() => setMenuOpen(false)} className="text-white no-underline font-semibold">Convênios</a>
+            <a href="/equipamentos" onClick={() => setMenuOpen(false)} className="text-white no-underline font-semibold">Equipamentos</a>
+          </nav>
+        )}
       </header>
 
       <main>
-        <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden bg-black" id="inicio">
-          <div className="absolute inset-0 z-0">
-            <img src="/unidade-exterior.jpeg" alt="Fachada de uma unidade T4 Fitness" className="h-full w-full object-cover opacity-40" />
+        {/* Hero Section */}
+        <section className="relative min-h-[630px] h-[min(780px,calc(100vh-34px))] bg-[#111] text-white overflow-hidden isolation-isolate" id="inicio">
+          <div className="absolute inset-0">
+            <img src="/unidade-exterior.jpeg" alt="Fachada de uma unidade T4 Fitness" className="w-full h-full object-cover object-[center_56%] saturate-[.9] contrast-[1.05]" />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#090909_3%] via-[rgba(9,9,9,.88)_28%] to-[rgba(9,9,9,.3)] opacity-100"></div>
           </div>
-          <div className="absolute inset-0 z-10 bg-gradient-to-b from-black/60 via-black/40 to-black/80"></div>
-          <div className="grid-overlay"></div>
-          <div className="absolute top-1/3 right-1/4 -z-10 h-96 w-96 rounded-full bg-orange-500 opacity-20 blur-3xl"></div>
 
-          <div className="wrap relative z-30 flex flex-col items-start justify-center py-24 text-white md:py-32">
-            <p className="eyebrow">
-              <span></span> T4 FITNESS · FORTALEZA
+          <div className="absolute inset-0 bg-gradient-to-b from-[rgba(0,0,0,.57)] to-transparent z-[1]"></div>
+
+          <div className="absolute inset-0 z-[1] opacity-[.17] bg-[linear-gradient(rgba(255,255,255,.22)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.22)_1px,transparent_1px)] bg-[72px_72px] mask-image-[linear-gradient(90deg,#000,transparent_69%)]"></div>
+
+          <div className="absolute w-[530px] h-[530px] rounded-full right-[-270px] top-[160px] bg-orange-500 blur-3xl opacity-[.13] z-[1]"></div>
+
+          <div className="relative z-[2] pt-[208px] px-6" style={{ maxWidth: 'min(1160px, calc(100% - 48px))', margin: '0 auto' }}>
+            <p className="text-2xs font-black uppercase tracking-[.14em] text-white mb-[18px] flex items-center gap-[9px]">
+              <span className="w-[30px] h-0.5 bg-orange-500"></span>
+              T4 FITNESS · FORTALEZA
             </p>
-            <h1 className="mb-8 max-w-2xl text-white">
+            <h1 className="text-white mb-8 max-w-2xl">
               Mais energia para<br />
-              <em>a sua evolução.</em>
+              <em className="not-italic text-orange-500">a sua evolução.</em>
             </h1>
-            <p className="mb-8 max-w-xl text-base leading-relaxed text-cream md:text-lg">
-              Treine onde o seu ritmo acontece. Estrutura completa, modalidades para
-              todos os estilos e uma comunidade que puxa você pra cima.
+            <p className="w-[min(440px,100%)] text-[15px] leading-[1.65] text-[#ececec] mb-8">
+              Treine onde o seu ritmo acontece. Estrutura completa, modalidades para todos os estilos e uma comunidade que puxa você pra cima.
             </p>
-            <div className="flex flex-col gap-6 md:flex-row md:items-center">
-              <a className="btn btn-orange" href="#unidades">
+            <div className="flex flex-col md:flex-row items-start md:items-center gap-[30px]">
+              <a href="#unidades" className="btn btn-orange">
                 Encontre sua unidade <span>↘</span>
               </a>
-              <a className="text-link" href="#experiencia">
+              <a href="#experiencia" className="text-link">
                 Conheça a T4 <span>→</span>
               </a>
             </div>
           </div>
 
-          <div className="wrap relative z-30 mb-16 grid grid-cols-3 gap-6 md:gap-12">
-            <div className="flex flex-col">
-              <strong className="text-4xl font-bold text-orange-500 md:text-5xl">7</strong>
-              <span className="text-sm text-cream md:text-base">unidades</span>
+          {/* Hero Stats */}
+          <div className="absolute z-[2] right-6 md:right-[max(24px,calc((100vw-1160px)/2))] bottom-[70px] flex gap-[30px] text-white">
+            <div className="border-l border-orange-500 pl-[13px] flex flex-col">
+              <strong className="font-display text-[32px] leading-[.8]">7</strong>
+              <span className="text-2xs uppercase tracking-[.08em]">unidades</span>
             </div>
-            <div className="flex flex-col">
-              <strong className="text-4xl font-bold text-orange-500 md:text-5xl">+</strong>
-              <span className="text-sm text-cream md:text-base">energia todo dia</span>
+            <div className="border-l border-orange-500 pl-[13px] flex flex-col">
+              <strong className="font-display text-[32px] leading-[.8]">+</strong>
+              <span className="text-2xs uppercase tracking-[.08em]">energia todo dia</span>
             </div>
-            <div className="flex flex-col">
-              <strong className="text-4xl font-bold text-orange-500 md:text-5xl">VIP</strong>
-              <span className="text-sm text-cream md:text-base">ofertas exclusivas</span>
+            <div className="border-l border-orange-500 pl-[13px] flex flex-col">
+              <strong className="font-display text-[32px] leading-[.8]">VIP</strong>
+              <span className="text-2xs uppercase tracking-[.08em]">ofertas exclusivas</span>
             </div>
           </div>
 
-          <a className="relative z-30 flex flex-col items-center gap-3 text-cream no-underline transition-all hover:text-orange-500" href="#unidades">
-            <span className="text-sm font-semibold">Role para descobrir</span>
-            <svg className="h-6 w-6 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          {/* Scroll Cue */}
+          <a href="#unidades" className="absolute z-[2] bottom-5 left-6 md:left-[max(24px,calc((100vw-1160px)/2))] text-white text-2xs uppercase tracking-[.13em] no-underline flex items-center gap-2.5 hover:text-orange-500 transition-colors">
+            <span>Role para descobrir</span>
+            <svg className="w-6 h-6 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
             </svg>
           </a>
         </section>
 
-        <section className="overflow-hidden bg-orange-500 py-8 md:py-12" aria-label="Destaques">
-          <div className="marquee-track text-white">
+        {/* Marquee Section */}
+        <section className="bg-orange-500 overflow-hidden" aria-label="Destaques">
+          <div className="h-[65px] flex items-center gap-[30px] w-max animate-marquee font-display font-black text-[27px] text-white">
             <span>SEU CORPO · SEU RITMO · SUA T4</span>
-            <b className="mx-8">✦</b>
+            <b className="text-[22px]">✦</b>
             <span>SEU CORPO · SEU RITMO · SUA T4</span>
-            <b className="mx-8">✦</b>
+            <b className="text-[22px]">✦</b>
             <span>SEU CORPO · SEU RITMO · SUA T4</span>
-            <b className="mx-8">✦</b>
+            <b className="text-[22px]">✦</b>
           </div>
         </section>
 
-        <section className="wrap py-16 md:py-24" id="experiencia">
-          <div className="section-kicker">A T4 É MOVIMENTO</div>
-          <div className="mb-16 grid grid-cols-1 gap-12 md:grid-cols-2 md:gap-16">
+        {/* Intro Section */}
+        <section className="py-[132px] md:py-[132px] px-6" style={{ maxWidth: 'min(1160px, calc(100% - 48px))', margin: '0 auto' }} id="experiencia">
+          <div className="text-2xs font-black uppercase tracking-[.14em] text-orange-500 mb-[26px]">
+            A T4 É MOVIMENTO
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-[1.2fr_.8fr] gap-[70px] md:gap-[70px] mb-[98px]">
             <div>
               <h2>
                 Um treino que<br />
-                cabe na <em>sua vida.</em>
+                cabe na <em className="not-italic text-orange-500">sua vida.</em>
               </h2>
             </div>
             <div>
-              <p className="mb-4 text-base leading-relaxed text-ink md:text-lg">
-                Na T4, você encontra mais do que equipamentos. Encontra espaço para
-                ganhar força, se divertir, dançar, lutar e cuidar de você.
+              <p className="text-[16px] leading-[1.75] text-ink mb-6 max-w-[360px]">
+                Na T4, você encontra mais do que equipamentos. Encontra espaço para ganhar força, se divertir, dançar, lutar e cuidar de você.
               </p>
-              <a className="text-link dark" href="#modalidades">
+              <a href="#modalidades" className="text-link dark">
                 Veja as modalidades <span>→</span>
               </a>
             </div>
           </div>
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-3 md:gap-12">
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-[42px] border-t border-[#d9d5cd] pt-[28px]">
             <article>
-              <div className="mb-4 text-5xl font-bold text-orange-500 md:text-6xl">01</div>
-              <h3 className="mb-3 text-2xl font-bold uppercase text-ink">Estrutura que inspira</h3>
-              <p className="text-sm leading-relaxed text-muted md:text-base">Ambientes modernos, equipamentos e um clima que dá vontade de voltar.</p>
+              <div className="text-2xs text-orange-500 font-black mb-8">01</div>
+              <h3 className="text-[35px] tracking-[-.02em] mb-4">Estrutura que inspira</h3>
+              <p className="text-[13px] leading-[1.7] text-muted max-w-[250px]">
+                Ambientes modernos, equipamentos e um clima que dá vontade de voltar.
+              </p>
             </article>
-            <article>
-              <div className="mb-4 text-5xl font-bold text-orange-500 md:text-6xl">02</div>
-              <h3 className="mb-3 text-2xl font-bold uppercase text-ink">Do seu jeito</h3>
-              <p className="text-sm leading-relaxed text-muted md:text-base">Musculação, cardio e aulas para você variar a rotina sem perder o foco.</p>
+            <article className="border-l border-[#d9d5cd] pl-[42px]">
+              <div className="text-2xs text-orange-500 font-black mb-8">02</div>
+              <h3 className="text-[35px] tracking-[-.02em] mb-4">Do seu jeito</h3>
+              <p className="text-[13px] leading-[1.7] text-muted max-w-[250px]">
+                Musculação, cardio e aulas para você variar a rotina sem perder o foco.
+              </p>
             </article>
-            <article>
-              <div className="mb-4 text-5xl font-bold text-orange-500 md:text-6xl">03</div>
-              <h3 className="mb-3 text-2xl font-bold uppercase text-ink">Perto de você</h3>
-              <p className="text-sm leading-relaxed text-muted md:text-base">Sete endereços para o seu treino estar sempre no caminho.</p>
+            <article className="border-l border-[#d9d5cd] pl-[42px]">
+              <div className="text-2xs text-orange-500 font-black mb-8">03</div>
+              <h3 className="text-[35px] tracking-[-.02em] mb-4">Perto de você</h3>
+              <p className="text-[13px] leading-[1.7] text-muted max-w-[250px]">
+                Sete endereços para o seu treino estar sempre no caminho.
+              </p>
             </article>
           </div>
         </section>
 
-        <section className="relative h-96 w-full overflow-hidden md:h-screen">
-          <img src="/cardio-01.jpeg" alt="Área de cardio da T4 Fitness" className="h-full w-full object-cover" />
-          <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/40">
-            <span className="text-2xs font-bold uppercase tracking-widest text-cream">VAI NO</span>
-            <strong className="text-5xl font-black uppercase text-orange-500 md:text-7xl">SEU RITMO</strong>
-            <span className="text-2xs font-bold uppercase tracking-widest text-cream">VAI MAIS LONGE</span>
+        {/* Media Break */}
+        <section className="h-[500px] md:h-[500px] relative overflow-hidden bg-[#14111b]">
+          <img src="/cardio-01.jpeg" alt="Área de cardio da T4 Fitness" className="w-full h-full object-cover object-[center_44%] opacity-[.78]" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[rgba(0,0,0,.55)] to-transparent"></div>
+          <div className="absolute inset-0 z-[1] flex flex-col justify-center pl-6 md:pl-[max(24px,calc((100vw-1160px)/2))] font-display uppercase">
+            <span className="text-[clamp(28px,3.4vw,47px)] font-bold tracking-[.04em] text-white">VAI NO</span>
+            <strong className="text-[clamp(58px,8vw,110px)] leading-[.78] text-orange-500 font-black">SEU RITMO</strong>
+            <span className="text-[clamp(28px,3.4vw,47px)] font-bold tracking-[.04em] text-white">VAI MAIS LONGE</span>
           </div>
         </section>
 
-        <section className="bg-cream py-16 md:py-24" id="unidades">
-          <div className="wrap">
-            <div className="mb-12 grid grid-cols-1 gap-8 md:grid-cols-2 md:gap-12">
+        {/* Units Section */}
+        <section className="bg-[#0d0d0e] text-white py-[126px] px-6" id="unidades">
+          <div style={{ maxWidth: 'min(1160px, calc(100% - 48px))', margin: '0 auto' }}>
+            <div className="flex flex-col md:flex-row md:items-end md:justify-between md:gap-[30px] mb-[64px]">
               <div>
-                <p className="section-kicker light">SUA T4 MAIS PRÓXIMA</p>
-                <h2>
+                <p className="text-2xs font-black uppercase tracking-[.14em] text-[#ff8a29] mb-6">SUA T4 MAIS PRÓXIMA</p>
+                <h2 className="max-w-2xl mb-0">
                   Escolha onde<br />
-                  você vai <em>evoluir.</em>
+                  você vai <em className="not-italic text-orange-500">evoluir.</em>
                 </h2>
               </div>
-              <div className="flex flex-col justify-end">
-                <p className="text-base text-muted md:text-lg">São 7 unidades esperando por você em Fortaleza.</p>
-              </div>
+              <p className="text-[14px] text-[#c4c4c4] max-w-[290px] leading-[1.6] mt-6 md:mt-0">
+                São 7 unidades esperando por você em Fortaleza.
+              </p>
             </div>
 
-            <div className="mb-8 flex flex-col items-center justify-between gap-4 md:flex-row">
-              <label className="search w-full md:w-auto">
-                <span className="mr-3">⌕</span>
+            <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6 mb-6">
+              <div className="h-[52px] bg-[#181819] flex items-center px-[17px] gap-3 text-orange-500 w-full md:w-[360px]">
+                <span className="text-[28px] leading-0 translate-y-[-2px]">⌕</span>
                 <input
-                  id="unitSearch"
                   type="search"
                   placeholder="Busque por bairro ou unidade"
                   value={unitSearch}
                   onChange={(e) => setUnitSearch(e.target.value)}
-                  className="border-0 bg-white px-4 py-2 text-ink outline-none placeholder:text-muted"
+                  className="w-full border-0 outline-0 bg-transparent text-white placeholder-[#858589] font-inherit text-[14px]"
                 />
-              </label>
-              <span id="unitCount" className="text-sm font-semibold text-muted">{unitCount} unidade{unitCount !== 1 ? 's' : ''}</span>
+              </div>
+              <span className="text-2xs uppercase tracking-[.12em] text-[#a5a5a6]">
+                {unitCount} unidades
+              </span>
             </div>
 
-            <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3" id="unitsGrid">
-              <article className="unit-card rounded-lg border border-gray-300 bg-white p-6 transition-all hover:shadow-lg" data-search="01 guadalajara rua arare">
-                <span className="mb-4 inline-block text-3xl font-bold text-orange-500">01</span>
-                <h3 className="mb-3 text-lg font-bold uppercase text-ink">Guadalajara</h3>
-                <p className="mb-6 text-sm text-muted">
-                  Rua Araré, 641<br />
-                  Guadalajara · Fortaleza, CE
-                </p>
-                <a href="#contato" data-unit="Guadalajara" className="inline-flex items-center gap-2 text-sm font-bold text-orange-500 no-underline transition-colors hover:text-orange-400">
-                  Quero treinar aqui <span>↗</span>
-                </a>
-              </article>
-              <article className="unit-card rounded-lg border border-gray-300 bg-white p-6 transition-all hover:shadow-lg" data-search="02 potira rua padre alfredo nesi">
-                <span className="mb-4 inline-block text-3xl font-bold text-orange-500">02</span>
-                <h3 className="mb-3 text-lg font-bold uppercase text-ink">Potira</h3>
-                <p className="mb-6 text-sm text-muted">
-                  Rua Padre Alfredo Nesi, 1322<br />
-                  Potira · Fortaleza, CE
-                </p>
-                <a href="#contato" data-unit="Potira" className="inline-flex items-center gap-2 text-sm font-bold text-orange-500 no-underline transition-colors hover:text-orange-400">
-                  Quero treinar aqui <span>↗</span>
-                </a>
-              </article>
-              <article className="unit-card rounded-lg border border-gray-300 bg-white p-6 transition-all hover:shadow-lg" data-search="03 arianopolis rua danilo correia">
-                <span className="mb-4 inline-block text-3xl font-bold text-orange-500">03</span>
-                <h3 className="mb-3 text-lg font-bold uppercase text-ink">Arianópolis</h3>
-                <p className="mb-6 text-sm text-muted">
-                  Rua Danilo Correia, 777<br />
-                  Arianópolis · Fortaleza, CE
-                </p>
-                <a href="#contato" data-unit="Arianópolis" className="inline-flex items-center gap-2 text-sm font-bold text-orange-500 no-underline transition-colors hover:text-orange-400">
-                  Quero treinar aqui <span>↗</span>
-                </a>
-              </article>
-              <article className="unit-card rounded-lg border border-gray-300 bg-white p-6 transition-all hover:shadow-lg" data-search="04 parque albano rua goncalves dias">
-                <span className="mb-4 inline-block text-3xl font-bold text-orange-500">04</span>
-                <h3 className="mb-3 text-lg font-bold uppercase text-ink">Parque Albano</h3>
-                <p className="mb-6 text-sm text-muted">
-                  Rua Gonçalves Dias, 1988<br />
-                  Parque Albano · Fortaleza, CE
-                </p>
-                <a href="#contato" data-unit="Parque Albano" className="inline-flex items-center gap-2 text-sm font-bold text-orange-500 no-underline transition-colors hover:text-orange-400">
-                  Quero treinar aqui <span>↗</span>
-                </a>
-              </article>
-              <article className="unit-card rounded-lg border border-gray-300 bg-white p-6 transition-all hover:shadow-lg" data-search="05 granja lisboa rua xavier da silveira">
-                <span className="mb-4 inline-block text-3xl font-bold text-orange-500">05</span>
-                <h3 className="mb-3 text-lg font-bold uppercase text-ink">Granja Lisboa</h3>
-                <p className="mb-6 text-sm text-muted">
-                  Rua Xavier da Silveira, 3949<br />
-                  Granja Lisboa · Fortaleza, CE
-                </p>
-                <a href="#contato" data-unit="Granja Lisboa" className="inline-flex items-center gap-2 text-sm font-bold text-orange-500 no-underline transition-colors hover:text-orange-400">
-                  Quero treinar aqui <span>↗</span>
-                </a>
-              </article>
-              <article className="unit-card rounded-lg border border-gray-300 bg-white p-6 transition-all hover:shadow-lg" data-search="06 bela vista rua espiriro santo espirito">
-                <span className="mb-4 inline-block text-3xl font-bold text-orange-500">06</span>
-                <h3 className="mb-3 text-lg font-bold uppercase text-ink">Bela Vista</h3>
-                <p className="mb-6 text-sm text-muted">
-                  Rua Espiriro Santo, 614<br />
-                  Bela Vista · Fortaleza, CE
-                </p>
-                <a href="#contato" data-unit="Bela Vista" className="inline-flex items-center gap-2 text-sm font-bold text-orange-500 no-underline transition-colors hover:text-orange-400">
-                  Quero treinar aqui <span>↗</span>
-                </a>
-              </article>
-              <article className="unit-card rounded-lg border border-2 border-orange-500 bg-black p-6 transition-all hover:shadow-lg" data-search="07 antonio bezerra rua martins neto">
-                <span className="mb-4 inline-block text-3xl font-bold text-orange-500">07</span>
-                <h3 className="mb-3 text-lg font-bold uppercase text-cream">Antônio Bezerra</h3>
-                <p className="mb-6 text-sm text-gray-400">
-                  Rua Martins Neto, 810<br />
-                  Antônio Bezerra · Fortaleza, CE
-                </p>
-                <a href="#contato" data-unit="Antônio Bezerra" className="inline-flex items-center gap-2 text-sm font-bold text-orange-500 no-underline transition-colors hover:text-orange-400">
-                  Quero treinar aqui <span>↗</span>
-                </a>
-              </article>
+            <div className="grid grid-cols-1 md:grid-cols-3 border-t border-l border-[#39393b]">
+              {units.map((unit) => (
+                <article
+                  key={unit.id}
+                  className="unit-card min-h-[245px] p-[27px] border-r border-b border-[#39393b] flex flex-col transition-colors hover:bg-orange-500 hover:text-[#111]"
+                  data-search={unit.search}
+                >
+                  <span className="text-2xs text-orange-500 font-bold tracking-[.1em] hover:text-[#111]">
+                    {String(unit.id).padStart(2, '0')}
+                  </span>
+                  <h3 className="font-display font-black text-[42px] tracking-[-.025em] my-[34px] leading-none">
+                    {unit.name}
+                  </h3>
+                  <p className="text-[12px] leading-[1.7] text-[#b7b7bb] m-0 hover:text-[#111]">
+                    {unit.address}<br />
+                    {unit.neighborhood} · Fortaleza, CE
+                  </p>
+                  <a href="#contato" className="mt-auto text-white text-2xs font-black uppercase tracking-[.09em] no-underline hover:text-[#111]">
+                    Quero treinar aqui <span className="text-[17px] text-orange-500 ml-[5px] hover:text-[#111]">↗</span>
+                  </a>
+                </article>
+              ))}
             </div>
           </div>
         </section>
 
-        <section className="wrap py-16 md:py-24" id="modalidades">
-          <div className="mb-16 grid grid-cols-1 gap-8 md:grid-cols-2 md:gap-12">
-            <div>
-              <p className="section-kicker">TODA ENERGIA CONTA</p>
-              <h2>
-                Encontre o seu<br />
-                <em>movimento.</em>
-              </h2>
+        {/* Modalities Section */}
+        <section className="py-[130px] px-6" id="modalidades">
+          <div style={{ maxWidth: 'min(1160px, calc(100% - 48px))', margin: '0 auto' }}>
+            <div className="flex flex-col md:flex-row md:items-end md:justify-between md:gap-[30px] mb-[65px]">
+              <div>
+                <p className="text-2xs font-black uppercase tracking-[.14em] text-orange-500 mb-6">TODA ENERGIA CONTA</p>
+                <h2 className="max-w-2xl mb-0">
+                  Encontre o seu<br />
+                  <em className="not-italic text-orange-500">movimento.</em>
+                </h2>
+              </div>
+              <p className="text-[14px] text-muted max-w-[290px] leading-[1.6] mt-6 md:mt-0">
+                Da intensidade do treino à leveza da dança. Escolha uma modalidade ou misture todas.
+              </p>
             </div>
-            <div className="flex flex-col justify-end">
-              <p className="text-base text-muted md:text-lg">Da intensidade do treino à leveza da dança. Escolha uma modalidade ou misture todas.</p>
+
+            <div className="border-t border-[#d9d5cd]">
+              {modalities.map((mod) => (
+                <button
+                  key={mod.id}
+                  className="w-full text-left border-0 border-b border-[#d9d5cd] bg-transparent py-4 px-0 font-display text-[clamp(34px,4vw,58px)] font-bold uppercase leading-none flex items-center justify-between cursor-default transition-all hover:text-orange-500 hover:pl-3"
+                >
+                  {mod.name}
+                  <span className="font-sans text-2xs text-orange-500 pr-3">{mod.number}</span>
+                </button>
+              ))}
             </div>
-          </div>
-          <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
-            <button className="rounded-lg border-2 border-gray-300 bg-white px-6 py-4 font-bold uppercase text-ink transition-all hover:border-orange-500 hover:text-orange-500">Musculação <span className="ml-2 text-orange-500">01</span></button>
-            <button className="rounded-lg border-2 border-gray-300 bg-white px-6 py-4 font-bold uppercase text-ink transition-all hover:border-orange-500 hover:text-orange-500">Funcional <span className="ml-2 text-orange-500">02</span></button>
-            <button className="rounded-lg border-2 border-gray-300 bg-white px-6 py-4 font-bold uppercase text-ink transition-all hover:border-orange-500 hover:text-orange-500">Muay Thai <span className="ml-2 text-orange-500">03</span></button>
-            <button className="rounded-lg border-2 border-gray-300 bg-white px-6 py-4 font-bold uppercase text-ink transition-all hover:border-orange-500 hover:text-orange-500">FitDance <span className="ml-2 text-orange-500">04</span></button>
-            <button className="rounded-lg border-2 border-gray-300 bg-white px-6 py-4 font-bold uppercase text-ink transition-all hover:border-orange-500 hover:text-orange-500">Jiu-Jítsu <span className="ml-2 text-orange-500">05</span></button>
-            <button className="rounded-lg border-2 border-gray-300 bg-white px-6 py-4 font-bold uppercase text-ink transition-all hover:border-orange-500 hover:text-orange-500">Forró <span className="ml-2 text-orange-500">06</span></button>
-            <button className="rounded-lg border-2 border-gray-300 bg-white px-6 py-4 font-bold uppercase text-ink transition-all hover:border-orange-500 hover:text-orange-500">Karatê <span className="ml-2 text-orange-500">07</span></button>
           </div>
         </section>
 
-        <section className="wrap grid grid-cols-1 gap-6 py-16 md:grid-cols-3 md:gap-8 md:py-24">
-          <div className="relative col-span-1 h-96 overflow-hidden rounded-lg md:col-span-2 md:h-auto md:min-h-96">
-            <img src="/cardio-02.jpeg" alt="Esteiras e equipamentos da T4 Fitness" className="h-full w-full object-cover" />
-            <span className="absolute inset-0 flex items-end justify-start bg-gradient-to-t from-black/60 to-transparent p-6 text-2xl font-bold uppercase text-cream md:text-3xl">
+        {/* Gallery Section */}
+        <section className="h-[560px] md:h-[560px] grid grid-cols-1 md:grid-cols-[2fr_1fr] gap-[15px] px-6 pb-[120px] box-border" style={{ maxWidth: 'min(1160px, calc(100% - 48px))', margin: '0 auto' }}>
+          <div className="relative overflow-hidden">
+            <img src="/cardio-02.jpeg" alt="Esteiras e equipamentos da T4 Fitness" className="w-full h-full object-cover" />
+            <span className="absolute bottom-[25px] left-[25px] font-display font-black text-[42px] leading-[.82] text-white">
               ENERGIA EM CADA<br />
               DETALHE
             </span>
           </div>
-          <div className="flex flex-col gap-6">
-            <div className="relative h-44 overflow-hidden rounded-lg md:h-auto md:min-h-48">
-              <img src="/reception.jpeg" alt="Recepção de uma unidade T4 Fitness" className="h-full w-full object-cover" />
-            </div>
-            <div className="relative h-44 overflow-hidden rounded-lg md:h-auto md:min-h-48">
-              <img src="/locker-room.jpeg" alt="Vestiário moderno da T4 Fitness" className="h-full w-full object-cover" />
-            </div>
+          <div className="grid grid-cols-2 gap-[15px] md:grid-cols-1 md:grid-rows-2">
+            <img src="/reception.jpeg" alt="Recepção de uma unidade T4 Fitness" className="w-full h-full object-cover" />
+            <img src="/locker-room.jpeg" alt="Vestiário moderno da T4 Fitness" className="w-full h-full object-cover" />
           </div>
         </section>
 
-        <section className="bg-black py-16 md:py-24" id="convenios">
-          <div className="wrap grid grid-cols-1 gap-12 md:grid-cols-2 md:gap-16">
+        {/* Partners Section */}
+        <section className="bg-orange-500 py-[110px] px-6" id="convenios">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-[70px] items-center" style={{ maxWidth: 'min(1160px, calc(100% - 48px))', margin: '0 auto' }}>
             <div>
-              <p className="section-kicker light">TREINE COM LIBERDADE</p>
-              <h2 className="mb-6 text-white">
+              <p className="text-2xs font-black uppercase tracking-[.14em] text-white mb-[18px]">TREINE COM LIBERDADE</p>
+              <h2 className="mb-0">
                 Seu benefício<br />
-                também treina <em>aqui.</em>
+                também treina <em className="not-italic text-[#111]">aqui.</em>
               </h2>
-              <p className="mb-8 text-base leading-relaxed text-gray-400 md:text-lg">
-                A T4 aceita os principais benefícios corporativos para tornar o seu
-                treino ainda mais acessível.
+              <p className="max-w-[375px] text-[15px] leading-[1.65] my-7 text-[#0b0b0c]">
+                A T4 aceita os principais benefícios corporativos para tornar o seu treino ainda mais acessível.
               </p>
               <a href="#unidades" className="btn btn-white">
                 Escolha sua unidade <span>↘</span>
               </a>
             </div>
-            <div className="flex items-center justify-center">
-              <img src="/wellhub-totalpass.webp" alt="Wellhub e Totalpass - Parceiros T4 Fitness" className="w-full max-w-sm" />
+            <div className="flex flex-col gap-[18px]">
+              <div className="bg-[#0d0d0e] text-white p-[26px_29px] min-h-[138px] flex flex-col justify-center">
+                <small className="text-2xs tracking-[.12em] font-black text-[#c4c4c4]">ACEITAMOS</small>
+                <strong className="font-sans text-[34px] leading-[1.1] tracking-[-.07em]">wellhub</strong>
+                <span className="text-2xs text-[#b9b9ba] mt-[5px]">antigo Gympass</span>
+              </div>
+              <div className="bg-[#0d0d0e] text-white p-[26px_29px] min-h-[138px] flex flex-col justify-center">
+                <small className="text-2xs tracking-[.12em] font-black text-[#c4c4c4]">ACEITAMOS</small>
+                <strong className="font-sans text-[34px] leading-[1.1] tracking-[-.07em] text-cream">totalpass</strong>
+                <span className="text-2xs text-[#b9b9ba] mt-[5px]">seu benefício em movimento</span>
+              </div>
             </div>
           </div>
         </section>
 
-        <section className="bg-cream py-16 md:py-24" id="contato">
-          <div className="wrap grid grid-cols-1 gap-12 md:grid-cols-2 md:gap-16">
+        {/* VIP Section */}
+        <section className="bg-cream py-[125px] px-6" id="contato">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-[100px] items-start" style={{ maxWidth: 'min(1160px, calc(100% - 48px))', margin: '0 auto' }}>
             <div>
-              <p className="section-kicker">PRIMEIRO PASSO</p>
-              <h2>
-                Vem pra <em>T4.</em>
+              <p className="text-2xs font-black uppercase tracking-[.14em] text-orange-500 mb-[18px]">PRIMEIRO PASSO</p>
+              <h2 className="mb-6">
+                Vem pra <em className="not-italic text-orange-500">T4.</em>
               </h2>
-              <p className="mt-6 text-base leading-relaxed text-ink md:text-lg">
-                Entre no Grupo VIP e fique por dentro das ofertas de inauguração,
-                condições especiais e novidades da sua unidade.
+              <p className="max-w-[400px] leading-[1.7] text-[15px] text-ink">
+                Entre no Grupo VIP e fique por dentro das ofertas de inauguração, condições especiais e novidades da sua unidade.
               </p>
             </div>
-            <form
-              id="vipForm"
-              onSubmit={(e) => {
-                e.preventDefault();
-                const formData = new FormData(e.currentTarget);
-                const name = formData.get('name');
-                window.open('https://www.instagram.com/t4fitness_/', '_blank', 'noopener,noreferrer');
-                e.currentTarget.reset();
-                const small = e.currentTarget.querySelector('small');
-                if (small) {
-                  small.textContent = `Perfeito, ${name}! Abrimos o Instagram da T4 para você continuar o atendimento.`;
-                }
-              }}
-              className="flex flex-col gap-6"
-            >
-              <label className="flex flex-col gap-2">
-                <span className="text-sm font-semibold uppercase text-ink">Seu nome</span>
-                <input name="name" required placeholder="Como podemos te chamar?" className="rounded border border-gray-300 bg-white px-4 py-3 text-ink placeholder:text-muted focus:border-orange-500 focus:outline-none" />
+            <form className="p-8 bg-white flex flex-col gap-[17px] shadow-form rounded">
+              <label className="text-2xs font-black uppercase tracking-[.08em] text-ink flex flex-col gap-2">
+                Seu nome
+                <input
+                  type="text"
+                  placeholder="Como podemos te chamar?"
+                  required
+                  className="text-[14px] font-sans border-0 border-b border-[#d5d2cc] p-[10px_0] outline-0 bg-transparent text-ink"
+                />
               </label>
-              <label className="flex flex-col gap-2">
-                <span className="text-sm font-semibold uppercase text-ink">Unidade de interesse</span>
-                <select id="unitSelect" name="unit" required className="rounded border border-gray-300 bg-white px-4 py-3 text-ink focus:border-orange-500 focus:outline-none">
+              <label className="text-2xs font-black uppercase tracking-[.08em] text-ink flex flex-col gap-2">
+                Unidade de interesse
+                <select
+                  required
+                  className="text-[14px] font-sans border-0 border-b border-[#d5d2cc] p-[10px_0] outline-0 bg-transparent text-ink"
+                >
                   <option value="">Escolha uma unidade</option>
-                  <option>Guadalajara</option>
-                  <option>Potira</option>
-                  <option>Arianópolis</option>
-                  <option>Parque Albano</option>
-                  <option>Granja Lisboa</option>
-                  <option>Bela Vista</option>
-                  <option>Antônio Bezerra</option>
+                  {units.map((unit) => (
+                    <option key={unit.id}>{unit.name}</option>
+                  ))}
                 </select>
               </label>
-              <button className="btn btn-orange" type="submit">
+              <button type="submit" className="btn btn-orange mt-4">
                 Quero entrar no VIP <span>↗</span>
               </button>
-              <small className="text-xs text-muted">
-                Ao enviar, você será direcionado ao Instagram da T4 para continuar o
-                atendimento.
+              <small className="text-2xs leading-[1.5] text-[#777]">
+                Ao enviar, você será direcionado ao Instagram da T4 para continuar o atendimento.
               </small>
             </form>
           </div>
         </section>
       </main>
 
-      <footer className="border-t border-gray-300 bg-white">
-        <div className="wrap grid grid-cols-1 gap-8 py-12 md:grid-cols-3 md:gap-12 md:py-16">
-          <img src="/logo-horizontal.jpeg" alt="T4 Fitness" className="h-8 w-auto" />
-          <p className="text-sm text-muted md:col-span-1">Mais energia para a sua evolução.</p>
-          <div className="flex items-center gap-6 justify-self-end md:col-span-1">
-            <a href="https://www.instagram.com/t4fitness_/" target="_blank" rel="noreferrer" aria-label="Instagram" className="inline-flex items-center justify-center h-6 w-6 text-orange-500 no-underline transition-all duration-250 hover:text-orange-400 hover:-translate-y-0.5">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.266.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zM5.838 12a6.162 6.162 0 1 1 12.324 0 6.162 6.162 0 0 1-12.324 0zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm4.965-10.322a1.44 1.44 0 1 1 2.881.001 1.44 1.44 0 0 1-2.881-.001z"/>
-              </svg>
-            </a>
-            <a href="https://www.facebook.com/arenafits/" target="_blank" rel="noreferrer" aria-label="Facebook" className="inline-flex items-center justify-center h-6 w-6 text-orange-500 no-underline transition-all duration-250 hover:text-orange-400 hover:-translate-y-0.5">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-              </svg>
-            </a>
-            <a href="https://api.whatsapp.com/message/7DVJU2H7CTALF1" target="_blank" rel="noreferrer" aria-label="WhatsApp" className="inline-flex items-center justify-center h-6 w-6 text-orange-500 no-underline transition-all duration-250 hover:text-orange-400 hover:-translate-y-0.5">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.67-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.076 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421-7.403h-.006a6.506 6.506 0 00-6.487 6.522 6.516 6.516 0 001.911 4.613l.996 1.605.793-2.584a6.511 6.511 0 119.237-8.156"/>
-              </svg>
-            </a>
-          </div>
+      {/* Footer */}
+      <footer className="bg-black text-white py-[55px_0_20px]">
+        <div className="px-6 grid grid-cols-1 md:grid-cols-3 items-center gap-5 md:gap-5" style={{ maxWidth: 'min(1160px, calc(100% - 48px))', margin: '0 auto' }}>
+          <img src="/logo-horizontal.jpeg" alt="T4 Fitness" className="w-[150px]" />
+          <p className="font-display text-[29px] leading-[.9] uppercase m-0 text-[#d8d8d8]">
+            Mais energia para a sua evolução.
+          </p>
+          <a href="https://www.instagram.com/t4fitness_/" target="_blank" rel="noreferrer" className="text-orange-500 text-2xs no-underline uppercase tracking-[.09em] font-black md:justify-self-end">
+            Instagram @t4fitness_ ↗
+          </a>
         </div>
-        <div className="wrap flex flex-col items-center justify-between gap-4 border-t border-gray-300 py-8 md:flex-row">
-          <span className="text-xs text-muted">© 2026 T4 Fitness. Todos os direitos reservados.</span>
-          <a href="#inicio" className="text-xs font-semibold text-ink no-underline transition-colors hover:text-orange-500">Voltar ao topo ↑</a>
+        <div className="px-6 border-t border-[#2c2c2e] mt-[50px] pt-[18px] flex flex-col md:flex-row md:justify-between md:items-center gap-3 md:gap-0" style={{ maxWidth: 'min(1160px, calc(100% - 48px))', margin: '0 auto' }}>
+          <span className="text-2xs text-[#858589] uppercase tracking-[.06em]">
+            © 2026 T4 Fitness. Todos os direitos reservados.
+          </span>
+          <a href="#inicio" className="text-white text-2xs no-underline uppercase tracking-[.06em] font-semibold hover:text-orange-500">
+            Voltar ao topo ↑
+          </a>
         </div>
       </footer>
     </>

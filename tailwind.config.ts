@@ -14,6 +14,7 @@ const config: Config = {
         400: "#ff8a00",
         500: "#ff6a00",
         600: "#e55c00",
+        950: "#17110c",
       },
       ink: {
         DEFAULT: "#0b0b0c",
