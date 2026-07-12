@@ -1,12 +1,22 @@
 @import "tailwindcss";
 
+:root {
+  --orange: #ff6a00;
+  --orange2: #ff8a00;
+  --ink: #0b0b0c;
+  --muted: #6e6e72;
+  --cream: #f3f0ea;
+  --line: #d9d5cd;
+}
+
 @layer base {
   html {
     scroll-behavior: smooth;
   }
 
   body {
-    @apply bg-white text-orange-950;
+    @apply bg-white;
+    color: var(--ink);
     font-family: "DM Sans", Arial, sans-serif;
   }
 
@@ -14,13 +24,103 @@
   h2,
   h3 {
     font-family: "Barlow Condensed", Impact, sans-serif;
-    @apply uppercase;
+    text-transform: uppercase;
+    line-height: 0.88;
+    margin: 0;
+  }
+
+  h1 {
+    font-size: clamp(60px, 8.4vw, 116px);
+    letter-spacing: -0.035em;
+    font-weight: 900;
+  }
+
+  h2 {
+    font-size: clamp(54px, 6.2vw, 87px);
+    letter-spacing: -0.045em;
   }
 }
 
 @layer components {
   .wrap {
-    @apply mx-auto w-full max-w-7xl px-6;
+    @apply mx-auto w-full px-6;
+    width: min(1160px, calc(100% - 48px));
+  }
+
+  .eyebrow,
+  .section-kicker {
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin: 0 0 18px;
+  }
+
+  .section-kicker.light {
+    color: #ff8a29;
+  }
+
+  .btn {
+    border: 0;
+    text-decoration: none;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 18px;
+    padding: 16px 20px;
+    line-height: 1;
+    font-size: 12px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    transition: 0.25s;
+    cursor: pointer;
+  }
+
+  .btn span {
+    font-size: 18px;
+  }
+
+  .btn-orange {
+    background: var(--orange);
+    color: #17110c;
+  }
+
+  .btn-orange:hover {
+    background: var(--orange2);
+    transform: translateY(-2px);
+  }
+
+  .btn-white {
+    background: #fff;
+    color: #111;
+  }
+
+  .btn-small {
+    padding: 12px 15px;
+    font-size: 10px;
+  }
+
+  .text-link {
+    font-size: 12px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    color: #fff;
+    text-decoration: none;
+  }
+
+  .text-link span {
+    color: var(--orange);
+    font-size: 19px;
+    margin-left: 4px;
+  }
+
+  .text-link.dark {
+    color: #111;
+    display: inline-block;
+    margin-top: 8px;
   }
 }
 

@@ -1,83 +1,160 @@
-import Image from "next/image";
-import { ChevronDown } from "lucide-react";
-
 export default function Hero() {
   return (
     <section
       id="inicio"
-      className="relative min-h-screen pt-34 pb-17.5 bg-black text-white overflow-hidden flex flex-col"
+      className="relative min-h-screen pt-[120px] pb-[80px] bg-black text-white overflow-hidden flex flex-col"
+      style={{ height: "min(780px, calc(100vh - 34px))" }}
     >
       <div className="absolute inset-0 z-0">
         <img
           src="/unidade-exterior.jpeg"
           alt="Fachada de uma unidade T4 Fitness"
-          className="w-full h-full object-cover object-center-bottom opacity-70 saturate-90 contrast-105"
+          className="w-full h-full object-cover"
+          style={{
+            objectPosition: "center 56%",
+            filter: "saturate(0.9) contrast(1.05)",
+          }}
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-black via-black/88 to-black/25 z-10" />
-        <div className="absolute inset-0 z-10 opacity-17 bg-gradient-to-bottom from-transparent to-black" />
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              "linear-gradient(90deg, #090909 3%, rgba(9,9,9,.88) 28%, rgba(9,9,9,.25) 65%, rgba(9,9,9,.3))",
+          }}
+        />
+        <div
+          className="absolute inset-0 z-10 opacity-17"
+          style={{
+            backgroundImage:
+              "linear-gradient(rgba(255,255,255,.22) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.22) 1px, transparent 1px)",
+            backgroundSize: "72px 72px",
+            maskImage: "linear-gradient(90deg, #000, transparent 69%)",
+          }}
+        />
       </div>
 
       <div className="relative z-20 flex-1 flex flex-col justify-center wrap">
-        <div className="mb-4.5 flex items-center gap-2.25">
-          <span className="w-7.5 h-0.5 bg-orange-500" />
-          <p className="text-2xs font-bold uppercase tracking-widest text-white">
+        <div className="mb-[18px] flex items-center gap-[9px]">
+          <span style={{ width: "30px", height: "2px", background: "#ff6a00" }} />
+          <p
+            style={{
+              fontSize: "11px",
+              fontWeight: 800,
+              letterSpacing: "0.14em",
+              textTransform: "uppercase",
+              color: "#fff",
+              margin: 0,
+            }}
+          >
             T4 FITNESS · FORTALEZA
           </p>
         </div>
 
-        <h1 className="mb-6.25 text-6xl md:text-8xl font-black leading-tight">
-          Mais energia para <em className="text-orange-500">a sua evolução.</em>
+        <h1 style={{ color: "white", marginBottom: "25px" }}>
+          Mais energia para{" "}
+          <em style={{ fontStyle: "normal", color: "#ff6a00" }}>
+            a sua evolução.
+          </em>
         </h1>
 
-        <p className="mb-6.25 max-w-110 text-base leading-7 text-gray-300">
+        <p
+          style={{
+            width: "min(440px, 100%)",
+            fontSize: "15px",
+            lineHeight: 1.65,
+            color: "#ececec",
+            marginBottom: "25px",
+          }}
+        >
           Treine onde o seu ritmo acontece. Estrutura completa, modalidades para
           todos os estilos e uma comunidade que puxa você pra cima.
         </p>
 
-        <div className="flex flex-col md:flex-row gap-7.5 items-start md:items-center">
+        <div className="flex flex-col md:flex-row gap-[30px] items-start md:items-center">
           <button
             onClick={() => {
-              document.getElementById("unidades")?.scrollIntoView({ behavior: "smooth" });
+              document
+                .getElementById("unidades")
+                ?.scrollIntoView({ behavior: "smooth" });
             }}
             className="btn btn-orange"
           >
             Encontre sua unidade <span>↘</span>
           </button>
-          <a href="#experiencia" className="text-2xs font-bold uppercase tracking-widest text-white hover:text-orange-500">
-            Conheça a T4 <span className="text-orange-500 text-base ml-1">→</span>
+          <a
+            href="#experiencia"
+            className="text-link"
+          >
+            Conheça a T4 <span>→</span>
           </a>
         </div>
       </div>
 
-      <div className="absolute bottom-17.5 right-6 md:bottom-17.5 md:right-6 z-20 hidden md:flex gap-7.5">
-        <div className="border-l border-orange-500 pl-3.25 flex flex-col">
-          <strong className="font-display text-2xl leading-tight">7</strong>
-          <span className="text-2xs font-bold uppercase tracking-widest">
-            unidades
-          </span>
-        </div>
-        <div className="border-l border-orange-500 pl-3.25 flex flex-col">
-          <strong className="font-display text-2xl leading-tight">+</strong>
-          <span className="text-2xs font-bold uppercase tracking-widest">
-            energia todo dia
-          </span>
-        </div>
-        <div className="border-l border-orange-500 pl-3.25 flex flex-col">
-          <strong className="font-display text-2xl leading-tight">VIP</strong>
-          <span className="text-2xs font-bold uppercase tracking-widest">
-            ofertas exclusivas
-          </span>
-        </div>
+      <div
+        className="absolute bottom-[70px] right-6 z-20 hidden md:flex gap-[30px]"
+        style={{ maxWidth: "calc(100vw - 48px)" }}
+      >
+        {[
+          { strong: "7", span: "unidades" },
+          { strong: "+", span: "energia todo dia" },
+          { strong: "VIP", span: "ofertas exclusivas" },
+        ].map((stat, i) => (
+          <div
+            key={i}
+            style={{
+              borderLeft: "1px solid #ff6a00",
+              paddingLeft: "13px",
+              display: "flex",
+              flexDirection: "column",
+            }}
+          >
+            <strong style={{ fontFamily: "Barlow Condensed", fontSize: "32px" }}>
+              {stat.strong}
+            </strong>
+            <span
+              style={{
+                fontSize: "9px",
+                textTransform: "uppercase",
+                letterSpacing: "0.08em",
+                marginTop: "7px",
+              }}
+            >
+              {stat.span}
+            </span>
+          </div>
+        ))}
       </div>
 
       <button
         onClick={() => {
-          document.getElementById("unidades")?.scrollIntoView({ behavior: "smooth" });
+          document
+            .getElementById("unidades")
+            ?.scrollIntoView({ behavior: "smooth" });
         }}
-        className="absolute bottom-5 left-6 z-20 text-2xs uppercase tracking-widest text-white flex items-center gap-2.5 hover:text-orange-500"
+        className="absolute bottom-5 left-6 z-20"
+        style={{
+          fontSize: "9px",
+          letterSpacing: "0.13em",
+          textTransform: "uppercase",
+          color: "#fff",
+          textDecoration: "none",
+          display: "flex",
+          alignItems: "center",
+          gap: "10px",
+          background: "none",
+          border: "none",
+          cursor: "pointer",
+        }}
       >
-        Role para descobrir
-        <div className="w-10 h-0.5 bg-orange-500" />
+        Role para descobrir{" "}
+        <i
+          style={{
+            height: "1px",
+            width: "40px",
+            background: "#ff6a00",
+            display: "inline-block",
+          }}
+        />
       </button>
     </section>
   );
