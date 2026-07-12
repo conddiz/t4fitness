@@ -116,7 +116,8 @@ export default function Home() {
       <main>
         <section className="relative min-h-[650px] md:min-h-[630px] h-[calc(100vh-34px)] md:h-[min(780px,calc(100vh-34px))] bg-[#111] text-white overflow-hidden isolate" id="inicio">
           <div className="absolute inset-0">
-            <img src="/unidade-exterior.jpeg" alt="Fachada de uma unidade T4 Fitness" className="w-full h-full object-cover object-[53%_center] md:object-[center_56%] saturate-[.9] contrast-[1.05]" />
+            <img src="/hero-mobile.jpg" alt="" aria-hidden="true" className="md:hidden w-full h-full object-cover object-center saturate-[.95] contrast-[1.02]" />
+            <img src="/hero.jpg" alt="Fachada da T4 Fitness com letreiro 24h" className="hidden md:block w-full h-full object-cover object-[center_45%] saturate-[.95] contrast-[1.02]" />
             <div className="hero-fade"></div>
           </div>
           <div className="hero-shade"></div>
@@ -124,28 +125,30 @@ export default function Home() {
           <div className="absolute z-[1] w-[530px] h-[530px] rounded-full right-[-270px] top-[160px] bg-orange-500 blur-[80px] opacity-[.13] pointer-events-none"></div>
 
           <div className="wrap relative z-[2] pt-[174px] md:pt-[208px]">
-            <p className="text-[12px] font-extrabold uppercase tracking-[.14em] text-white mb-[18px] flex items-center gap-[9px]">
-              <span className="w-[30px] h-0.5 bg-orange-500"></span>
-              T4 FITNESS · FORTALEZA
-            </p>
-            <h1 className="text-white">
-              Mais energia para<br />
-              <em>a sua evolução.</em>
-            </h1>
-            <p className="w-[min(440px,100%)] text-[16px] leading-[1.65] text-[#ececec] my-[25px]">
-              Treine onde o seu ritmo acontece. Estrutura completa, modalidades para todos os estilos e uma comunidade que puxa você pra cima.
-            </p>
-            <div className="flex flex-col md:flex-row items-start md:items-center gap-[18px] md:gap-[30px]">
-              <a href="#unidades" className="btn btn-orange">
-                Encontre sua unidade <FontAwesomeIcon icon={faArrowRight} className="text-[14px] rotate-45" />
-              </a>
-              <a href="#experiencia" className="text-link">
-                Conheça a T4 <FontAwesomeIcon icon={faArrowRight} className="text-[15px] ml-1 text-orange-500" />
-              </a>
+            <div className="md:max-w-[640px] md:ml-auto">
+              <p className="text-[12px] font-extrabold uppercase tracking-[.14em] text-white mb-[18px] flex items-center gap-[9px]">
+                <span className="w-[30px] h-0.5 bg-orange-500"></span>
+                T4 FITNESS · FORTALEZA
+              </p>
+              <h1 className="text-white md:text-[clamp(60px,4.8vw,92px)]">
+                Mais energia para<br />
+                <em>a sua evolução.</em>
+              </h1>
+              <p className="w-[min(440px,100%)] text-[16px] leading-[1.65] text-[#ececec] my-[25px]">
+                Treine onde o seu ritmo acontece. Estrutura completa, modalidades para todos os estilos e uma comunidade que puxa você pra cima.
+              </p>
+              <div className="flex flex-col md:flex-row items-start md:items-center gap-[18px] md:gap-[30px]">
+                <a href="#unidades" className="btn btn-orange">
+                  Encontre sua unidade <FontAwesomeIcon icon={faArrowRight} className="text-[14px] rotate-45" />
+                </a>
+                <a href="#experiencia" className="text-link">
+                  Conheça a T4 <FontAwesomeIcon icon={faArrowRight} className="text-[15px] ml-1 text-orange-500" />
+                </a>
+              </div>
             </div>
           </div>
 
-          <div className="absolute z-[2] left-[19px] right-[19px] md:left-auto md:right-[max(24px,calc((100vw-1160px)/2))] bottom-[55px] md:bottom-[70px] flex justify-between md:justify-start gap-2.5 md:gap-[30px] text-white pointer-events-none">
+          <div className="absolute z-[2] left-[19px] right-[19px] md:right-auto md:left-[max(24px,calc((100%-1160px)/2))] bottom-[55px] md:bottom-[70px] flex justify-between md:justify-start gap-2.5 md:gap-[30px] text-white pointer-events-none">
             <div className="border-l border-orange-500 pl-[13px] flex flex-col">
               <strong className="font-display text-[27px] md:text-[32px] leading-[.8]">7</strong>
               <span className="text-3xs uppercase tracking-[.08em] mt-[7px]">unidades</span>
@@ -160,7 +163,7 @@ export default function Home() {
             </div>
           </div>
 
-          <a href="#unidades" className="absolute z-[2] bottom-5 left-[19px] md:left-[max(24px,calc((100vw-1160px)/2))] text-white text-3xs uppercase tracking-[.13em] no-underline flex items-center gap-2.5 hover:text-orange-500 transition-colors">
+          <a href="#unidades" className="absolute z-[2] bottom-5 left-[19px] md:left-auto md:right-[max(24px,calc((100%-1160px)/2))] text-white text-3xs uppercase tracking-[.13em] no-underline flex items-center gap-2.5 hover:text-orange-500 transition-colors">
             Role para descobrir <i className="h-px w-10 bg-orange-500"></i>
           </a>
         </section>
