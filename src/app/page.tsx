@@ -332,16 +332,7 @@ export default function Home() {
               </a>
             </div>
             <div className="partner-badges">
-              <div className="badge wellhub">
-                <small>ACEITAMOS</small>
-                <strong>wellhub</strong>
-                <span>antigo Gympass</span>
-              </div>
-              <div className="badge totalpass">
-                <small>ACEITAMOS</small>
-                <strong>totalpass</strong>
-                <span>seu benefício em movimento</span>
-              </div>
+              <img src="/wellhub-totalpass.webp" alt="Wellhub e Totalpass - Parceiros T4 Fitness" />
             </div>
           </div>
         </section>

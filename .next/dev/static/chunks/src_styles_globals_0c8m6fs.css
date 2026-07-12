@@ -688,55 +688,32 @@ h1 em, h2 em {
   display: grid;
 }
 
-.partners h2 em {
-  color: #111;
+.partners h2, .partners h2 em {
+  color: #fff;
 }
 
 .partner-copy {
+  color: #fff;
   max-width: 375px;
   margin: 28px 0;
   font-size: 15px;
   line-height: 1.65;
 }
 
+.section-kicker.light, .partners .section-kicker.light {
+  color: #fff;
+}
+
 .partner-badges {
-  gap: 18px;
+  gap: 0;
   display: grid;
 }
 
-.badge {
-  color: #fff;
-  background: #0d0d0e;
-  flex-direction: column;
-  justify-content: center;
-  min-height: 138px;
-  padding: 26px 29px;
-  display: flex;
-  position: relative;
-}
-
-.badge small {
-  letter-spacing: .12em;
-  color: #c4c4c4;
-  font-size: 9px;
-  font-weight: 800;
-}
-
-.badge strong {
-  letter-spacing: -.07em;
-  font-family: DM Sans;
-  font-size: 34px;
-  line-height: 1.1;
-}
-
-.badge span {
-  color: #b9b9ba;
-  margin-top: 5px;
-  font-size: 10px;
-}
-
-.badge.totalpass strong {
-  color: #f3f0ea;
+.partner-badges img {
+  width: 100%;
+  height: auto;
+  margin: 0;
+  display: block;
 }
 
 .vip {
