@@ -1,0 +1,19 @@
+name = "t4fitness"
+type = "javascript"
+main = "src/index.js"
+
+[env.production]
+account_id = ""
+env = "production"
+vars = { ENVIRONMENT = "production" }
+
+[site]
+bucket = ".next/static"
+
+[build]
+command = "npm run build"
+cwd = "./"
+
+[build.upload]
+format = "modules"
+main = ".next/server/app.js"

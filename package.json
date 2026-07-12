@@ -1,0 +1,38 @@
+{
+  "name": "@conddiz/t4fitness",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "description": "T4 Fitness website — academia em Fortaleza",
+  "scripts": {
+    "dev": "next dev --turbopack",
+    "build": "next build",
+    "start": "next start",
+    "lint": "biome check src",
+    "lint:fix": "biome check --write src",
+    "typecheck": "tsc --noEmit",
+    "pages:dev": "next build && wrangler pages dev",
+    "pages:deploy": "next build && wrangler pages deploy"
+  },
+  "dependencies": {
+    "next": "16.2.4",
+    "react": "19.2.5",
+    "react-dom": "19.2.5",
+    "lucide-react": "0.469.0",
+    "tailwindcss": "4.2.4",
+    "@tailwindcss/postcss": "4.2.4"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "2.4.14",
+    "@types/node": "22.10.7",
+    "@types/react": "19.0.7",
+    "@types/react-dom": "19.0.3",
+    "typescript": "6.0.3",
+    "wrangler": "^4.99.0"
+  },
+  "engines": {
+    "node": ">=22.0.0",
+    "pnpm": ">=10.0.0"
+  },
+  "packageManager": "pnpm@10.33.0"
+}

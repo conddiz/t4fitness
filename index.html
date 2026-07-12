@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#ff6a00" />
+    <meta name="description" content="T4 Fitness — a sua academia em Fortaleza. Treino, movimento e energia para você evoluir." />
+    <title>T4 Fitness | Sua evolução começa aqui</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800;900&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="topbar"><span>7 unidades em Fortaleza</span><span class="topbar-dot"></span><span>Wellhub e TotalPass aceitos</span></div>
+    <header class="header">
+      <a class="brand" href="#inicio" aria-label="T4 Fitness - início"><img src="assets/logo-horizontal.jpeg" alt="T4 Fitness" /></a>
+      <nav class="nav" aria-label="Navegação principal">
+        <a href="#unidades">Unidades</a><a href="#experiencia">A experiência</a><a href="#modalidades">Modalidades</a><a href="#convenios">Convênios</a>
+      </nav>
+      <a class="btn btn-small btn-orange" href="#unidades">Matricule-se <span>↗</span></a>
+      <button class="menu-toggle" aria-label="Abrir menu" aria-expanded="false"><span></span><span></span></button>
+    </header>
+
+    <main>
+      <section class="hero" id="inicio">
+        <div class="hero-visual"><img src="assets/unidade-exterior.jpeg" alt="Fachada de uma unidade T4 Fitness" /></div>
+        <div class="hero-shade"></div><div class="grid-overlay"></div><div class="hero-orb"></div>
+        <div class="hero-content wrap">
+          <p class="eyebrow"><span></span> T4 FITNESS · FORTALEZA</p>
+          <h1>Mais energia para<br /><em>a sua evolução.</em></h1>
+          <p class="hero-copy">Treine onde o seu ritmo acontece. Estrutura completa, modalidades para todos os estilos e uma comunidade que puxa você pra cima.</p>
+          <div class="hero-actions"><a class="btn btn-orange" href="#unidades">Encontre sua unidade <span>↘</span></a><a class="text-link" href="#experiencia">Conheça a T4 <span>→</span></a></div>
+        </div>
+        <div class="hero-stats"><div><strong>7</strong><span>unidades</span></div><div><strong>+</strong><span>energia todo dia</span></div><div><strong>VIP</strong><span>ofertas exclusivas</span></div></div>
+        <a class="scroll-cue" href="#unidades">Role para descobrir <i></i></a>
+      </section>
+
+      <section class="marquee" aria-label="Destaques"><div class="marquee-track"><span>SEU CORPO · SEU RITMO · SUA T4</span><b>✦</b><span>SEU CORPO · SEU RITMO · SUA T4</span><b>✦</b><span>SEU CORPO · SEU RITMO · SUA T4</span><b>✦</b></div></section>
+
+      <section class="intro wrap" id="experiencia">
+        <div class="section-kicker">A T4 É MOVIMENTO</div>
+        <div class="intro-grid">
+          <h2>Um treino que<br />cabe na <em>sua vida.</em></h2>
+          <div><p>Na T4, você encontra mais do que equipamentos. Encontra espaço para ganhar força, se divertir, dançar, lutar e cuidar de você.</p><a class="text-link dark" href="#modalidades">Veja as modalidades <span>→</span></a></div>
+        </div>
+        <div class="feature-grid">
+          <article><div class="feature-num">01</div><h3>Estrutura que inspira</h3><p>Ambientes modernos, equipamentos e um clima que dá vontade de voltar.</p></article>
+          <article><div class="feature-num">02</div><h3>Do seu jeito</h3><p>Musculação, cardio e aulas para você variar a rotina sem perder o foco.</p></article>
+          <article><div class="feature-num">03</div><h3>Perto de você</h3><p>Sete endereços para o seu treino estar sempre no caminho.</p></article>
+        </div>
+      </section>
+
+      <section class="media-break"><img src="assets/cardio-01.jpeg" alt="Área de cardio da T4 Fitness" /><div class="media-caption"><span>VAI NO</span><strong>SEU RITMO</strong><span>VAI MAIS LONGE</span></div></section>
+
+      <section class="units-section" id="unidades">
+        <div class="wrap"><div class="section-heading"><div><p class="section-kicker light">SUA T4 MAIS PRÓXIMA</p><h2>Escolha onde<br />você vai <em>evoluir.</em></h2></div><p>São 7 unidades esperando por você em Fortaleza.</p></div>
+          <div class="unit-toolbar"><label class="search"><span>⌕</span><input id="unitSearch" type="search" placeholder="Busque por bairro ou unidade" /></label><span id="unitCount">7 unidades</span></div>
+          <div class="units-grid" id="unitsGrid">
+            <article class="unit-card" data-search="01 guadalajara rua arare"><span class="unit-index">01</span><h3>Guadalajara</h3><p>Rua Araré, 641<br />Guadalajara · Fortaleza, CE</p><a href="#contato" data-unit="Guadalajara">Quero treinar aqui <span>↗</span></a></article>
+            <article class="unit-card" data-search="02 potira rua padre alfredo nesi"><span class="unit-index">02</span><h3>Potira</h3><p>Rua Padre Alfredo Nesi, 1322<br />Potira · Fortaleza, CE</p><a href="#contato" data-unit="Potira">Quero treinar aqui <span>↗</span></a></article>
+            <article class="unit-card" data-search="03 arianopolis rua danilo correia"><span class="unit-index">03</span><h3>Arianópolis</h3><p>Rua Danilo Correia, 777<br />Arianópolis · Fortaleza, CE</p><a href="#contato" data-unit="Arianópolis">Quero treinar aqui <span>↗</span></a></article>
+            <article class="unit-card" data-search="04 parque albano rua goncalves dias"><span class="unit-index">04</span><h3>Parque Albano</h3><p>Rua Gonçalves Dias, 1988<br />Parque Albano · Fortaleza, CE</p><a href="#contato" data-unit="Parque Albano">Quero treinar aqui <span>↗</span></a></article>
+            <article class="unit-card" data-search="05 granja lisboa rua xavier da silveira"><span class="unit-index">05</span><h3>Granja Lisboa</h3><p>Rua Xavier da Silveira, 3949<br />Granja Lisboa · Fortaleza, CE</p><a href="#contato" data-unit="Granja Lisboa">Quero treinar aqui <span>↗</span></a></article>
+            <article class="unit-card" data-search="06 bela vista rua espiriro santo espirito"><span class="unit-index">06</span><h3>Bela Vista</h3><p>Rua Espiriro Santo, 614<br />Bela Vista · Fortaleza, CE</p><a href="#contato" data-unit="Bela Vista">Quero treinar aqui <span>↗</span></a></article>
+            <article class="unit-card unit-card-cta" data-search="07 antonio bezerra rua martins neto"><span class="unit-index">07</span><h3>Antônio Bezerra</h3><p>Rua Martins Neto, 810<br />Antônio Bezerra · Fortaleza, CE</p><a href="#contato" data-unit="Antônio Bezerra">Quero treinar aqui <span>↗</span></a></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="modalities wrap" id="modalidades"><div class="section-heading"><div><p class="section-kicker">TODA ENERGIA CONTA</p><h2>Encontre o seu<br /><em>movimento.</em></h2></div><p>Da intensidade do treino à leveza da dança. Escolha uma modalidade ou misture todas.</p></div>
+        <div class="modality-list"><button>Musculação <span>01</span></button><button>Funcional <span>02</span></button><button>Muay Thai <span>03</span></button><button>FitDance <span>04</span></button><button>Jiu-Jítsu <span>05</span></button><button>Forró <span>06</span></button><button>Karatê <span>07</span></button></div>
+      </section>
+
+      <section class="gallery wrap"><div class="gallery-primary"><img src="assets/cardio-02.jpeg" alt="Esteiras e equipamentos da T4 Fitness" /><span>ENERGIA EM CADA<br />DETALHE</span></div><div class="gallery-side"><img src="assets/reception.jpeg" alt="Recepção de uma unidade T4 Fitness" /><img src="assets/locker-room.jpeg" alt="Vestiário moderno da T4 Fitness" /></div></section>
+
+      <section class="partners" id="convenios"><div class="wrap partner-grid"><div><p class="section-kicker light">TREINE COM LIBERDADE</p><h2>Seu benefício<br />também treina <em>aqui.</em></h2><p class="partner-copy">A T4 aceita os principais benefícios corporativos para tornar o seu treino ainda mais acessível.</p><a href="#unidades" class="btn btn-white">Escolha sua unidade <span>↘</span></a></div><div class="partner-badges"><div class="badge wellhub"><small>ACEITAMOS</small><strong>wellhub</strong><span>antigo Gympass</span></div><div class="badge totalpass"><small>ACEITAMOS</small><strong>totalpass</strong><span>seu benefício em movimento</span></div></div></div></section>
+
+      <section class="vip" id="contato"><div class="vip-inner wrap"><div><p class="section-kicker">PRIMEIRO PASSO</p><h2>Vem pra <em>T4.</em></h2><p>Entre no Grupo VIP e fique por dentro das ofertas de inauguração, condições especiais e novidades da sua unidade.</p></div><form id="vipForm"><label>Seu nome<input name="name" required placeholder="Como podemos te chamar?" /></label><label>Unidade de interesse<select id="unitSelect" name="unit" required><option value="">Escolha uma unidade</option><option>Guadalajara</option><option>Potira</option><option>Arianópolis</option><option>Parque Albano</option><option>Granja Lisboa</option><option>Bela Vista</option><option>Antônio Bezerra</option></select></label><button class="btn btn-orange" type="submit">Quero entrar no VIP <span>↗</span></button><small>Ao enviar, você será direcionado ao Instagram da T4 para continuar o atendimento.</small></form></div></section>
+    </main>
+    <footer><div class="wrap footer-grid"><img src="assets/logo-horizontal.jpeg" alt="T4 Fitness" /><p>Mais energia para a sua evolução.</p><a href="https://www.instagram.com/t4fitness_/" target="_blank" rel="noreferrer">Instagram @t4fitness_ ↗</a></div><div class="wrap footer-bottom"><span>© 2026 T4 Fitness. Todos os direitos reservados.</span><a href="#inicio">Voltar ao topo ↑</a></div></footer>
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,65 @@
+@import "tailwindcss";
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-white text-ink;
+    font-family: "DM Sans", Arial, sans-serif;
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: "Barlow Condensed", Impact, sans-serif;
+    @apply uppercase;
+  }
+}
+
+@layer components {
+  .eyebrow {
+    @apply text-xs font-bold uppercase tracking-widest text-orange-500 mb-4.5;
+  }
+
+  .section-kicker {
+    @apply text-xs font-bold uppercase tracking-widest text-orange-500 mb-6.5;
+  }
+
+  .section-kicker.light {
+    @apply text-orange-400;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-4.5 px-5 py-4 font-bold text-xs uppercase tracking-widest transition-all duration-250;
+  }
+
+  .btn-orange {
+    @apply bg-orange-500 text-orange-50 hover:bg-orange-400 hover:-translate-y-0.5;
+  }
+
+  .btn-white {
+    @apply bg-white text-ink;
+  }
+
+  .btn-small {
+    @apply px-3.75 py-3 text-2.5;
+  }
+
+  .wrap {
+    @apply mx-auto w-full max-w-4xl px-6;
+  }
+}
+
+@layer animations {
+  @keyframes marquee {
+    to {
+      transform: translateX(-33.3%);
+    }
+  }
+
+  .animate-marquee {
+    animation: marquee 22s linear infinite;
+  }
+}
