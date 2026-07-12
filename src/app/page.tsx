@@ -69,7 +69,7 @@ export default function Home() {
         </nav>
 
         <a href="#unidades" className="hidden md:inline-flex btn btn-small btn-orange text-[10px] gap-[9px] px-[15px] py-3 font-black uppercase tracking-[.06em]">
-          Matricule-se <span className="text-[18px]">↗</span>
+          Matricule-se <FontAwesomeIcon icon={faArrowRight} className="text-[14px] -rotate-45" />
         </a>
 
         <button className="md:hidden flex flex-col gap-1.5 ml-auto" onClick={() => setMenuOpen(!menuOpen)} aria-label="Abrir menu" aria-expanded={menuOpen}>
