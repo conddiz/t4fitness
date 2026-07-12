@@ -1,23 +1,55 @@
 @import "tailwindcss";
 
+/* Tailwind v4 CSS-first theme — tokens da marca T4 */
+@theme {
+  --color-orange-50: #fff7f0;
+  --color-orange-100: #ffeee1;
+  --color-orange-300: #ff8a29;
+  --color-orange-400: #ff8a00;
+  --color-orange-500: #ff6a00;
+  --color-orange-600: #e55c00;
+  --color-orange-950: #17110c;
+
+  --color-ink: #0b0b0c;
+  --color-muted: #6e6e72;
+  --color-cream: #f3f0ea;
+  --color-line: #d9d5cd;
+
+  --font-sans: var(--font-dm-sans), "DM Sans", Arial, sans-serif;
+  --font-display: var(--font-barlow-condensed), "Barlow Condensed", Impact, sans-serif;
+
+  --text-3xs: 9px;
+  --text-2xs: 10px;
+
+  --shadow-form: 0 18px 50px rgba(0, 0, 0, 0.06);
+
+  --animate-marquee: marquee 22s linear infinite;
+
+  @keyframes marquee {
+    to {
+      transform: translateX(-33.3%);
+    }
+  }
+}
+
 @layer base {
   html {
     scroll-behavior: smooth;
   }
 
   body {
-    font-family: "DM Sans", Arial, sans-serif;
+    font-family: var(--font-sans);
     background-color: #ffffff;
-    color: #0b0b0c;
+    color: var(--color-ink);
     margin: 0;
   }
 
   h1,
   h2,
   h3 {
-    font-family: "Barlow Condensed", Impact, sans-serif;
+    font-family: var(--font-display);
     text-transform: uppercase;
-    line-height: 1;
+    line-height: 0.88;
     margin: 0;
   }
 
@@ -36,17 +68,21 @@
   h1 em,
   h2 em {
     font-style: normal;
-    color: #ff6a00;
+    color: var(--color-orange-500);
   }
 }
 
 @layer components {
+  /* container central idêntico ao design original */
   .wrap {
-    margin: 0 auto;
-    width: 100%;
-    padding-left: 24px;
-    padding-right: 24px;
     width: min(1160px, calc(100% - 48px));
+    margin-inline: auto;
+  }
+
+  /* padding lateral do header/full-bleed alinhado ao .wrap */
+  .edge-pad {
+    padding-left: max(24px, calc((100vw - 1160px) / 2));
+    padding-right: max(24px, calc((100vw - 1160px) / 2));
   }
 
   .btn {
@@ -56,8 +92,9 @@
     gap: 18px;
     padding: 16px 20px;
     border: 0;
-    font-weight: 700;
-    font-size: 10px;
+    line-height: 1;
+    font-size: 12px;
+    font-weight: 800;
     text-transform: uppercase;
     letter-spacing: 0.06em;
     transition: all 250ms;
@@ -65,188 +102,77 @@
     text-decoration: none;
   }
 
-  .btn span {
-    font-size: 18px;
-  }
-
   .btn-orange {
-    background-color: #ff6a00;
-    color: #1a1000;
+    background-color: var(--color-orange-500);
+    color: var(--color-orange-950);
   }
 
   .btn-orange:hover {
-    background-color: #ff8a00;
-    transform: translateY(-0.125rem);
+    background-color: var(--color-orange-400);
+    transform: translateY(-2px);
   }
 
   .btn-white {
     background-color: #ffffff;
-    color: #000000;
+    color: #111111;
+  }
+
+  .btn-white:hover {
+    transform: translateY(-2px);
   }
 
   .btn-small {
-    padding: 12px;
+    padding: 12px 15px;
     font-size: 10px;
-  }
-
-  .section-kicker {
-    font-size: 9px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.14em;
-    color: #ff6a00;
-    margin-bottom: 18px;
-  }
-
-  .section-kicker.light {
-    color: #ff8a00;
   }
 
   .text-link {
     font-size: 12px;
-    font-weight: 700;
+    font-weight: 800;
     text-transform: uppercase;
-    letter-spacing: 0.06em;
+    letter-spacing: 0.07em;
     color: #ffffff;
     text-decoration: none;
-  }
-
-  .text-link span {
-    color: #ff6a00;
-    font-size: 18px;
-    margin-left: 4px;
   }
 
   .text-link.dark {
-    color: #000000;
-    display: inline-block;
-    margin-top: 8px;
+    color: #111111;
   }
 
-  .eyebrow {
-    font-size: 9px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.14em;
-    color: #ffffff;
-    margin-bottom: 18px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
+  /* camadas do hero — gradientes multi-stop que utilities não expressam */
+  .hero-fade {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      90deg,
+      #090909 3%,
+      rgba(9, 9, 9, 0.88) 28%,
+      rgba(9, 9, 9, 0.25) 65%,
+      rgba(9, 9, 9, 0.3)
+    );
   }
 
-  .eyebrow span {
-    width: 30px;
-    height: 2px;
-    background-color: #ff6a00;
-  }
-
-  @keyframes marquee {
-    to {
-      transform: translateX(-33.3%);
-    }
-  }
-
-  .marquee-track {
-    animation: marquee 22s linear infinite;
-    font-family: "Barlow Condensed", Impact, sans-serif;
-    font-weight: 700;
-    font-size: 60px;
-  }
-
-  .footer-social {
-    display: flex;
-    gap: 16px;
-    justify-self: end;
-  }
-
-  .footer-social a {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 24px;
-    height: 24px;
-    color: #ff6a00;
-    text-decoration: none;
-    transition: all 250ms;
-  }
-
-  .footer-social a:hover {
-    color: #ff8a00;
-    transform: translateY(-0.125rem);
-  }
-
-  .footer-social svg {
-    width: 100%;
-    height: 100%;
-  }
-
-  .filter-btn {
-    padding: 12px 24px;
-    border: 2px solid #d5d2cc;
-    background-color: transparent;
-    color: #0b0b0c;
-    font-size: 14px;
-    font-weight: 600;
-    text-transform: uppercase;
-    cursor: pointer;
-    transition: all 250ms;
-  }
-
-  .filter-btn:hover {
-    border-color: #ff6a00;
-    color: #ff6a00;
-  }
-
-  .filter-btn.active {
-    background-color: #ff6a00;
-    color: #ffffff;
-    border-color: #ff6a00;
-  }
-
-  .contact-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 12px;
-    padding: 16px 24px;
-    background-color: #ff6a00;
-    color: #ffffff;
-    text-decoration: none;
-    font-weight: 700;
-    font-size: 14px;
-    transition: all 250ms;
-    width: fit-content;
-  }
-
-  .contact-btn:hover {
-    background-color: #ff8a00;
-    transform: translateX(5px);
-  }
-
-  .vip-link {
-    display: block;
-    color: #ff6a00;
-    text-decoration: none;
-    font-weight: 600;
-    margin: 8px 0;
-    transition: all 200ms;
-  }
-
-  .vip-link:hover {
-    color: #ff8a00;
+  .hero-shade {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.57), transparent 38%);
   }
 
   .grid-overlay {
     position: absolute;
     inset: 0;
-    z-index: 20;
+    z-index: 1;
+    opacity: 0.17;
     background-image:
-      linear-gradient(0deg, transparent 24%, rgba(255, 106, 0, .05) 25%, rgba(255, 106, 0, .05) 26%, transparent 27%, transparent 74%, rgba(255, 106, 0, .05) 75%, rgba(255, 106, 0, .05) 76%, transparent 77%, transparent),
-      linear-gradient(90deg, transparent 24%, rgba(255, 106, 0, .05) 25%, rgba(255, 106, 0, .05) 26%, transparent 27%, transparent 74%, rgba(255, 106, 0, .05) 75%, rgba(255, 106, 0, .05) 76%, transparent 77%, transparent);
-    background-size: 50px 50px;
+      linear-gradient(rgba(255, 255, 255, 0.22) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.22) 1px, transparent 1px);
+    background-size: 72px 72px;
+    mask-image: linear-gradient(90deg, #000, transparent 69%);
+    -webkit-mask-image: linear-gradient(90deg, #000, transparent 69%);
   }
 
-  .grid-overlay-alt {
+  .grid-overlay-light {
     position: absolute;
     inset: 0;
     z-index: 0;

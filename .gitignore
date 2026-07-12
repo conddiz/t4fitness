@@ -11,6 +11,10 @@ yarn.lock
 .env.local
 .env.*.local
 
+# Build output
+.next/
+out/
+
 # Wrangler
 .wrangler/
 dist/

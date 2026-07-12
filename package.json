@@ -7,30 +7,30 @@
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
-    "start": "next start",
+    "start": "npx serve out",
     "lint": "biome check src",
     "lint:fix": "biome check --write src",
     "typecheck": "tsc --noEmit",
-    "pages:dev": "next build && wrangler pages dev",
-    "pages:deploy": "next build && wrangler pages deploy"
+    "pages:dev": "next build && wrangler pages dev out",
+    "pages:deploy": "next build && wrangler pages deploy out",
+    "deploy": "pnpm pages:deploy"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^7.3.0",
     "@fortawesome/free-brands-svg-icons": "^7.3.0",
     "@fortawesome/free-solid-svg-icons": "^7.3.0",
     "@fortawesome/react-fontawesome": "^3.4.0",
-    "@tailwindcss/postcss": "4.2.4",
-    "lucide-react": "0.469.0",
     "next": "16.2.4",
     "react": "19.2.5",
-    "react-dom": "19.2.5",
-    "tailwindcss": "4.2.4"
+    "react-dom": "19.2.5"
   },
   "devDependencies": {
     "@biomejs/biome": "2.4.14",
+    "@tailwindcss/postcss": "4.2.4",
     "@types/node": "22.10.7",
     "@types/react": "19.0.7",
     "@types/react-dom": "19.0.3",
+    "tailwindcss": "4.2.4",
     "typescript": "6.0.3",
     "wrangler": "^4.99.0"
   },

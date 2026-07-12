@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowRight, faArrowUp } from '@fortawesome/free-solid-svg-icons';
+import { faArrowRight, faArrowUp, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import { faInstagram, faFacebook, faWhatsapp } from '@fortawesome/free-brands-svg-icons';
 
 export default function Home() {
@@ -30,6 +30,14 @@ export default function Home() {
     { id: 7, name: 'Karatê', number: '07' },
   ];
 
+  const navLinks = [
+    { href: '#unidades', label: 'Unidades' },
+    { href: '#experiencia', label: 'A experiência' },
+    { href: '#modalidades', label: 'Modalidades' },
+    { href: '#convenios', label: 'Convênios' },
+    { href: '/investidores', label: 'Investidores' },
+  ];
+
   useEffect(() => {
     const normalize = (value: string) =>
       value.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase();
@@ -50,154 +58,151 @@ export default function Home() {
 
   return (
     <>
-      <div className="h-[34px] bg-orange-500 text-[#16110c] flex items-center justify-center gap-2.5 text-2xs uppercase font-black tracking-[.13em]">
+      <div className="h-[34px] bg-orange-500 text-orange-950 flex items-center justify-center gap-2.5 text-[8px] md:text-2xs uppercase font-extrabold tracking-[.13em]">
         <span>7 unidades em Fortaleza</span>
-        <span className="w-1 h-1 rounded-full bg-[#16110c]"></span>
+        <span className="w-1 h-1 rounded-full bg-orange-950"></span>
         <span>Wellhub e TotalPass aceitos</span>
       </div>
 
-      <header className={`h-[84px] bg-black flex items-center absolute z-10 w-full top-[34px] border-b border-white/[.13] transition-all ${menuOpen ? 'bg-[#0b0b0c]' : ''}`} style={{ paddingLeft: 'max(24px, calc((100vw - 1160px)/2))', paddingRight: 'max(24px, calc((100vw - 1160px)/2))' }} id="header">
-        <a className="flex-shrink-0" href="#inicio" aria-label="T4 Fitness - início">
-          <img src="/logo-horizontal.jpeg" alt="T4 Fitness" className="w-[122px] block" />
+      <header className={`edge-pad h-[72px] md:h-[84px] flex items-center gap-6 absolute z-10 w-full top-[34px] border-b border-white/[.13] ${menuOpen ? 'bg-ink' : 'bg-black'}`}>
+        <a className="shrink-0" href="#inicio" aria-label="T4 Fitness - início">
+          <img src="/logo-horizontal.jpeg" alt="T4 Fitness" className="w-[105px] md:w-[122px] block" />
         </a>
 
-        <nav className={`hidden md:flex items-center gap-[26px] ml-auto`} aria-label="Navegação principal">
-          <a href="#unidades" onClick={() => setMenuOpen(false)} className="text-white no-underline font-semibold text-[13px] hover:text-orange-500 transition-colors">Unidades</a>
-          <a href="#experiencia" onClick={() => setMenuOpen(false)} className="text-white no-underline font-semibold text-[13px] hover:text-orange-500 transition-colors">A experiência</a>
-          <a href="#modalidades" onClick={() => setMenuOpen(false)} className="text-white no-underline font-semibold text-[13px] hover:text-orange-500 transition-colors">Modalidades</a>
-          <a href="#convenios" onClick={() => setMenuOpen(false)} className="text-white no-underline font-semibold text-[13px] hover:text-orange-500 transition-colors">Convênios</a>
-          <a href="/equipamentos" onClick={() => setMenuOpen(false)} className="text-white no-underline font-semibold text-[13px] hover:text-orange-500 transition-colors">Equipamentos</a>
+        <nav className="hidden md:flex items-center gap-[26px] ml-auto" aria-label="Navegação principal">
+          {navLinks.map((link) => (
+            <a key={link.href} href={link.href} className="text-white no-underline font-semibold text-[13px] hover:text-orange-500 transition-colors">
+              {link.label}
+            </a>
+          ))}
         </nav>
 
-        <a href="#unidades" className="hidden md:inline-flex btn btn-small btn-orange text-[10px] gap-[9px] px-[15px] py-3 font-black uppercase tracking-[.06em]">
+        <a href="#unidades" className="btn btn-small btn-orange hidden md:inline-flex">
           Matricule-se <FontAwesomeIcon icon={faArrowRight} className="text-[14px] -rotate-45" />
         </a>
 
-        <button className="md:hidden flex flex-col gap-1.5 ml-auto" onClick={() => setMenuOpen(!menuOpen)} aria-label="Abrir menu" aria-expanded={menuOpen}>
-          <span className="w-[17px] h-0.5 bg-white block"></span>
-          <span className="w-[17px] h-0.5 bg-white block"></span>
+        <button
+          className="md:hidden grid place-content-center gap-1.5 ml-auto w-[37px] h-[37px] border border-[#4a4a4a] bg-transparent"
+          onClick={() => setMenuOpen(!menuOpen)}
+          aria-label="Abrir menu"
+          aria-expanded={menuOpen}
+        >
+          <span className="w-[17px] h-px bg-white block"></span>
+          <span className="w-[17px] h-px bg-white block"></span>
         </button>
 
         {menuOpen && (
-          <nav className="absolute top-[84px] left-0 w-full bg-[#0b0b0c] p-[22px_19px_25px] flex flex-col gap-[19px] md:hidden">
-            <a href="#unidades" onClick={() => setMenuOpen(false)} className="text-white no-underline font-semibold">Unidades</a>
-            <a href="#experiencia" onClick={() => setMenuOpen(false)} className="text-white no-underline font-semibold">A experiência</a>
-            <a href="#modalidades" onClick={() => setMenuOpen(false)} className="text-white no-underline font-semibold">Modalidades</a>
-            <a href="#convenios" onClick={() => setMenuOpen(false)} className="text-white no-underline font-semibold">Convênios</a>
-            <a href="/equipamentos" onClick={() => setMenuOpen(false)} className="text-white no-underline font-semibold">Equipamentos</a>
+          <nav className="absolute top-[71px] left-0 w-full bg-ink px-[19px] pt-[22px] pb-[25px] flex flex-col gap-[19px] md:hidden" aria-label="Navegação móvel">
+            {navLinks.map((link) => (
+              <a key={link.href} href={link.href} onClick={() => setMenuOpen(false)} className="text-white no-underline font-semibold">
+                {link.label}
+              </a>
+            ))}
           </nav>
         )}
       </header>
 
       <main>
-        <section className="relative min-h-[630px] h-[min(780px,calc(100vh-34px))] bg-[#111] text-white overflow-hidden isolation-isolate" id="inicio">
-          <div className="absolute inset-0 z-0">
+        <section className="relative min-h-[650px] md:min-h-[630px] h-[calc(100vh-34px)] md:h-[min(780px,calc(100vh-34px))] bg-[#111] text-white overflow-hidden isolate" id="inicio">
+          <div className="absolute inset-0">
             <img src="/unidade-exterior.jpeg" alt="Fachada de uma unidade T4 Fitness" className="w-full h-full object-cover object-[center_56%] saturate-[.9] contrast-[1.05]" />
-            <div className="absolute inset-0 bg-gradient-to-r from-[#090909_3%] via-[rgba(9,9,9,.88)_28%] to-[rgba(9,9,9,.3)]"></div>
+            <div className="hero-fade"></div>
           </div>
+          <div className="hero-shade"></div>
+          <div className="grid-overlay"></div>
+          <div className="absolute z-[1] w-[530px] h-[530px] rounded-full right-[-270px] top-[160px] bg-orange-500 blur-[80px] opacity-[.13] pointer-events-none"></div>
 
-          <div className="absolute inset-0 z-[1] bg-gradient-to-b from-[rgba(0,0,0,.57)] to-transparent"></div>
-
-          <div className="absolute inset-0 z-[1] opacity-[.17] bg-[linear-gradient(rgba(255,255,255,.22)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.22)_1px,transparent_1px)]" style={{ backgroundSize: '72px 72px', maskImage: 'linear-gradient(90deg, #000, transparent 69%)', WebkitMaskImage: 'linear-gradient(90deg, #000, transparent 69%)' }}></div>
-
-          <div className="absolute w-[530px] h-[530px] rounded-full bg-orange-500 blur-3xl opacity-[.13] z-[1]" style={{ right: '-270px', top: '160px', pointerEvents: 'none' }}></div>
-
-          <div className="relative z-[2] pt-[208px] px-6" style={{ maxWidth: 'min(1160px, calc(100% - 48px))', margin: '0 auto' }}>
-            <p className="text-2xs font-black uppercase tracking-[.14em] text-white mb-[18px] flex items-center gap-[9px]">
+          <div className="wrap relative z-[2] pt-[174px] md:pt-[208px]">
+            <p className="text-[11px] font-extrabold uppercase tracking-[.14em] text-white mb-[18px] flex items-center gap-[9px]">
               <span className="w-[30px] h-0.5 bg-orange-500"></span>
               T4 FITNESS · FORTALEZA
             </p>
-            <h1 className="text-white mb-8 max-w-2xl">
+            <h1 className="text-white">
               Mais energia para<br />
-              <em className="not-italic text-orange-500">a sua evolução.</em>
+              <em>a sua evolução.</em>
             </h1>
-            <p className="w-[min(440px,100%)] text-[15px] leading-[1.65] text-[#ececec] mb-8">
+            <p className="w-[min(440px,100%)] text-[15px] leading-[1.65] text-[#ececec] my-[25px]">
               Treine onde o seu ritmo acontece. Estrutura completa, modalidades para todos os estilos e uma comunidade que puxa você pra cima.
             </p>
-            <div className="flex flex-col md:flex-row items-start md:items-center gap-[30px]">
+            <div className="flex flex-col md:flex-row items-start md:items-center gap-[18px] md:gap-[30px]">
               <a href="#unidades" className="btn btn-orange">
-                Encontre sua unidade <FontAwesomeIcon icon={faArrowRight} className="text-[14px] -rotate-45" />
+                Encontre sua unidade <FontAwesomeIcon icon={faArrowRight} className="text-[14px] rotate-45" />
               </a>
               <a href="#experiencia" className="text-link">
-                Conheça a T4 <FontAwesomeIcon icon={faArrowRight} className="text-[16px] ml-1" />
+                Conheça a T4 <FontAwesomeIcon icon={faArrowRight} className="text-[15px] ml-1 text-orange-500" />
               </a>
             </div>
           </div>
 
-          <div className="absolute z-[2] right-6 md:right-[max(24px,calc((100vw-1160px)/2))] bottom-[55px] md:bottom-[70px] flex gap-[30px] text-white" style={{ pointerEvents: 'none' }}>
+          <div className="absolute z-[2] left-[19px] right-[19px] md:left-auto md:right-[max(24px,calc((100vw-1160px)/2))] bottom-[55px] md:bottom-[70px] flex justify-between md:justify-start gap-2.5 md:gap-[30px] text-white pointer-events-none">
             <div className="border-l border-orange-500 pl-[13px] flex flex-col">
-              <strong className="font-display text-[32px] leading-[.8]">7</strong>
-              <span className="text-2xs uppercase tracking-[.08em]">unidades</span>
+              <strong className="font-display text-[27px] md:text-[32px] leading-[.8]">7</strong>
+              <span className="text-3xs uppercase tracking-[.08em] mt-[7px]">unidades</span>
             </div>
             <div className="border-l border-orange-500 pl-[13px] flex flex-col">
-              <strong className="font-display text-[32px] leading-[.8]">+</strong>
-              <span className="text-2xs uppercase tracking-[.08em]">energia todo dia</span>
+              <strong className="font-display text-[27px] md:text-[32px] leading-[.8]">+</strong>
+              <span className="text-3xs uppercase tracking-[.08em] mt-[7px]">energia todo dia</span>
             </div>
             <div className="border-l border-orange-500 pl-[13px] flex flex-col">
-              <strong className="font-display text-[32px] leading-[.8]">VIP</strong>
-              <span className="text-2xs uppercase tracking-[.08em]">ofertas exclusivas</span>
+              <strong className="font-display text-[27px] md:text-[32px] leading-[.8]">VIP</strong>
+              <span className="text-3xs uppercase tracking-[.08em] mt-[7px]">ofertas exclusivas</span>
             </div>
           </div>
 
-          <a href="#unidades" className="absolute z-[2] bottom-5 left-6 md:left-[19px] text-white text-2xs uppercase tracking-[.13em] no-underline flex items-center gap-2.5 hover:text-orange-500 transition-colors">
-            <span>Role para descobrir</span>
-            <svg className="w-6 h-6 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-            </svg>
+          <a href="#unidades" className="absolute z-[2] bottom-5 left-[19px] md:left-[max(24px,calc((100vw-1160px)/2))] text-white text-3xs uppercase tracking-[.13em] no-underline flex items-center gap-2.5 hover:text-orange-500 transition-colors">
+            Role para descobrir <i className="h-px w-10 bg-orange-500"></i>
           </a>
         </section>
 
-        <section className="bg-orange-500 overflow-hidden" aria-label="Destaques">
-          <div className="h-[65px] flex items-center gap-[30px] w-max animate-marquee font-display font-black text-[27px] text-white">
+        <section className="bg-orange-500 overflow-hidden whitespace-nowrap" aria-label="Destaques">
+          <div className="h-[50px] md:h-[65px] flex items-center gap-[30px] w-max animate-marquee font-display font-extrabold text-[21px] md:text-[27px]">
             <span>SEU CORPO · SEU RITMO · SUA T4</span>
-            <b className="text-[22px]">✦</b>
+            <b className="text-[22px]" aria-hidden="true">✦</b>
             <span>SEU CORPO · SEU RITMO · SUA T4</span>
-            <b className="text-[22px]">✦</b>
+            <b className="text-[22px]" aria-hidden="true">✦</b>
             <span>SEU CORPO · SEU RITMO · SUA T4</span>
-            <b className="text-[22px]">✦</b>
+            <b className="text-[22px]" aria-hidden="true">✦</b>
           </div>
         </section>
 
-        <section className="py-[83px] md:py-[132px] px-6" style={{ maxWidth: 'min(1160px, calc(100% - 48px))', margin: '0 auto' }} id="experiencia">
-          <div className="text-2xs font-black uppercase tracking-[.14em] text-orange-500 mb-[26px]">
+        <section className="wrap py-[83px] md:pt-[132px] md:pb-[118px]" id="experiencia">
+          <div className="text-[11px] font-extrabold uppercase tracking-[.14em] text-orange-500 mb-[26px]">
             A T4 É MOVIMENTO
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-[70px] mb-[55px] md:mb-[98px]">
+          <div className="grid grid-cols-1 md:grid-cols-[1.2fr_.8fr] gap-[27px] md:gap-[70px] items-end">
+            <h2>
+              Um treino que<br />
+              cabe na <em>sua vida.</em>
+            </h2>
             <div>
-              <h2>
-                Um treino que<br />
-                cabe na <em className="not-italic text-orange-500">sua vida.</em>
-              </h2>
-            </div>
-            <div>
-              <p className="text-[16px] leading-[1.75] text-ink mb-6 max-w-[360px]">
+              <p className="text-[16px] leading-[1.75] text-ink max-w-[360px] mt-[5px] mb-6">
                 Na T4, você encontra mais do que equipamentos. Encontra espaço para ganhar força, se divertir, dançar, lutar e cuidar de você.
               </p>
-              <a href="#modalidades" className="text-link dark flex items-center gap-1">
-                Veja as modalidades <FontAwesomeIcon icon={faArrowRight} className="text-[16px]" />
+              <a href="#modalidades" className="text-link dark inline-flex items-center gap-1 mt-2">
+                Veja as modalidades <FontAwesomeIcon icon={faArrowRight} className="text-[15px] text-orange-500" />
               </a>
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-[42px] border-t border-[#d9d5cd] py-[23px] md:pt-[28px] md:pb-0">
-            <article>
-              <div className="text-2xs text-orange-500 font-black mb-8">01</div>
-              <h3 className="text-[35px] tracking-[-.02em] mb-4">Estrutura que inspira</h3>
+          <div className="mt-[55px] md:mt-[98px] border-t border-line grid grid-cols-1 md:grid-cols-3">
+            <article className="py-[23px] md:pt-7 md:pb-0 md:pr-[42px] border-b md:border-b-0 border-line">
+              <div className="text-[11px] text-orange-500 font-extrabold mb-5 md:mb-8">01</div>
+              <h3 className="text-[35px] tracking-[-.02em]">Estrutura que inspira</h3>
               <p className="text-[13px] leading-[1.7] text-muted max-w-[250px]">
                 Ambientes modernos, equipamentos e um clima que dá vontade de voltar.
               </p>
             </article>
-            <article className="border-l border-[#d9d5cd] pl-[42px]">
-              <div className="text-2xs text-orange-500 font-black mb-8">02</div>
-              <h3 className="text-[35px] tracking-[-.02em] mb-4">Do seu jeito</h3>
+            <article className="py-[23px] md:pt-7 md:pb-0 md:px-[42px] border-b md:border-b-0 md:border-l border-line">
+              <div className="text-[11px] text-orange-500 font-extrabold mb-5 md:mb-8">02</div>
+              <h3 className="text-[35px] tracking-[-.02em]">Do seu jeito</h3>
               <p className="text-[13px] leading-[1.7] text-muted max-w-[250px]">
                 Musculação, cardio e aulas para você variar a rotina sem perder o foco.
               </p>
             </article>
-            <article className="border-l border-[#d9d5cd] pl-[42px]">
-              <div className="text-2xs text-orange-500 font-black mb-8">03</div>
-              <h3 className="text-[35px] tracking-[-.02em] mb-4">Perto de você</h3>
+            <article className="py-[23px] md:pt-7 md:pb-0 md:pl-[42px] md:border-l border-line">
+              <div className="text-[11px] text-orange-500 font-extrabold mb-5 md:mb-8">03</div>
+              <h3 className="text-[35px] tracking-[-.02em]">Perto de você</h3>
               <p className="text-[13px] leading-[1.7] text-muted max-w-[250px]">
                 Sete endereços para o seu treino estar sempre no caminho.
               </p>
@@ -207,42 +212,42 @@ export default function Home() {
 
         <section className="h-[400px] md:h-[500px] relative overflow-hidden bg-[#14111b]">
           <img src="/cardio-01.jpeg" alt="Área de cardio da T4 Fitness" className="w-full h-full object-cover object-[center_44%] opacity-[.78]" />
-          <div className="absolute inset-0 bg-gradient-to-r from-[rgba(0,0,0,.55)] to-transparent"></div>
-          <div className="absolute inset-0 z-[1] flex flex-col justify-center pl-6 md:pl-[max(24px,calc((100vw-1160px)/2))] font-display uppercase">
+          <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(0,0,0,.55),transparent_70%)]"></div>
+          <div className="absolute inset-0 z-[1] flex flex-col justify-center pl-[19px] md:pl-[max(24px,calc((100vw-1160px)/2))] font-display uppercase">
             <span className="text-[clamp(28px,3.4vw,47px)] font-bold tracking-[.04em] text-white">VAI NO</span>
             <strong className="text-[clamp(58px,8vw,110px)] leading-[.78] text-orange-500 font-black">SEU RITMO</strong>
             <span className="text-[clamp(28px,3.4vw,47px)] font-bold tracking-[.04em] text-white">VAI MAIS LONGE</span>
           </div>
         </section>
 
-        <section className="bg-[#0d0d0e] text-white py-[82px] md:py-[126px] px-6" id="unidades">
-          <div style={{ maxWidth: 'min(1160px, calc(100% - 48px))', margin: '0 auto' }}>
-            <div className="flex flex-col md:flex-row md:items-end md:justify-between md:gap-[30px] mb-[42px] md:mb-[64px]">
+        <section className="bg-[#0d0d0e] text-white py-[82px] md:py-[126px]" id="unidades">
+          <div className="wrap">
+            <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-5 md:gap-[30px]">
               <div>
-                <p className="text-2xs font-black uppercase tracking-[.14em] text-[#ff8a29] mb-6">SUA T4 MAIS PRÓXIMA</p>
-                <h2 className="max-w-2xl mb-0">
+                <p className="text-[11px] font-extrabold uppercase tracking-[.14em] text-orange-300 mb-[26px]">SUA T4 MAIS PRÓXIMA</p>
+                <h2>
                   Escolha onde<br />
-                  você vai <em className="not-italic text-orange-500">evoluir.</em>
+                  você vai <em>evoluir.</em>
                 </h2>
               </div>
-              <p className="text-[14px] text-[#c4c4c4] max-w-[290px] leading-[1.6] mt-6 md:mt-0">
+              <p className="text-[14px] text-[#c4c4c4] max-w-[290px] leading-[1.6] mb-[9px]">
                 São 7 unidades esperando por você em Fortaleza.
               </p>
             </div>
 
-            <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6 mb-6">
-              <div className="h-[52px] bg-[#181819] flex items-center px-[17px] gap-3 text-orange-500 w-full md:w-[360px]">
-                <span className="text-[28px] leading-0 translate-y-[-2px]">⌕</span>
+            <div className="mt-[42px] md:mt-[64px] mb-6 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+              <label className="h-[52px] bg-[#181819] flex items-center px-[17px] gap-3 text-orange-500 w-full md:w-[360px]">
+                <FontAwesomeIcon icon={faMagnifyingGlass} className="text-[18px]" />
                 <input
                   type="search"
                   placeholder="Busque por bairro ou unidade"
                   value={unitSearch}
                   onChange={(e) => setUnitSearch(e.target.value)}
-                  className="w-full border-0 outline-0 bg-transparent text-white placeholder-[#858589] font-inherit text-[14px]"
+                  className="w-full border-0 outline-0 bg-transparent text-white placeholder:text-[#858589] font-sans text-[14px]"
                 />
-              </div>
-              <span className="text-2xs uppercase tracking-[.12em] text-[#a5a5a6]">
-                {unitCount} unidades
+              </label>
+              <span className="text-[11px] uppercase tracking-[.12em] text-[#a5a5a6]">
+                {unitCount} {unitCount === 1 ? 'unidade' : 'unidades'}
               </span>
             </div>
 
@@ -250,21 +255,21 @@ export default function Home() {
               {units.map((unit) => (
                 <article
                   key={unit.id}
-                  className="unit-card group min-h-[210px] md:min-h-[245px] p-[27px] border-r border-b border-[#39393b] flex flex-col transition-colors hover:bg-orange-500"
+                  className="unit-card group min-h-[210px] md:min-h-[245px] p-[27px] border-r border-b border-[#39393b] flex flex-col transition-colors duration-250 hover:bg-orange-500 hover:text-[#111]"
                   data-search={unit.search}
                 >
-                  <span className="text-2xs text-orange-500 font-bold tracking-[.1em] group-hover:text-[#111]">
+                  <span className="text-[11px] text-orange-500 font-bold tracking-[.1em] group-hover:text-[#111]">
                     {String(unit.id).padStart(2, '0')}
                   </span>
-                  <h3 className="font-display font-black text-[38px] md:text-[42px] tracking-[-.025em] my-[34px] md:my-[34px] leading-none group-hover:text-[#111]">
+                  <h3 className="text-[38px] md:text-[42px] tracking-[-.025em] mt-[23px] md:mt-[34px] mb-[13px]">
                     {unit.name}
                   </h3>
                   <p className="text-[12px] leading-[1.7] text-[#b7b7bb] m-0 group-hover:text-[#111]">
                     {unit.address}<br />
                     {unit.neighborhood} · Fortaleza, CE
                   </p>
-                  <a href="#contato" className="mt-auto text-white text-2xs font-black uppercase tracking-[.09em] no-underline group-hover:text-[#111] flex items-center gap-1">
-                    Quero treinar aqui <FontAwesomeIcon icon={faArrowRight} className="text-[12px] text-orange-500 group-hover:text-[#111] -rotate-45" />
+                  <a href="#contato" className="mt-auto text-white text-2xs font-extrabold uppercase tracking-[.09em] no-underline inline-flex items-center gap-[5px] group-hover:text-[#111]">
+                    Quero treinar aqui <FontAwesomeIcon icon={faArrowRight} className="text-[13px] text-orange-500 -rotate-45 group-hover:text-[#111]" />
                   </a>
                 </article>
               ))}
@@ -272,149 +277,162 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="py-[83px] md:py-[130px] px-6" id="modalidades">
-          <div style={{ maxWidth: 'min(1160px, calc(100% - 48px))', margin: '0 auto' }}>
-            <div className="flex flex-col md:flex-row md:items-end md:justify-between md:gap-[30px] mb-[65px]">
-              <div>
-                <p className="text-2xs font-black uppercase tracking-[.14em] text-orange-500 mb-6">TODA ENERGIA CONTA</p>
-                <h2 className="max-w-2xl mb-0">
-                  Encontre o seu<br />
-                  <em className="not-italic text-orange-500">movimento.</em>
-                </h2>
-              </div>
-              <p className="text-[14px] text-muted max-w-[290px] leading-[1.6] mt-6 md:mt-0">
-                Da intensidade do treino à leveza da dança. Escolha uma modalidade ou misture todas.
-              </p>
-            </div>
-
+        <section className="wrap py-[83px] md:py-[130px]" id="modalidades">
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-5 md:gap-[30px]">
             <div>
-              {modalities.map((mod) => (
-                <button
-                  key={mod.id}
-                  className="w-full text-left border-0 border-t border-[#d9d5cd] bg-transparent py-6 px-0 font-display text-[clamp(34px,4vw,58px)] font-bold uppercase leading-none flex items-center justify-between cursor-default transition-all hover:text-orange-500 hover:pl-3"
-                >
-                  {mod.name}
-                  <span className="font-sans text-2xs text-orange-500 pr-3">{mod.number}</span>
-                </button>
-              ))}
+              <p className="text-[11px] font-extrabold uppercase tracking-[.14em] text-orange-500 mb-[26px]">TODA ENERGIA CONTA</p>
+              <h2>
+                Encontre o seu<br />
+                <em>movimento.</em>
+              </h2>
+            </div>
+            <p className="text-[14px] text-muted max-w-[290px] leading-[1.6] mb-[9px]">
+              Da intensidade do treino à leveza da dança. Escolha uma modalidade ou misture todas.
+            </p>
+          </div>
+
+          <div className="mt-[65px] border-t border-line">
+            {modalities.map((mod) => (
+              <button
+                key={mod.id}
+                type="button"
+                className="w-full text-left border-0 border-b border-line bg-transparent py-4 px-0 font-display text-[clamp(34px,4vw,58px)] font-bold uppercase leading-none flex items-center justify-between cursor-default transition-all duration-200 hover:text-orange-500 hover:pl-3"
+              >
+                {mod.name}
+                <span className="font-sans text-[11px] text-orange-500 pr-3">{mod.number}</span>
+              </button>
+            ))}
+          </div>
+        </section>
+
+        <section className="wrap pb-[80px] md:pb-[120px]">
+          <div className="grid grid-cols-1 md:grid-cols-[2fr_1fr] gap-[15px] h-[525px] md:h-[560px] grid-rows-[2fr_1fr] md:grid-rows-1">
+            <div className="relative overflow-hidden">
+              <img src="/cardio-02.jpeg" alt="Esteiras e equipamentos da T4 Fitness" className="w-full h-full object-cover" />
+              <span className="absolute bottom-[25px] left-[25px] font-display font-extrabold text-[33px] md:text-[42px] leading-[.82] text-white">
+                ENERGIA EM CADA<br />
+                DETALHE
+              </span>
+            </div>
+            <div className="grid grid-cols-2 md:grid-cols-1 grid-rows-1 md:grid-rows-2 gap-[15px] overflow-hidden">
+              <img src="/reception.jpeg" alt="Recepção de uma unidade T4 Fitness" className="w-full h-full object-cover" />
+              <img src="/locker-room.jpeg" alt="Vestiário moderno da T4 Fitness" className="w-full h-full object-cover" />
             </div>
           </div>
         </section>
 
-        <section className="py-[80px] md:py-[120px] px-6">
-          <div style={{ maxWidth: 'min(1160px, calc(100% - 48px))', margin: '0 auto' }}>
-            <div className="grid grid-cols-1 md:grid-cols-[2fr_1fr] gap-[15px]">
-              <div className="relative overflow-hidden rounded-lg h-[300px] md:h-[560px]">
-                <img src="/cardio-02.jpeg" alt="Esteiras e equipamentos da T4 Fitness" className="w-full h-full object-cover" />
-                <span className="absolute bottom-[25px] left-[25px] font-display font-black text-[clamp(28px,4vw,42px)] leading-[.82] text-white">
-                  ENERGIA EM CADA<br />
-                  DETALHE
-                </span>
-              </div>
-              <div className="grid grid-cols-1 grid-rows-2 gap-[15px]">
-                <img src="/reception.jpeg" alt="Recepção de uma unidade T4 Fitness" className="w-full h-[270px] md:h-[272px] object-cover rounded-lg" />
-                <img src="/locker-room.jpeg" alt="Vestiário moderno da T4 Fitness" className="w-full h-[270px] md:h-[272px] object-cover rounded-lg" />
+        <section className="bg-orange-500 py-[80px] md:py-[110px]" id="convenios">
+          <div className="wrap grid grid-cols-1 md:grid-cols-2 gap-[45px] md:gap-[70px] items-center">
+            <div>
+              <p className="text-[11px] font-extrabold uppercase tracking-[.14em] text-white mb-[18px]">TREINE COM LIBERDADE</p>
+              <h2 className="text-ink">
+                Seu benefício<br />
+                também treina <em className="text-white">aqui.</em>
+              </h2>
+              <p className="max-w-[375px] text-[15px] leading-[1.65] my-7 text-[#1a1a1c]">
+                A T4 aceita os principais benefícios corporativos para tornar o seu treino ainda mais acessível.
+              </p>
+              <a href="#unidades" className="btn btn-white">
+                Escolha sua unidade <FontAwesomeIcon icon={faArrowRight} className="text-[14px] rotate-45" />
+              </a>
+            </div>
+            <div className="relative overflow-hidden h-[300px] md:h-[400px]">
+              <img src="/wellhub-totalpass.webp" alt="Wellhub e TotalPass aceitos na T4 Fitness" className="w-full h-full object-cover" />
+              <div className="absolute inset-0 bg-black/30"></div>
+              <div className="absolute inset-0 flex flex-col items-center justify-center text-white text-center">
+                <p className="text-[11px] font-extrabold uppercase tracking-[.14em] mb-2">ACEITAMOS</p>
+                <span className="text-[clamp(32px,8vw,64px)] font-display font-black uppercase leading-none">AQUI</span>
               </div>
             </div>
           </div>
         </section>
 
-        <section className="bg-orange-500 py-[80px] md:py-[110px] px-6" id="convenios">
-          <div style={{ maxWidth: 'min(1160px, calc(100% - 48px))', margin: '0 auto' }}>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-[45px] md:gap-[70px] items-center">
-              <div>
-                <p className="text-2xs font-black uppercase tracking-[.14em] text-white mb-[18px]">TREINE COM LIBERDADE</p>
-                <h2 className="text-[#0b0b0c] mb-0">
-                  Seu benefício<br />
-                  também treina <em className="not-italic text-white">aqui.</em>
-                </h2>
-                <p className="max-w-[375px] text-[15px] leading-[1.65] my-7 text-[#1a1a1c]">
-                  A T4 aceita os principais benefícios corporativos para tornar o seu treino ainda mais acessível.
-                </p>
-                <a href="#unidades" className="btn btn-white">
-                  Escolha sua unidade <FontAwesomeIcon icon={faArrowRight} className="text-[14px] -rotate-45" />
+        <section className="bg-cream py-[80px] md:py-[125px]" id="contato">
+          <div className="wrap grid grid-cols-1 md:grid-cols-2 gap-[42px] md:gap-[100px] items-start">
+            <div>
+              <p className="text-[11px] font-extrabold uppercase tracking-[.14em] text-orange-500 mb-[18px]">PRIMEIRO PASSO</p>
+              <h2>
+                Vem pra <em>T4.</em>
+              </h2>
+              <p className="max-w-[400px] leading-[1.7] text-[15px] text-ink mt-6">
+                Entre no Grupo VIP e fique por dentro das ofertas de inauguração, condições especiais e novidades da sua unidade.
+              </p>
+              <div className="mt-8 flex flex-col gap-2">
+                <a href="https://chat.whatsapp.com/JQaxKZssrRm3oUhNLvBogj" target="_blank" rel="noreferrer" className="text-orange-600 hover:text-orange-500 transition-colors font-semibold text-[14px] no-underline inline-flex items-center gap-2">
+                  <FontAwesomeIcon icon={faWhatsapp} className="text-[18px]" /> Grupo VIP Antônio Bezerra
+                </a>
+                <a href="https://chat.whatsapp.com/J1kUHS184lcCOCH33YoHdA" target="_blank" rel="noreferrer" className="text-orange-600 hover:text-orange-500 transition-colors font-semibold text-[14px] no-underline inline-flex items-center gap-2">
+                  <FontAwesomeIcon icon={faWhatsapp} className="text-[18px]" /> Grupo VIP Bela Vista
+                </a>
+                <a href="tel:+5585987453332" className="text-orange-600 hover:text-orange-500 transition-colors font-semibold text-[14px] no-underline inline-flex items-center gap-2 mt-1">
+                  (85) 98745-3332
                 </a>
               </div>
-              <div className="relative overflow-hidden rounded-lg h-[300px] md:h-[400px]">
-                <img src="/wellhub-totalpass.webp" alt="Wellhub e TotalPass" className="w-full h-full object-cover" />
-                <div className="absolute inset-0 bg-black/30"></div>
-                <div className="absolute inset-0 flex flex-col items-center justify-center text-white text-center">
-                  <p className="text-2xs font-black uppercase tracking-[.14em] mb-2">ACEITAMOS</p>
-                  <h3 className="text-[clamp(32px,8vw,64px)] font-display font-black leading-none">AQUI</h3>
-                </div>
-              </div>
             </div>
+            <form
+              className="p-8 bg-white grid gap-[17px] shadow-form"
+              onSubmit={(e) => {
+                e.preventDefault();
+                const data = new FormData(e.currentTarget);
+                const text = `Olá! Sou ${data.get('name')} e quero entrar no Grupo VIP da unidade ${data.get('unit')}.`;
+                window.open(`https://wa.me/5585987453332?text=${encodeURIComponent(text)}`, '_blank');
+              }}
+            >
+              <label className="text-2xs font-extrabold tracking-[.08em] uppercase grid gap-2">
+                Seu nome
+                <input
+                  name="name"
+                  required
+                  placeholder="Como podemos te chamar?"
+                  className="text-[14px] font-sans border-0 border-b border-[#d5d2cc] py-2.5 px-0 outline-0 bg-transparent focus:border-orange-500 transition-colors"
+                />
+              </label>
+              <label className="text-2xs font-extrabold tracking-[.08em] uppercase grid gap-2">
+                Unidade de interesse
+                <select
+                  name="unit"
+                  required
+                  className="text-[14px] font-sans border-0 border-b border-[#d5d2cc] py-2.5 px-0 outline-0 bg-transparent focus:border-orange-500 transition-colors"
+                >
+                  <option value="">Escolha uma unidade</option>
+                  {units.map((unit) => (
+                    <option key={unit.id}>{unit.name}</option>
+                  ))}
+                </select>
+              </label>
+              <button type="submit" className="btn btn-orange">
+                Quero entrar no VIP <FontAwesomeIcon icon={faArrowRight} className="text-[14px] -rotate-45" />
+              </button>
+              <small className="text-3xs leading-[1.5] text-[#777]">
+                Ao enviar, você será direcionado ao WhatsApp da T4 para continuar o atendimento.
+              </small>
+            </form>
           </div>
         </section>
-
-        <section className="bg-[#0d0d0e] py-[80px] md:py-[110px] px-6">
-          <div style={{ maxWidth: 'min(1160px, calc(100% - 48px))', margin: '0 auto' }}>
-            <p className="text-2xs font-black uppercase tracking-[.14em] text-orange-500 mb-[26px]">ENTRE EM CONTATO</p>
-            <h2 className="text-white mb-12 max-w-2xl">
-              Conecte com a <em className="not-italic text-orange-500">T4.</em>
-            </h2>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
-              <div>
-                <h3 className="text-white text-[18px] font-bold mb-6">Redes Sociais</h3>
-                <div className="flex gap-6">
-                  <a href="https://www.instagram.com/t4fitness_/" target="_blank" rel="noreferrer" className="w-14 h-14 rounded-full bg-orange-500 flex items-center justify-center text-white hover:bg-orange-400 transition-colors">
-                    <FontAwesomeIcon icon={faInstagram} className="text-[24px]" />
-                  </a>
-                  <a href="https://www.facebook.com/arenafits/" target="_blank" rel="noreferrer" className="w-14 h-14 rounded-full bg-orange-500 flex items-center justify-center text-white hover:bg-orange-400 transition-colors">
-                    <FontAwesomeIcon icon={faFacebook} className="text-[24px]" />
-                  </a>
-                  <a href="https://api.whatsapp.com/message/7DVJU2H7CTALF1" target="_blank" rel="noreferrer" className="w-14 h-14 rounded-full bg-orange-500 flex items-center justify-center text-white hover:bg-orange-400 transition-colors">
-                    <FontAwesomeIcon icon={faWhatsapp} className="text-[24px]" />
-                  </a>
-                </div>
-              </div>
-
-              <div>
-                <h3 className="text-white text-[18px] font-bold mb-6">Contato</h3>
-                <div className="space-y-3">
-                  <a href="tel:+558598745332" className="text-orange-400 hover:text-orange-300 text-sm font-semibold">
-                    (85) 98745-3332
-                  </a>
-                  <a href="https://api.whatsapp.com/message/7DVJU2H7CTALF1" target="_blank" rel="noreferrer" className="text-orange-400 hover:text-orange-300 text-sm font-semibold block">
-                    Chat WhatsApp
-                  </a>
-                </div>
-              </div>
-
-              <div>
-                <h3 className="text-white text-[18px] font-bold mb-6">Grupos VIP</h3>
-                <div className="space-y-3">
-                  <a href="https://chat.whatsapp.com/JQaxKZssrRm3oUhNLvBogj" target="_blank" rel="noreferrer" className="text-orange-400 hover:text-orange-300 text-sm font-semibold block">
-                    VIP Antônio Bezerra
-                  </a>
-                  <a href="https://chat.whatsapp.com/J1kUHS184lcCOCH33YoHdA" target="_blank" rel="noreferrer" className="text-orange-400 hover:text-orange-300 text-sm font-semibold block">
-                    VIP Bela Vista
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
       </main>
 
-      <footer className="bg-black text-white pt-[55px] pb-[20px]">
-        <div className="px-6 grid grid-cols-1 md:grid-cols-3 items-center gap-[23px] md:gap-5 pb-[50px]" style={{ maxWidth: 'min(1160px, calc(100% - 48px))', margin: '0 auto' }}>
+      <footer className="bg-black text-white pt-[55px] pb-5">
+        <div className="wrap grid grid-cols-1 md:grid-cols-3 items-center gap-[23px] md:gap-5">
           <img src="/logo-horizontal.jpeg" alt="T4 Fitness" className="w-[150px]" />
           <p className="font-display text-[29px] leading-[.9] uppercase m-0 text-[#d8d8d8]">
             Mais energia para a sua evolução.
           </p>
-          <a href="https://www.instagram.com/t4fitness_/" target="_blank" rel="noreferrer" className="text-orange-500 text-2xs no-underline uppercase tracking-[.09em] font-black md:justify-self-end hover:text-orange-400 transition-colors flex items-center gap-1">
-            Instagram @t4fitness_ <FontAwesomeIcon icon={faArrowRight} className="text-[12px] -rotate-45" />
-          </a>
+          <div className="flex items-center gap-5 md:justify-self-end">
+            <a href="https://www.instagram.com/t4fitness_/" target="_blank" rel="noreferrer" aria-label="Instagram da T4 Fitness" className="text-orange-500 hover:text-orange-400 hover:-translate-y-0.5 transition-all">
+              <FontAwesomeIcon icon={faInstagram} className="text-[22px]" />
+            </a>
+            <a href="https://www.facebook.com/arenafits/" target="_blank" rel="noreferrer" aria-label="Facebook da T4 Fitness" className="text-orange-500 hover:text-orange-400 hover:-translate-y-0.5 transition-all">
+              <FontAwesomeIcon icon={faFacebook} className="text-[22px]" />
+            </a>
+            <a href="https://api.whatsapp.com/message/7DVJU2H7CTALF1" target="_blank" rel="noreferrer" aria-label="WhatsApp da T4 Fitness" className="text-orange-500 hover:text-orange-400 hover:-translate-y-0.5 transition-all">
+              <FontAwesomeIcon icon={faWhatsapp} className="text-[22px]" />
+            </a>
+          </div>
         </div>
-        <div className="px-6 border-t border-[#2c2c2e] pt-[18px] flex flex-col md:flex-row md:justify-between md:items-center gap-[14px] md:gap-0" style={{ maxWidth: 'min(1160px, calc(100% - 48px))', margin: '0 auto' }}>
-          <span className="text-2xs text-[#858589] uppercase tracking-[.06em]">
-            © 2026 T4 Fitness. Todos os direitos reservados.
-          </span>
-          <a href="#inicio" className="text-white text-2xs no-underline uppercase tracking-[.06em] font-semibold hover:text-orange-500 transition-colors flex items-center gap-1">
-            Voltar ao topo <FontAwesomeIcon icon={faArrowUp} className="text-[12px]" />
+        <div className="wrap mt-[50px] pt-[18px] border-t border-[#2c2c2e] flex flex-col md:flex-row md:justify-between gap-[14px] md:gap-0 text-3xs uppercase tracking-[.06em]">
+          <span className="text-[#858589]">© 2026 T4 Fitness. Todos os direitos reservados.</span>
+          <a href="#inicio" className="text-white no-underline order-first md:order-none inline-flex items-center gap-1 hover:text-orange-500 transition-colors">
+            Voltar ao topo <FontAwesomeIcon icon={faArrowUp} className="text-[11px]" />
           </a>
         </div>
       </footer>
