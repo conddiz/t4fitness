@@ -24,7 +24,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
         />
         <meta name="theme-color" content="#ff6a00" />
       </head>
-      <body style={{ margin: 0, color: "#0b0b0c", background: "#fff", fontFamily: '"DM Sans", Arial, sans-serif' }}>
+      <body className="m-0 text-ink bg-white font-sans">
         {children}
       </body>
     </html>
