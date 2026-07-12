@@ -1,150 +1,95 @@
 # T4 Fitness | Website
 
-Website moderno para a rede de academias T4 Fitness em Fortaleza.
+Website moderno para a rede de academias T4 Fitness em Fortaleza. Construído com **Next.js + Tailwind + TypeScript**, mesmo stack do [portal Conddiz](https://github.com/conddiz/portal).
 
 ## Sobre
 
 T4 Fitness é uma rede de 7 academias em Fortaleza oferecendo musculação, cardio, aulas de grupo e lutas. O site apresenta:
 
-- **7 unidades**: Todas as endereços com busca interativa
+- **7 unidades** com busca interativa
 - **Modalidades variadas**: Musculação, Funcional, Muay Thai, FitDance, Jiu-Jítsu, Forró, Karatê
 - **Benefícios corporativos**: Wellhub (Gympass) e Totalpass aceitos
-- **CTA VIP**: Formulário de cadastro para grupo de interesse
-
-### Unidades
-
-1. Guadalajara - Rua Araré, 641
-2. Potira - Rua Padre Alfredo Nesi, 1322
-3. Arianópolis - Rua Danilo Correia, 777
-4. Parque Albano - Rua Gonçalves Dias, 1988
-5. Granja Lisboa - Rua Xavier da Silveira, 3949
-6. Bela Vista - Rua Espiriro Santo, 614
-7. Antônio Bezerra - Rua Martins Neto, 810
+- **Formulário VIP**: Cadastro com integração Instagram
+- **Design responsivo**: Mobile-first, performance otimizada
 
 ## Stack
 
-- **Frontend**: HTML5, CSS3, Vanilla JavaScript
-- **Deploy**: Cloudflare Pages
-- **Domain**: t4fitness.com.br (Conddiz Cloudflare Account)
-- **DNS**: Managed via Conddiz account
+- **Frontend**: Next.js 16 + React 19 + TypeScript
+- **Estilos**: Tailwind CSS 4 + PostCSS
+- **Qualidade**: Biome (linting + formatting)
+- **Deploy**: Cloudflare Pages + Wrangler
+- **Package Manager**: pnpm (v10+)
+- **Node.js**: 22+
 
 ## Estrutura do Projeto
 
 ```
 .
-├── index.html           # Página principal
-├── styles.css          # Estilos (minificado)
-├── script.js           # Interações e lógica
-├── assets/             # Imagens e mídia
-│   ├── logo-horizontal.jpeg
-│   ├── unidade-exterior.jpeg
-│   ├── cardio-*.jpeg
-│   ├── reception.jpeg
-│   ├── locker-room.jpeg
-│   └── wellhub-totalpass.webp
-├── docs/img/           # Documentação visual
-├── package.json        # Dependências do projeto
-├── wrangler.toml       # Configuração Cloudflare Pages
-└── .env.deploy         # Credenciais (gitignored)
+├── src/
+│   ├── app/
+│   │   ├── layout.tsx       # Root layout com metadados
+│   │   └── page.tsx         # Página inicial
+│   ├── components/          # Componentes React
+│   │   ├── Header.tsx
+│   │   ├── Hero.tsx
+│   │   ├── Marquee.tsx
+│   │   ├── UnitsSection.tsx
+│   │   ├── Partners.tsx
+│   │   └── Footer.tsx
+│   └── styles/
+│       └── globals.css      # Estilos globais + Tailwind
+├── public/                  # Imagens estáticas
+├── next.config.ts           # Configuração Next.js
+├── tailwind.config.ts       # Configuração Tailwind
+├── tsconfig.json            # TypeScript
+├── biome.json               # Linting
+└── wrangler.toml            # Cloudflare Pages
 ```
 
-## Desenvolvimento Local
+## Quick Start
+
+### Instalação
 
 ```bash
-# Instalar dependências
-npm install
+pnpm install
+```
 
-# Executar dev server local
-npm run dev
+### Desenvolvimento
 
-# Build (não necessário - site estático)
-npm run build
+```bash
+pnpm dev  # http://localhost:3000
+```
+
+### Build & Deploy
+
+```bash
+pnpm build
+pnpm pages:deploy
 ```
 
 ## Deploy no Cloudflare Pages
 
-### Opção 1: Via Wrangler CLI
+### Via GitHub (Recomendado)
 
-```bash
-# Login
-wrangler login
+1. Criar repositório em conddiz:
+   ```bash
+   gh repo create conddiz/t4fitness --public --source=. --remote=origin --push
+   ```
 
-# Deploy
-wrangler pages deploy .
-```
+2. Conectar ao Cloudflare Pages
+3. Configurar GitHub secrets: `CLOUDFLARE_API_TOKEN`, `CLOUDFLARE_ACCOUNT_ID`
 
-### Opção 2: Via GitHub (Recomendado)
-
-1. Crie o repositório na organização Conddiz no GitHub
-2. Conecte o repositório ao Cloudflare Pages
-3. Configure a branch de produção (main)
-4. Cada push para main fará deploy automático
-
-### Configuração de Ambiente
-
-As credenciais Cloudflare são injetadas via `.env.deploy` (sincronizado do cofre global):
+### Sincronizar Credenciais
 
 ```bash
 cd C:\Projects\.global-vault
 .\Sync-DeployEnv.ps1 -Project C:\Projects\t4fitness -Profiles conddiz/cloudflare
 ```
 
-## Recursos Implementados
-
-- [x] Design responsivo (Mobile-first)
-- [x] Hero section com CTA principal
-- [x] Grid de 7 unidades com busca interativa
-- [x] Seção de modalidades
-- [x] Galeria de imagens
-- [x] Badges de parceiros (Wellhub + Totalpass)
-- [x] Formulário VIP com integração Instagram
-- [x] Menu mobile
-- [x] Performance otimizado
-- [x] Acessibilidade (ARIA labels)
-
-## Customização
-
-### Cores
-
-Edite as variáveis CSS em `styles.css`:
-
-```css
-:root {
-  --orange: #ff6a00;      /* Cor primária */
-  --orange2: #ff8a00;     /* Hover */
-  --ink: #0b0b0c;         /* Texto escuro */
-  --muted: #6e6e72;       /* Texto secundário */
-  --cream: #f3f0ea;       /* Background claro */
-  --line: #d9d5cd;        /* Bordas */
-}
-```
-
-### Conteúdo
-
-Edite diretamente no `index.html`:
-
-- Textos: Procure por tags de conteúdo (h1, p, etc)
-- Imagens: Atualize paths em `src`
-- Links: URLs de redes sociais em footer e forms
-
-## Performance
-
-- **Imagens**: Otimizadas para web (JPEG/WebP)
-- **CSS**: Minificado (inline no HTML)
-- **JavaScript**: Vanilla, sem dependências
-- **Lighthouse**: Target 90+ em todas as métricas
-
-## Segurança
-
-- HTTPS via Cloudflare
-- Headers de segurança configurados
-- Sem tracking ou analytics invasivos
-- Formulário redireciona para Instagram (não coleta dados localmente)
-
 ## Contato
 
-- Instagram: [@t4fitness_](https://www.instagram.com/t4fitness_/)
-- Email: [configure em .env.deploy]
+- **Instagram**: [@t4fitness_](https://www.instagram.com/t4fitness_/)
+- **Domínio**: t4fitness.com.br (Conddiz account)
 
 ## License
 
