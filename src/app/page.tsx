@@ -2,18 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-  faArrowRight,
-  faArrowUp,
-  faMagnifyingGlass,
-  faDumbbell,
-  faPersonRunning,
-  faHandFist,
-  faMusic,
-  faUserNinja,
-  faGuitar,
-  faHandBackFist,
-} from '@fortawesome/free-solid-svg-icons';
+import { faArrowRight, faArrowUp, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import { faInstagram, faFacebook, faWhatsapp } from '@fortawesome/free-brands-svg-icons';
 
 const units = [
@@ -27,13 +16,13 @@ const units = [
 ];
 
 const modalities = [
-  { id: 1, name: 'Musculação', number: '01', icon: faDumbbell },
-  { id: 2, name: 'Funcional', number: '02', icon: faPersonRunning },
-  { id: 3, name: 'Muay Thai', number: '03', icon: faHandFist },
-  { id: 4, name: 'FitDance', number: '04', icon: faMusic },
-  { id: 5, name: 'Jiu-Jítsu', number: '05', icon: faUserNinja },
-  { id: 6, name: 'Forró', number: '06', icon: faGuitar },
-  { id: 7, name: 'Karatê', number: '07', icon: faHandBackFist },
+  { id: 1, name: 'Musculação', number: '01', img: '/icons/musculacao.png' },
+  { id: 2, name: 'Funcional', number: '02', img: '/icons/funcional.png' },
+  { id: 3, name: 'Muay Thai', number: '03', img: '/icons/muaythai.png' },
+  { id: 4, name: 'FitDance', number: '04', img: '/icons/mulher.png' },
+  { id: 5, name: 'Jiu-Jítsu', number: '05', img: '/icons/agarrar.png' },
+  { id: 6, name: 'Forró', number: '06', img: '/icons/acordeao.png' },
+  { id: 7, name: 'Karatê', number: '07', img: '/icons/karate.png' },
 ];
 
 const navLinks = [
@@ -313,7 +302,7 @@ export default function Home() {
                 className="group border-r border-b border-line p-6 md:p-7 min-h-[160px] flex flex-col gap-5 transition-colors duration-250 hover:bg-orange-500"
               >
                 <div className="flex items-start justify-between">
-                  <FontAwesomeIcon icon={mod.icon} className="text-[28px] text-orange-500 group-hover:text-[#111] transition-colors" />
+                  <img src={mod.img} alt="" aria-hidden="true" className="h-8 w-auto group-hover:brightness-0 transition-[filter] duration-250" />
                   <span className="font-sans text-[12px] font-bold text-orange-500 group-hover:text-[#111] transition-colors">{mod.number}</span>
                 </div>
                 <span className="mt-auto font-display font-bold uppercase leading-none text-[26px] md:text-[30px] group-hover:text-[#111] transition-colors">
