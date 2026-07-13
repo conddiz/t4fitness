@@ -428,6 +428,8 @@ export default function Home() {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 border-t border-l border-[#39393b]">
               {units.map(unit => (
+                // biome-ignore lint/a11y/useSemanticElements: um <button> não pode conter o <a> interno do card (HTML inválido)
+                // biome-ignore lint/a11y/noNoninteractiveElementToInteractiveRole: card inteiro clicável com CTA aninhado exige role manual
                 <article
                   key={unit.id}
                   role="button"
@@ -457,6 +459,7 @@ export default function Home() {
                   <span className="mt-2 text-[12px] text-orange-500 font-semibold inline-flex items-center gap-[5px] group-hover:text-[#111]">
                     <FontAwesomeIcon icon={faLocationDot} className="text-[12px]" /> Ver no mapa
                   </span>
+                  {/* biome-ignore lint/a11y/useValidAnchor: âncora legítima para #contato; onClick só impede a propagação para o card */}
                   <a
                     href="#contato"
                     onClick={e => e.stopPropagation()}

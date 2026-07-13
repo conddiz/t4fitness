@@ -110,15 +110,14 @@ export default function UnitMapModal({ unit, onClose }: Props) {
       }}
     >
       {/* biome-ignore lint/a11y/noStaticElementInteractions: impede que cliques no painel fechem o modal */}
+      {/* biome-ignore lint/a11y/useKeyWithClickEvents: onClick é apenas stopPropagation; teclado é tratado no overlay */}
       <div
         className="w-full max-w-[680px] border border-orange-500 bg-[#0d0d0e] text-white shadow-form"
         onClick={e => e.stopPropagation()}
       >
         <div className="flex items-start justify-between gap-4 p-5 md:p-6">
           <div>
-            <h3 className="text-[24px] md:text-[28px] tracking-[-.02em]">
-              T4 Fitness {unit.name}
-            </h3>
+            <h3 className="text-[24px] md:text-[28px] tracking-[-.02em]">T4 Fitness {unit.name}</h3>
             <p className="mt-1 text-[14px] leading-[1.6] text-[#b7b7bb]">
               {unit.address} · {unit.neighborhood}
             </p>
