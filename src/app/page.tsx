@@ -1,9 +1,15 @@
 "use client"
 
 import { faFacebook, faInstagram, faWhatsapp } from "@fortawesome/free-brands-svg-icons"
-import { faArrowRight, faArrowUp, faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons"
+import {
+  faArrowRight,
+  faArrowUp,
+  faLocationDot,
+  faMagnifyingGlass,
+} from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { useEffect, useState } from "react"
+import UnitMapModal, { type MapUnit } from "@/components/UnitMapModal"
 
 const units = [
   {
@@ -12,6 +18,9 @@ const units = [
     address: "Rua Araré, 641",
     neighborhood: "Guadalajara",
     search: "01 guadalajara rua arare",
+    lat: -3.7621857,
+    lng: -38.6204034,
+    mapsQuery: "Rua Araré, 641, Guadalajara, Caucaia - CE",
   },
   {
     id: 2,
@@ -19,6 +28,9 @@ const units = [
     address: "Rua Padre Alfredo Nesi, 1322",
     neighborhood: "Potira",
     search: "02 potira rua padre alfredo nesi",
+    lat: -3.7595863,
+    lng: -38.630714,
+    mapsQuery: "Rua Padre Alfredo Nesi, 1322, Potira, Caucaia - CE",
   },
   {
     id: 3,
@@ -26,6 +38,9 @@ const units = [
     address: "Rua Danilo Correia, 777",
     neighborhood: "Arianópolis",
     search: "03 arianopolis rua danilo correia",
+    lat: -3.7630038,
+    lng: -38.6500033,
+    mapsQuery: "Rua Danilo Correia, 777, Arianópolis, Caucaia - CE",
   },
   {
     id: 4,
@@ -33,6 +48,9 @@ const units = [
     address: "Rua Gonçalves Dias, 1988",
     neighborhood: "Parque Albano",
     search: "04 parque albano rua goncalves dias",
+    lat: -3.7524055,
+    lng: -38.6139821,
+    mapsQuery: "Rua Gonçalves Dias, 1988, Parque Albano, Caucaia - CE",
   },
   {
     id: 5,
@@ -40,6 +58,9 @@ const units = [
     address: "Rua Xavier da Silveira, 3949",
     neighborhood: "Granja Lisboa",
     search: "05 granja lisboa rua xavier da silveira",
+    lat: -3.789347,
+    lng: -38.6228119,
+    mapsQuery: "Rua Xavier da Silveira, 3949, Granja Lisboa, Fortaleza - CE",
   },
   {
     id: 6,
@@ -47,6 +68,9 @@ const units = [
     address: "Rua Espírito Santo, 614",
     neighborhood: "Bela Vista",
     search: "06 bela vista rua espirito santo espiriro",
+    lat: -3.7502903,
+    lng: -38.5664692,
+    mapsQuery: "Rua Espírito Santo, 614, Bela Vista, Fortaleza - CE",
   },
   {
     id: 7,
@@ -54,6 +78,9 @@ const units = [
     address: "Rua Martins Neto, 810",
     neighborhood: "Antônio Bezerra",
     search: "07 antonio bezerra rua martins neto",
+    lat: -3.741065,
+    lng: -38.5938806,
+    mapsQuery: "Rua Martins Neto, 810, Antônio Bezerra, Fortaleza - CE",
   },
 ]
 
@@ -79,6 +106,7 @@ export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false)
   const [unitSearch, setUnitSearch] = useState("")
   const [unitCount, setUnitCount] = useState(units.length)
+  const [mapUnit, setMapUnit] = useState<MapUnit | null>(null)
 
   useEffect(() => {
     const normalize = (value: string) =>
@@ -402,7 +430,17 @@ export default function Home() {
               {units.map(unit => (
                 <article
                   key={unit.id}
-                  className={`unit-card group min-h-[210px] md:min-h-[245px] p-[27px] border-r border-b border-[#39393b] flex flex-col transition-colors duration-250 hover:bg-orange-500 hover:text-[#111] ${unit.id === 7 ? "bg-[#181819]" : ""}`}
+                  role="button"
+                  tabIndex={0}
+                  aria-label={`Ver localização da unidade ${unit.name} no mapa`}
+                  onClick={() => setMapUnit(unit)}
+                  onKeyDown={e => {
+                    if (e.key === "Enter" || e.key === " ") {
+                      e.preventDefault()
+                      setMapUnit(unit)
+                    }
+                  }}
+                  className={`unit-card group cursor-pointer min-h-[210px] md:min-h-[245px] p-[27px] border-r border-b border-[#39393b] flex flex-col transition-colors duration-250 hover:bg-orange-500 hover:text-[#111] ${unit.id === 7 ? "bg-[#181819]" : ""}`}
                   data-search={unit.search}
                 >
                   <span className="text-[11px] text-orange-500 font-bold tracking-[.1em] group-hover:text-[#111]">
@@ -416,8 +454,12 @@ export default function Home() {
                     <br />
                     {unit.neighborhood} · Fortaleza, CE
                   </p>
+                  <span className="mt-2 text-[12px] text-orange-500 font-semibold inline-flex items-center gap-[5px] group-hover:text-[#111]">
+                    <FontAwesomeIcon icon={faLocationDot} className="text-[12px]" /> Ver no mapa
+                  </span>
                   <a
                     href="#contato"
+                    onClick={e => e.stopPropagation()}
                     className="mt-auto text-white text-2xs font-extrabold uppercase tracking-[.09em] no-underline inline-flex items-center gap-[5px] group-hover:text-[#111]"
                   >
                     Quero treinar aqui{" "}
@@ -689,6 +731,8 @@ export default function Home() {
           </a>
         </div>
       </footer>
+
+      <UnitMapModal unit={mapUnit} onClose={() => setMapUnit(null)} />
     </>
   )
 }
