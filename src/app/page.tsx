@@ -64,7 +64,7 @@ export default function Home() {
         <span>Wellhub e TotalPass aceitos</span>
       </div>
 
-      <header className={`edge-pad h-[72px] md:h-[84px] flex items-center gap-6 md:gap-[42px] absolute z-10 w-full top-0 md:top-[34px] border-b border-white/[.13] ${menuOpen ? 'bg-ink' : 'bg-black'}`}>
+      <header className={`edge-pad h-[72px] md:h-[84px] flex items-center gap-6 md:gap-[42px] absolute z-50 w-full top-0 md:top-[34px] border-b border-white/[.13] ${menuOpen ? 'bg-ink' : 'bg-black'}`}>
         <a className="shrink-0" href="#inicio" aria-label="T4 Fitness - início">
           <img src="/logo-horizontal.jpeg" alt="T4 Fitness" className="w-[135px] md:w-[160px] block" />
         </a>
@@ -92,15 +92,13 @@ export default function Home() {
           <span className="w-[17px] h-px bg-white block"></span>
         </button>
 
-        {menuOpen && (
-          <nav className="absolute top-[71px] left-0 z-50 w-full bg-ink px-[19px] pt-[22px] pb-[25px] flex flex-col gap-[19px] md:hidden" aria-label="Navegação móvel">
-            {navLinks.map((link) => (
-              <a key={link.href} href={link.href} onClick={() => setMenuOpen(false)} className="text-white no-underline font-semibold text-[16px]">
-                {link.label}
-              </a>
-            ))}
-          </nav>
-        )}
+        <nav className={`${menuOpen ? 'flex' : 'hidden'} absolute top-[71px] left-0 z-50 w-full bg-ink px-[19px] pt-[22px] pb-[25px] flex-col gap-[19px] md:hidden`} aria-label="Navegação móvel">
+          {navLinks.map((link) => (
+            <a key={link.href} href={link.href} onClick={() => setMenuOpen(false)} className="text-white no-underline font-semibold text-[16px]">
+              {link.label}
+            </a>
+          ))}
+        </nav>
       </header>
 
       <main>
@@ -163,14 +161,14 @@ export default function Home() {
             {[0, 1, 2].map((copy) => (
               <div key={copy} className="flex items-center gap-[30px]" aria-hidden={copy > 0 ? 'true' : undefined}>
                 <span>SEU CORPO · SEU RITMO · SUA T4</span>
-                <b className="text-[22px]" aria-hidden="true">✦</b>
+                <img src="/icons/marquee-t4-w.png" alt="" aria-hidden="true" className="h-5 md:h-6 w-auto" />
                 {modalities.map((mod) => (
                   <span key={mod.id} className="flex items-center gap-[30px]">
                     <span className="flex items-center gap-3">
                       <img src={mod.img} alt="" aria-hidden="true" className="h-6 md:h-7 w-auto brightness-0" />
                       {mod.name}
                     </span>
-                    <b className="text-[22px]" aria-hidden="true">✦</b>
+                    <img src="/icons/marquee-t4-w.png" alt="" aria-hidden="true" className="h-5 md:h-6 w-auto" />
                   </span>
                 ))}
               </div>
@@ -321,8 +319,8 @@ export default function Home() {
               </li>
             ))}
             <li className="border-r border-b border-line p-6 md:p-7 min-h-[160px] flex flex-col gap-5 bg-[#0d0d0e] text-white">
-              <span className="font-display font-bold uppercase leading-none text-[26px] md:text-[30px]">
-                Vem pra <em className="not-italic text-orange-500">T4.</em>
+              <span className="font-display font-bold uppercase leading-none text-[26px] md:text-[30px] flex items-baseline gap-2">
+                Vem pra <img src="/icons/t4.png" alt="T4" className="h-[0.8em] w-auto self-center" /><em className="not-italic text-orange-500 -ml-2">.</em>
               </span>
               <a href="#contato" className="mt-auto text-2xs font-extrabold uppercase tracking-[.09em] text-white no-underline inline-flex items-center gap-[5px] hover:text-orange-500 transition-colors">
                 Matricule-se <FontAwesomeIcon icon={faArrowRight} className="text-[13px] text-orange-500 -rotate-45" />
@@ -376,8 +374,8 @@ export default function Home() {
           <div className="wrap grid grid-cols-1 md:grid-cols-2 gap-[42px] md:gap-[100px] items-start">
             <div>
               <p className="text-[12px] font-extrabold uppercase tracking-[.14em] text-orange-500 mb-[18px]">PRIMEIRO PASSO</p>
-              <h2>
-                Vem pra <em>T4.</em>
+              <h2 className="flex items-center gap-4 flex-wrap">
+                Vem pra <img src="/icons/t4.png" alt="T4" className="h-[0.75em] w-auto" /><em className="-ml-4">.</em>
               </h2>
               <p className="max-w-[400px] leading-[1.7] text-[16px] text-ink mt-6">
                 Entre no Grupo VIP e fique por dentro das ofertas de inauguração, condições especiais e novidades da sua unidade.

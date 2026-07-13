@@ -71,7 +71,7 @@ export default function Investidores() {
         <span>Para academias e investidores</span>
       </div>
 
-      <header className={`edge-pad h-[72px] md:h-[84px] flex items-center gap-6 md:gap-[42px] absolute z-10 w-full top-0 md:top-[34px] border-b border-white/[.13] ${menuOpen ? 'bg-ink' : 'bg-black'}`}>
+      <header className={`edge-pad h-[72px] md:h-[84px] flex items-center gap-6 md:gap-[42px] absolute z-50 w-full top-0 md:top-[34px] border-b border-white/[.13] ${menuOpen ? 'bg-ink' : 'bg-black'}`}>
         <a className="shrink-0" href="/" aria-label="T4 Fitness - início">
           <img src="/logo-horizontal.jpeg" alt="T4 Fitness" className="w-[135px] md:w-[160px] block" />
         </a>
@@ -99,15 +99,13 @@ export default function Investidores() {
           <span className="w-[17px] h-px bg-white block"></span>
         </button>
 
-        {menuOpen && (
-          <nav className="absolute top-[71px] left-0 z-50 w-full bg-ink px-[19px] pt-[22px] pb-[25px] flex flex-col gap-[19px] md:hidden" aria-label="Navegação móvel">
-            {investorNavLinks.map((link) => (
-              <a key={link.href} href={link.href} onClick={() => setMenuOpen(false)} className="text-white no-underline font-semibold text-[16px]">
-                {link.label}
-              </a>
-            ))}
-          </nav>
-        )}
+        <nav className={`${menuOpen ? 'flex' : 'hidden'} absolute top-[71px] left-0 z-50 w-full bg-ink px-[19px] pt-[22px] pb-[25px] flex-col gap-[19px] md:hidden`} aria-label="Navegação móvel">
+          {investorNavLinks.map((link) => (
+            <a key={link.href} href={link.href} onClick={() => setMenuOpen(false)} className="text-white no-underline font-semibold text-[16px]">
+              {link.label}
+            </a>
+          ))}
+        </nav>
       </header>
 
       <main>
