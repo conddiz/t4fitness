@@ -6,10 +6,9 @@ node_modules/
 package-lock.json
 yarn.lock
 
-# Environment files
-.env
-.env.local
-.env.*.local
+# Environment files (todos os .env, exceto exemplo)
+.env*
+!.env.example
 
 # Build output
 .next/

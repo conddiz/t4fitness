@@ -1,6 +1,8 @@
 {
-  "organizeImports": {
-    "enabled": true
+  "assist": { "actions": { "source": { "organizeImports": "on" } } },
+  "css": {
+    "formatter": { "enabled": false },
+    "linter": { "enabled": false }
   },
   "linter": {
     "enabled": true,
@@ -13,6 +15,9 @@
       "correctness": {
         "noUnusedImports": "error",
         "noUnusedVariables": "error"
+      },
+      "performance": {
+        "noImgElement": "off"
       },
       "style": {
         "useAsConstAssertion": "error",
@@ -31,7 +36,7 @@
       "arrowParentheses": "asNeeded",
       "quoteStyle": "double",
       "semicolons": "asNeeded",
-      "trailingComma": "es5"
+      "trailingCommas": "es5"
     }
   }
 }
