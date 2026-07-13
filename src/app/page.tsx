@@ -428,9 +428,7 @@ export default function Home() {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 border-t border-l border-[#39393b]">
               {units.map(unit => (
-                // biome-ignore lint/a11y/useSemanticElements: um <button> não pode conter o <a> interno do card (HTML inválido)
-                // biome-ignore lint/a11y/noNoninteractiveElementToInteractiveRole: card inteiro clicável com CTA aninhado exige role manual
-                <article
+                <div
                   key={unit.id}
                   role="button"
                   tabIndex={0}
@@ -471,7 +469,7 @@ export default function Home() {
                       className="text-[13px] text-orange-500 -rotate-45 group-hover:text-[#111]"
                     />
                   </a>
-                </article>
+                </div>
               ))}
             </div>
           </div>
