@@ -1,5 +1,8 @@
 {
   "assist": { "actions": { "source": { "organizeImports": "on" } } },
+  "files": {
+    "includes": ["**", "!src/styles/globals.css"]
+  },
   "css": {
     "formatter": { "enabled": false },
     "linter": { "enabled": false }
