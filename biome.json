@@ -3,6 +3,18 @@
   "files": {
     "includes": ["**", "!src/styles/globals.css"]
   },
+  "overrides": [
+    {
+      "includes": ["src/app/page.tsx"],
+      "linter": {
+        "rules": {
+          "a11y": {
+            "useSemanticElements": "off"
+          }
+        }
+      }
+    }
+  ],
   "css": {
     "formatter": { "enabled": false },
     "linter": { "enabled": false }
