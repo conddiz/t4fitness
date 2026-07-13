@@ -65,13 +65,13 @@ export default function Investidores() {
 
   return (
     <>
-      <div className="h-[34px] bg-orange-500 text-orange-950 flex items-center justify-center gap-2.5 text-[10px] md:text-2xs uppercase font-extrabold tracking-[.13em]">
+      <div className="h-[34px] bg-orange-500 text-orange-950 hidden md:flex items-center justify-center gap-2.5 text-[10px] md:text-2xs uppercase font-extrabold tracking-[.13em]">
         <span>Equipamentos profissionais</span>
         <span className="w-1 h-1 rounded-full bg-orange-950"></span>
         <span>Para academias e investidores</span>
       </div>
 
-      <header className={`edge-pad h-[72px] md:h-[84px] flex items-center gap-6 md:gap-[42px] absolute z-10 w-full top-[34px] border-b border-white/[.13] ${menuOpen ? 'bg-ink' : 'bg-black'}`}>
+      <header className={`edge-pad h-[72px] md:h-[84px] flex items-center gap-6 md:gap-[42px] absolute z-10 w-full top-0 md:top-[34px] border-b border-white/[.13] ${menuOpen ? 'bg-ink' : 'bg-black'}`}>
         <a className="shrink-0" href="/" aria-label="T4 Fitness - início">
           <img src="/logo-horizontal.jpeg" alt="T4 Fitness" className="w-[135px] md:w-[160px] block" />
         </a>

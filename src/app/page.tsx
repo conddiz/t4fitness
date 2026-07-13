@@ -58,13 +58,13 @@ export default function Home() {
 
   return (
     <>
-      <div className="h-[34px] bg-orange-500 text-orange-950 flex items-center justify-center gap-2.5 text-[10px] md:text-2xs uppercase font-extrabold tracking-[.13em]">
+      <div className="h-[34px] bg-orange-500 text-orange-950 hidden md:flex items-center justify-center gap-2.5 text-[10px] md:text-2xs uppercase font-extrabold tracking-[.13em]">
         <span>7 unidades em Fortaleza</span>
         <span className="w-1 h-1 rounded-full bg-orange-950"></span>
         <span>Wellhub e TotalPass aceitos</span>
       </div>
 
-      <header className={`edge-pad h-[72px] md:h-[84px] flex items-center gap-6 md:gap-[42px] absolute z-10 w-full top-[34px] border-b border-white/[.13] ${menuOpen ? 'bg-ink' : 'bg-black'}`}>
+      <header className={`edge-pad h-[72px] md:h-[84px] flex items-center gap-6 md:gap-[42px] absolute z-10 w-full top-0 md:top-[34px] border-b border-white/[.13] ${menuOpen ? 'bg-ink' : 'bg-black'}`}>
         <a className="shrink-0" href="#inicio" aria-label="T4 Fitness - início">
           <img src="/logo-horizontal.jpeg" alt="T4 Fitness" className="w-[135px] md:w-[160px] block" />
         </a>
@@ -104,7 +104,7 @@ export default function Home() {
       </header>
 
       <main>
-        <section className="relative flex flex-col min-h-[calc(100svh-34px)] md:block md:min-h-[630px] md:h-[min(780px,calc(100vh-34px))] bg-[#111] text-white overflow-hidden isolate" id="inicio">
+        <section className="relative flex flex-col min-h-[100svh] md:min-h-[630px] md:block md:h-[min(780px,calc(100vh-34px))] bg-[#111] text-white overflow-hidden isolate" id="inicio">
           <div className="absolute inset-0">
             <img src="/hero-mobile.jpg" alt="" aria-hidden="true" className="md:hidden w-full h-full object-cover object-center saturate-[.95] contrast-[1.02]" />
             <img src="/hero.jpg" alt="Fachada da T4 Fitness com letreiro 24h" className="hidden md:block w-full h-full object-cover object-[center_45%] saturate-[.95] contrast-[1.02]" />
