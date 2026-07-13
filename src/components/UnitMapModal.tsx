@@ -2,7 +2,7 @@
 
 import { faXmark } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { useEffect, useRef, useState } from "react"
+import { useEffect, useRef } from "react"
 import "leaflet/dist/leaflet.css"
 
 export type MapUnit = {
@@ -11,20 +11,13 @@ export type MapUnit = {
   neighborhood: string
   lat: number
   lng: number
-  /* endereço completo enviado ao Google (resolve nº exato mesmo sem coordenada OSM) */
+  /* endereço textual completo (referência; o mapa usa lat/lng) */
   mapsQuery: string
 }
 
 type Props = {
   unit: MapUnit | null
   onClose: () => void
-}
-
-const GMAPS_KEY = process.env.NEXT_PUBLIC_GMAPS_API_KEY ?? ""
-
-function isLocalhost() {
-  const h = window.location.hostname
-  return h === "localhost" || h === "127.0.0.1" || h === "0.0.0.0"
 }
 
 function LeafletMap({ unit }: { unit: MapUnit }) {
@@ -69,14 +62,10 @@ function LeafletMap({ unit }: { unit: MapUnit }) {
 }
 
 export default function UnitMapModal({ unit, onClose }: Props) {
-  const [useGoogle, setUseGoogle] = useState(false)
-
   useEffect(() => {
     if (!unit) {
       return
     }
-    setUseGoogle(Boolean(GMAPS_KEY) && !isLocalhost())
-
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") {
         onClose()
@@ -94,7 +83,7 @@ export default function UnitMapModal({ unit, onClose }: Props) {
     return null
   }
 
-  const embedSrc = `https://www.google.com/maps/embed/v1/place?key=${GMAPS_KEY}&q=${encodeURIComponent(unit.mapsQuery)}&zoom=16&language=pt-BR`
+  const routeUrl = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(unit.mapsQuery)}`
 
   return (
     <div
@@ -133,19 +122,18 @@ export default function UnitMapModal({ unit, onClose }: Props) {
         </div>
 
         <div className="h-[320px] md:h-[400px] w-full bg-[#181819]">
-          {useGoogle ? (
-            <iframe
-              title={`Mapa da unidade ${unit.name}`}
-              src={embedSrc}
-              className="h-full w-full border-0"
-              loading="lazy"
-              allowFullScreen
-              referrerPolicy="no-referrer-when-downgrade"
-              onError={() => setUseGoogle(false)}
-            />
-          ) : (
-            <LeafletMap unit={unit} />
-          )}
+          <LeafletMap unit={unit} />
+        </div>
+
+        <div className="p-4 md:px-6 text-right">
+          <a
+            href={routeUrl}
+            target="_blank"
+            rel="noreferrer"
+            className="text-2xs font-extrabold uppercase tracking-[.09em] text-orange-500 no-underline hover:text-orange-400 transition-colors"
+          >
+            Traçar rota no Google Maps ↗
+          </a>
         </div>
       </div>
     </div>
